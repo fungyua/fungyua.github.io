@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.0.2"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png"><link rel="icon" type="image/png" sizes="32x32" href="https://assets.fuocu.cn/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="https://assets.fuocu.cn/favicon.png"><link rel="mask-icon" href="/images/logo.svg" color="#222"><meta name="google-site-verification" content="QqrgPFT5aHzz7aNNDxbUmtJL0bZyZCNsoDDhFIb9WT4"><meta name="baidu-site-verification" content="4ytdiVQy9J"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css"><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script class="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"blog.fuocu.cn",root:"/",scheme:"Gemini",version:"8.0.0-rc.5",exturl:!0,sidebar:{position:"left",display:"post",padding:18,offset:12},copycode:!0,bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!0,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:null,storage:!0,lazyload:!1,nav:null},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"fadeInDown",post_body:"fadeInDown",coll_header:"fadeInLeft",sidebar:"fadeInUp"}},prism:!1,path:"search.xml",localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1}}</script><meta property="og:type" content="article"><meta property="og:title" content="程序员会鄙视 PHP，为什么不鄙视它？"><meta property="og:url" content="https://blog.fuocu.cn/Code/PHP/Python/php-is-the-best-language/index.html"><meta property="og:site_name" content="FuocaのBlog"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://i.loli.net/2020/02/02/uosID49EqHdY8Jr.jpg"><meta property="og:image" content="https://i.loli.net/2020/02/02/FL2B51uKhrCOJqw.jpg"><meta property="og:image" content="https://i.loli.net/2020/02/02/XEzfNwaHjZyh2Yl.jpg"><meta property="og:image" content="https://i.loli.net/2020/02/02/KxhuUmGStgZ2Xal.jpg"><meta property="og:image" content="https://i.loli.net/2020/02/02/qYr4xcWJmVK2UMv.jpg"><meta property="og:image" content="https://i.loli.net/2020/02/02/Lu7RkNcsBT9ieSq.jpg"><meta property="og:image" content="https://i.loli.net/2020/02/02/DVxt2iOhI9cqrwl.jpg"><meta property="article:published_time" content="2020-02-02T05:29:55.000Z"><meta property="article:modified_time" content="2020-07-31T05:49:28.470Z"><meta property="article:author" content="Fuoca"><meta property="article:tag" content="PHP"><meta property="article:tag" content="咨询"><meta property="article:tag" content="Python"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://i.loli.net/2020/02/02/uosID49EqHdY8Jr.jpg"><link rel="canonical" href="https://blog.fuocu.cn/Code/PHP/Python/php-is-the-best-language/"><script data-pjax class="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><script src="/lib/fireworks.js"></script><title>程序员会鄙视 PHP，为什么不鄙视它？ | FuocaのBlog</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-167485297-1"></script><script data-pjax>function gtag(){dataLayer.push(arguments)}CONFIG.hostname===location.hostname&&(window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-167485297-1"))</script><noscript><style>body{margin-top:2rem}.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header,.use-motion .sidebar{visibility:visible}.use-motion .footer,.use-motion .header,.use-motion .site-brand-container .toggle{opacity:initial}.use-motion .custom-logo-image,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line{transform:scaleX(1)}.search-pop-overlay,.sidebar-nav{display:none}.sidebar-panel{display:block}</style></noscript><link rel="alternate" href="/atom.xml" title="FuocaのBlog" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage" class="use-motion"><div class="headband"></div><main class="main"><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line"></span> <span class="toggle-line"></span> <span class="toggle-line"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><i class="logo-line"></i><h1 class="site-title">FuocaのBlog</h1><i class="logo-line"></i></a></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">28</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">33</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div class="search-result-container"><div class="no-result"><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle"><span class="toggle-line"></span> <span class="toggle-line"></span> <span class="toggle-line"></span></div><aside class="sidebar"><div class="sidebar-inner sidebar-overview-active"><ul class="sidebar-nav"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><section class="post-toc-wrap sidebar-panel"></section><section class="site-overview-wrap sidebar-panel"><div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Fuoca" src="https://assets.fuocu.cn/favicon.png"><p class="site-author-name" itemprop="name">Fuoca</p><div class="site-description" itemprop="description">个人博客</div></div><div class="site-state-wrap animated"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">58</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">28</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/"><span class="site-state-item-count">33</span> <span class="site-state-item-name">标签</span></a></div></nav></div><div class="links-of-author animated"><span class="links-of-author-item"><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Z1bmd5dWE=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fungyua"><i class="fab fa-github fa-fw"></i>GitHub</span> </span><span class="links-of-author-item"><span class="exturl" data-url="aHR0cDovL21haWwucXEuY29tL2NnaS1iaW4vcW1fc2hhcmU/dD1xbV9tYWlsbWUmZW1haWw9RW5SbmZYRm5VblJuZlhGblBIRjg=" title="E-Mail → http:&#x2F;&#x2F;mail.qq.com&#x2F;cgi-bin&#x2F;qm_share?t&#x3D;qm_mailme&amp;email&#x3D;EnRnfXFnUnRnfXFnPHF8"><i class="fa fa-envelope fa-fw"></i>E-Mail</span> </span><span class="links-of-author-item"><span class="exturl" data-url="aHR0cDovL3dwYS5xcS5jb20vbXNncmQ/dj0zJnVpbj0zMjgzOTA2NTA5JnNpdGU9cXEmbWVudT15ZXM=" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;3283906509&amp;site&#x3D;qq&amp;menu&#x3D;yes"><i class="fab fa-qq fa-fw"></i>QQ</span> </span><span class="links-of-author-item"><span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9hMzI4MzkwNjUwOT9zPTA5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;a3283906509?s&#x3D;09"><i class="fab fa-twitter fa-fw"></i>Twitter</span></span></div></section></div></aside><div class="sidebar-dimmer"></div></header><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span>0%</span></div><div class="reading-progress-bar"></div><span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Z1bmd5dWE=" title="欢迎参观我的GitHub" aria-label="欢迎参观我的GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span><noscript><div class="noscript-warning">Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://blog.fuocu.cn/Code/PHP/Python/php-is-the-best-language/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="https://assets.fuocu.cn/favicon.png"><meta itemprop="name" content="Fuoca"><meta itemprop="description" content="个人博客"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="FuocaのBlog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">程序员会鄙视 PHP，为什么不鄙视它？</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2020-02-02 13:29:55" itemprop="dateCreated datePublished" datetime="2020-02-02T13:29:55+08:00">2020-02-02</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar-check"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2020-07-31 13:49:28" itemprop="dateModified" datetime="2020-07-31T13:49:28+08:00">2020-07-31</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Code/" itemprop="url" rel="index"><span itemprop="name">Code</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Code/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Code/PHP/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a> </span></span><span id="/Code/PHP/Python/php-is-the-best-language/" class="post-meta-item leancloud_visitors" data-flag-title="程序员会鄙视 PHP，为什么不鄙视它？" title="阅读次数"><span class="post-meta-item-icon"><i class="far fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/Code/PHP/Python/php-is-the-best-language/#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/Code/PHP/Python/php-is-the-best-language/" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>1.5k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>1 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><div class="note default"></div><a id="more"></a><hr><p>2001 年 7 月，<code>PHP</code> 官方开发文档中，出现了一句话：</p><blockquote><p>Because PHP is the best language ever,ever.It’s fast,very powerful,and free.</p></blockquote><p><a target="_blank" rel="noopener" href="https://i.loli.net/2020/02/02/uosID49EqHdY8Jr.jpg"><img src="https://i.loli.net/2020/02/02/uosID49EqHdY8Jr.jpg"></a>后来，一则著名的笑话诞生了：</p><blockquote><p>某女：你能让这个论坛的人都吵起来，我就跟你约会。 某程序员：PHP 是最好的语言。于是论坛炸锅了，各种吵架。 某女：服了你了，我们走吧。 某程序员：今天不行，我一定要说服他们，PHP 必须是最好的语言。</p></blockquote><p>自此，PHP 成了众多程序员们调侃的编程语言。 <a target="_blank" rel="noopener" href="https://i.loli.net/2020/02/02/FL2B51uKhrCOJqw.jpg"><img src="https://i.loli.net/2020/02/02/FL2B51uKhrCOJqw.jpg"></a>有这么一门编程语言，它就没那么 “不幸” 了，相反的，却受到了皇帝般的待遇，编程语言鄙视链中，却看不到它的身影。 著名网站 <code>Hired</code> 曾发布了一份 <strong>“2019 年软件工程师现状”</strong> 的报告，该报告由 Hired 数据科学团队收集和分析，覆盖了 13 个城市的 98000 名求职的软件工程师，反映了超过 170000 个面试申请和过去一年的工作机会。此外，他们还收集了来自 <code>Hired</code> 凭条上 700 多名团建工程师的调研回复，以了解开发人员的工作偏好。 <a target="_blank" rel="noopener" href="https://i.loli.net/2020/02/02/XEzfNwaHjZyh2Yl.jpg"><img src="https://i.loli.net/2020/02/02/XEzfNwaHjZyh2Yl.jpg"></a>报告指出，全球区块链工程师的需求上涨了 <code>517%</code>，需求量最高的编程语言 <code>Golang</code>，超过 <code>1/5</code> 的开发者通过自学掌握编程，所有开发者最想学习的技术是机器学习。 报告还特意指明，<strong>所有开发者最爱的编程语言是 <code>Python</code>**。 <a target="_blank" rel="noopener" href="https://i.loli.net/2020/02/02/KxhuUmGStgZ2Xal.jpg"><img src="https://i.loli.net/2020/02/02/KxhuUmGStgZ2Xal.jpg"></a>我们不可否认，真的鄙视 PHP 的人，确实存在，而且不少，但更多的人，只是在调侃它。</strong><code>Python</code> 很强，<code>PHP</code> 也不例外。** 为什么 <code>Python</code> 的质疑那么少呢？ 当一个人的优点太多时，那些小不丁的缺点，自然也就被忽略了。 首先，<code>Python</code> 代码非常的简洁，很符合 “优雅的代码” 这一标准，对于以 “用代码改变世界” 为理想的工程师们，<code>Python</code> 的出现，简直就是福音。 去年有一串 <code>Java</code> 代码火了，号称 <code>AI</code> 的核心代码。每当你输出一个问题，这个程序就会去掉问号，自动添加感叹号，于是就变成了： <a target="_blank" rel="noopener" href="https://i.loli.net/2020/02/02/qYr4xcWJmVK2UMv.jpg"><img src="https://i.loli.net/2020/02/02/qYr4xcWJmVK2UMv.jpg"></a>再一次证明了，人类的本质是复读机…… 可以清楚的看到，用 <code>Java</code> 实现这一功能，代码量还是有点多的。那么用 <code>Python</code>，几行代码可以实现呢？ 一行就够了！ <a target="_blank" rel="noopener" href="https://i.loli.net/2020/02/02/Lu7RkNcsBT9ieSq.jpg"><img src="https://i.loli.net/2020/02/02/Lu7RkNcsBT9ieSq.jpg"></a>其次，<code>Python</code> 简单易学，入门门槛低，这也是很多人喜欢它的原因。 一个程序员，一般花上一周的时间，就可以掌握它。即便是零基础、初学编程的人，也只需要两三个月的时间，学习成本远低于其他编程语言。 代码简洁，学习成本低，如果能做到的事很少，肯定也没什么人学，<code>Python</code> 却同时具备了这些优点。 <code>Python</code> 可以做很多事，做爬虫、开发游戏、数据处理、人工智能，机器学习，Web 开发，都是 <code>Python</code> 比较常见的应用领域。 <code>Python</code> 几乎无所不能。 这么好的编程语言，喜欢它的人自然多，讨厌它的人少，于是我们在鄙视链中，就太难看到它的身影了。 说到鄙视链，其实在 <code>Python</code> 工程师内部，依然存在一条鄙视链，那就是： <a target="_blank" rel="noopener" href="https://i.loli.net/2020/02/02/DVxt2iOhI9cqrwl.jpg"><img src="https://i.loli.net/2020/02/02/DVxt2iOhI9cqrwl.jpg"></a>除了这些优点外，从薪资水平上看，<code>Python</code> 工程师的薪资水平均值在 <code>12k-18k</code> 之间，拥有 3 年以上工作经验的 <code>Python</code> 工程师，薪资普遍高于 <code>20k</code>。<code>Python</code> 工程师的平均薪资水平，高于程序员的平均薪资水平。 <code>Python</code> 有多火？ 从大的方面说，山东省已经将 Python 纳入小学信息技术教材，而浙江省则把 Python 纳入高考选考科目。从小开始学 Python，这一趋势开始显现。 往近了说，以 W3Cschool Python 的视频课程为例。 一门售价 56 元的《Python3 零基础入门到爬虫实战》，就有 159 人购买，成为这半年来，参与人数增长速度最快的课程。 可见，无论从大的趋势上，还是编程爱好者的学习热情，<code>Python</code> 无疑是所有人学习编程的第一选择。</p></div><div class="reward-container"><div></div><button onclick='document.querySelector(".post-reward").classList.toggle("active")'>赞赏</button><div class="post-reward"><div><img src="https://assets.fuocu.cn/images/wechatpay.png" alt="Fuoca 微信"><p>微信</p></div><div><img src="https://assets.fuocu.cn/images/alipay.png" alt="Fuoca 支付宝"><p>支付宝</p></div></div></div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者： </strong>Fuoca</li><li class="post-copyright-link"><strong>本文链接：</strong> <a href="https://blog.fuocu.cn/Code/PHP/Python/php-is-the-best-language/" title="程序员会鄙视 PHP，为什么不鄙视它？">https://blog.fuocu.cn/Code/PHP/Python/php-is-the-best-language/</a></li><li class="post-copyright-license"><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div><div class="followme"><p>欢迎关注我的其它发布渠道</p><div class="social-list"><div class="social-item"><a target="_blank" class="social-link" href="/atom.xml"><span class="icon"><i class="fa fa-rss"></i> </span><span class="label">RSS</span></a></div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a> <a href="/tags/%E5%92%A8%E8%AF%A2/" rel="tag"><i class="fa fa-tag"></i> 咨询</a> <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a></div><div class="post-nav"><div class="post-nav-item"><a href="/CMS/cms-sys/" rel="prev" title="值得推荐的开源 cms 系统推荐"><i class="fa fa-chevron-left"></i> 值得推荐的开源 cms 系统推荐</a></div><div class="post-nav-item"><a href="/Code/JavaScript/js-document/" rel="next" title="JS 的 Document 属性和方法">JS 的 Document 属性和方法 <i class="fa fa-chevron-right"></i></a></div></div></footer></article><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2020</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Fuoca</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span title="站点总字数">90k</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span title="站点阅读时长">1:22</span></div><script data-pjax>(function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"eN3CNUX5KxHgWRDWbum4TnI0-gzGzoHsz","app_key":"TUCSb8Rlrtd5IvGDHEBl0Bvz","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();</script></div></footer><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});</script><script data-pjax>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script src="/js/local-search.js"></script><div class="pjax"><script>NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: location.pathname,
+    }, {"enable":true,"appId":"eN3CNUX5KxHgWRDWbum4TnI0-gzGzoHsz","appKey":"TUCSb8Rlrtd5IvGDHEBl0Bvz","placeholder":"ヾﾉ≧∀≦)o来啊，快活啊!","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":true,"requiredFields":["nick"],"language":"zh-cn"}
+    ));
+  }, window.Valine);
+});</script></div></body></html>

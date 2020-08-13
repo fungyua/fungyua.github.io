@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>FuocaのBlog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.fuocu.cn/"/>
+  <updated>2020-07-31T05:49:28.498Z</updated>
+  <id>https://blog.fuocu.cn/</id>
+  
+  <author>
+    <name>Fuoca</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript 制作课程表</title>
+    <link href="https://blog.fuocu.cn/JavaScript/%E8%AF%BE%E7%A8%8B%E8%A1%A8/"/>
+    <id>https://blog.fuocu.cn/JavaScript/%E8%AF%BE%E7%A8%8B%E8%A1%A8/</id>
+    <published>2020-07-31T05:49:28.498Z</published>
+    <updated>2020-07-31T05:49:28.498Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"><p>JavaScript 制作课程表</p></div><a id="more"></a><hr><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>JavaScript制作课程表<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">            table {</span><br><span class="line"><span class="css">                <span class="selector-tag">border</span>: 2<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#7FFFD4</span>;</span></span><br><span class="line">                border-radius: 5px;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            td {</span><br><span class="line"><span class="css">                <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#D2B48C</span>;</span></span><br><span class="line">                text-align: center;</span><br><span class="line">                border-radius: 5px;</span><br><span class="line">            }</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> arr = [</span></span><br><span class="line"><span class="javascript">                [<span class="string">""</span>, <span class="string">"第一节"</span>, <span class="string">"第二节"</span>, <span class="string">"第三节"</span>],</span></span><br><span class="line"><span class="javascript">                [<span class="string">"星期一"</span>, <span class="string">"德育"</span>, <span class="string">"JavaScript"</span>, <span class="string">"JavaScript"</span>],</span></span><br><span class="line"><span class="javascript">                [<span class="string">"星期二"</span>, <span class="string">"JavaScript"</span>, <span class="string">"体育"</span>, <span class="string">"HTML5"</span>],</span></span><br><span class="line"><span class="javascript">                [<span class="string">"星期三"</span>, <span class="string">"Photoshop"</span>, <span class="string">"Photoshop"</span>, <span class="string">"大扫除"</span>],</span></span><br><span class="line"><span class="javascript">                [<span class="string">"星期四"</span>, <span class="string">"HTML5"</span>, <span class="string">"HTML5"</span>, <span class="string">"自习"</span>],</span></span><br><span class="line"><span class="javascript">                [<span class="string">"星期五"</span>, <span class="string">"PHP"</span>, <span class="string">"PHP"</span>, <span class="string">"PHP"</span>]</span></span><br><span class="line">            ];</span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.write(<span class="string">"&lt;table&gt;"</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) {</span></span><br><span class="line"><span class="javascript">                <span class="built_in">document</span>.write(<span class="string">"&lt;tr&gt;"</span>);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++) {</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">document</span>.write(<span class="string">"&lt;td&gt;"</span>, arr[i][j], <span class="string">"&lt;/td&gt;"</span>);</span></span><br><span class="line">                }</span><br><span class="line"><span class="javascript">                <span class="built_in">document</span>.write(<span class="string">"&lt;/tr&gt;"</span>);</span></span><br><span class="line">            }</span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.write(<span class="string">"&lt;/table&gt;"</span>);</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;p&gt;JavaScript 制作课程表&lt;/p&gt;
+&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://blog.fuocu.cn/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://blog.fuocu.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML 表单笔记</title>
+    <link href="https://blog.fuocu.cn/uncategorized/HTML%E8%A1%A8%E5%8D%95%E7%AC%94%E8%AE%B0/"/>
+    <id>https://blog.fuocu.cn/uncategorized/HTML%E8%A1%A8%E5%8D%95%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-07-31T05:49:28.360Z</published>
+    <updated>2020-07-31T05:49:28.360Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"><p>HTML 表单笔记</p></div><a id="more"></a><hr><h1 id="1-常用标签"><a href="#1-常用标签" class="headerlink" title="1.常用标签"></a>1. 常用标签</h1><br><p>1-1.input</p><blockquote><p>text (文本输入域)<br>password (密码输入域)<br>radio (单选框)<br>checkbox (多选框)<br>email()<br>file()<br>hidden()</p></blockquote><style>    .tab{        text-indent: 2em;    }</style>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;p&gt;HTML 表单笔记&lt;/p&gt;
+&lt;/div&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>宝塔 BT 面板 301 重定向不带 www 跳转教程</title>
+    <link href="https://blog.fuocu.cn/%E5%85%B6%E4%BB%96/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/bt-301redirection/"/>
+    <id>https://blog.fuocu.cn/%E5%85%B6%E4%BB%96/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/bt-301redirection/</id>
+    <published>2020-03-05T04:36:32.000Z</published>
+    <updated>2020-07-31T05:49:28.377Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><p>网站统一 URL 有利于 SEO，宝塔 BT 面板自带 301 重定向功能，将不带 www 的域名跳转到带 www 的域名，LAMPLNMP 分享宝塔面板 301 重定向教程两种：</p><h2 id="方法一：宝塔301重定向后台自带功能"><a href="#方法一：宝塔301重定向后台自带功能" class="headerlink" title="方法一：宝塔301重定向后台自带功能"></a>方法一：宝塔 301 重定向后台自带功能</h2><p>宝塔面板后台自带了 301 重定向功能，可以帮助我们将域名进行 www 和不带 www 之间的跳转转换。</p><ol><li>登录到宝塔面板后台：http:// 你的服务器 IP/8888</li><li> 点击左侧 “网站”，找到需要设置的域名，点击右侧的 “设置”；</li><li>点击切换到 “301 重定向” 选项卡，如下图所示：</li></ol><p><img src="https://cdn.fuocu.cn/wp-content/uploads/2020/03/1583382409-0bfd3f564a6744f.png"></p><p>上述设置方法，是将不带 www 的域名 301 重定向到带 www 的域名上，至此宝塔面板 301 重定向跳转完成。</p><h2 id="方法二：代码设置301重定向"><a href="#方法二：代码设置301重定向" class="headerlink" title="方法二：代码设置301重定向"></a>方法二：代码设置 301 重定向</h2><p>通过编写宝塔面板后台自带的伪静态规则实现 301 重定向，将不带 www 跳转到带 www 域名规则：</p><code>    if ($host ~ '^xinshouzhanzhang.com')    {return 301 http://www.xinshouzhanzhang.com$uri;}</code><p>点击切换到 “伪静态” 选项卡，如下图所示：</p><p><a href="https://i.loli.net/2020/03/05/SPXBElKu8kjGDMa.png"><img src="https://i.loli.net/2020/03/05/SPXBElKu8kjGDMa.png"></a></p><p>至此，宝塔面板 301 重定向教程完毕。</p><p><span class="exturl" data-url="aHR0cDovL3d3dy5sYW1wbG5tcC5jb20vYmFvdGEvNDQwLw==">http://www.lamplnmp.com/baota/440/<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="其他" scheme="https://blog.fuocu.cn/categories/%E5%85%B6%E4%BB%96/"/>
+    
+      <category term="宝塔面板" scheme="https://blog.fuocu.cn/categories/%E5%85%B6%E4%BB%96/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="咨询" scheme="https://blog.fuocu.cn/tags/%E5%92%A8%E8%AF%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 下使用 SSH 命令用于登录远程桌面</title>
+    <link href="https://blog.fuocu.cn/Linux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/using-ssh-under-linux/"/>
+    <id>https://blog.fuocu.cn/Linux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/using-ssh-under-linux/</id>
+    <published>2020-03-01T04:19:23.000Z</published>
+    <updated>2020-07-31T05:49:28.489Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>做 DL 的经常需要在一台电脑 (<strong>本地主机</strong>) 上写代码，另一台电脑 (<strong>服务器</strong>，计算力强) 上进行训练，我们在两台电脑上都安装的是 Ubuntu16.04，为了在 local 主机下也可以随时跑程序，调代码，同时省流量而且迅速 (不考虑这些的话用 teamviewer 也行)，所以在两台电脑主机上进行 SSH 配置。</p><h2 id="基础-ssh命令连接"><a href="#基础-ssh命令连接" class="headerlink" title="基础:ssh命令连接"></a>基础:ssh 命令连接</h2><h3 id="step1：SSH程序的安装"><a href="#step1：SSH程序的安装" class="headerlink" title="step1：SSH程序的安装"></a><strong>step1：SSH 程序的安装</strong></h3><p>确保在服务器上安装好了 openssh-server 程序，在本地主机上安装好了 openssh-client 程序。</p><pre><code>sudo apt install openssh-client #本地主机运行此条，实际上通常是默认安装client端程序的sudo apt install openssh-server #服务器运行此条命令安装</code></pre><h3 id="step2：服务器启动ssh服务"><a href="#step2：服务器启动ssh服务" class="headerlink" title="step2：服务器启动ssh服务"></a><strong>step2：服务器启动 ssh 服务</strong></h3><p><strong>以下命令都只针对服务器端 (server only)。</strong></p><p>一般服务器上安装 ssh 完成后，会自动启动 ssh 服务，并且默认随系统启动，如果没有，请手动启动：</p><pre><code>sudo /etc/init.d/ssh start #服务器启动ssh-server服务，</code></pre><p>其他命令：</p><pre><code>sudo /etc/init.d/ssh stop #server停止ssh服务sudo /etc/init.d/ssh restart #server重启ssh服务</code></pre><h3 id="step3：查询服务器的ip地址"><a href="#step3：查询服务器的ip地址" class="headerlink" title="step3：查询服务器的ip地址"></a>step3：查询服务器的 ip 地址</h3><p>在服务器终端运行以下命令：</p><pre><code>ifconfig #查询ip地址，在返回信息中找到自己的ip地址</code></pre><p><a href="https://i.loli.net/2020/03/01/jVMUrk3xSJ5OEYI.jpg"><img src="https://i.loli.net/2020/03/01/jVMUrk3xSJ5OEYI.jpg"></a></p><p>从我的返回信息中看到，我的 ip 地址 (inet 地址) 是：<code>10.170.11.147</code>。</p><p>如果没有看到 IP 地址，说明你没有安装指定工具：</p><pre><code>sudo apt-get install net-tools #Ubuntusudo yum install net-tools      #CentOS</code></pre><p>输入以上命令即可。</p><h3 id="step4：在本地主机端ssh远程登录服务器"><a href="#step4：在本地主机端ssh远程登录服务器" class="headerlink" title="step4：在本地主机端ssh远程登录服务器"></a>step4：在本地主机端 ssh 远程登录服务器</h3><p><strong>这一步需要知道服务器的用户名 (我的服务器名字也是 yucicheung) 及 IP 地址。</strong></p><p>在本地主机上运行以下命令：<br>用户端连接服务器用于登录远程桌面 (以下 user 时远程主机的用户名)</p><pre><code>ssh yucicheung@10.170.11.147#或ssh -l yucicheung 10.170.11.147# 如果需要调用图形界面程序ssh -X yucicheung@10.170.11.147</code></pre><p><strong>初次登录</strong>时会出现以下信息，请记住要<strong>输入的密码是服务器主机本身的登陆密码</strong>：</p><p><a href="https://i.loli.net/2020/03/01/QaO2VL5AhkJSE8b.jpg"><img src="https://i.loli.net/2020/03/01/QaO2VL5AhkJSE8b.jpg"></a></p><p>以上表示连接成功，且命令提示副前的<code>用户名@主机名</code>由本地主机变成服务器的信息，即表明<strong>现在该终端所有的命令都是在服务器中执行</strong>。</p><p>本地主机端登录相关的其他命令：</p><ul><li><p>如果服务器的 SSH 服务没有开启在 22 端口，那么 SSH 链接时则需要用 <code>-p</code> 指定端口（如 202）:</p><p>ssh -p 202 <span class="exturl" data-url="bWFpbHRvOiYjMTIxOyYjeDc1OyYjeDYzOyYjeDY5OyYjOTk7JiMxMDQ7JiN4NjU7JiN4NzU7JiMxMTA7JiMxMDM7JiN4NDA7JiN4MzE7JiN4MzA7JiN4MmU7JiN4MzE7JiM1NTsmIzQ4OyYjeDJlOyYjeDMxOyYjNDk7JiN4MmU7JiM0OTsmI3gzNDsmI3gzNzs=">yucicheung@10.170.11.147<i class="fa fa-external-link-alt"></i></span><br>#或<br>ssh -l yucicheung -p 202 10.170.11.147</p></li></ul><h3 id="step5：退出远程登录"><a href="#step5：退出远程登录" class="headerlink" title="step5：退出远程登录"></a>step5：退出远程登录</h3><p>用 Ctrl+D 或者</p><pre><code>exit</code></pre><h2 id="进阶-利用公钥省去口令输入"><a href="#进阶-利用公钥省去口令输入" class="headerlink" title="进阶:利用公钥省去口令输入"></a>进阶：利用公钥省去口令输入</h2><p>每次登录远程主机都需要输入密码是很不便捷的，如果要加速这一步骤，可以利用密钥对进行连接，主要思路是：生成一对公钥私钥，私钥在 local 主机上，公钥在远程服务器上，每次建立 ssh 连接自动检查密钥对是否匹配。</p><h3 id="step1-生成密钥对"><a href="#step1-生成密钥对" class="headerlink" title="step1 生成密钥对"></a>step1 生成密钥对</h3><pre><code>ssh-keygen -t rsa #-t表示选择类型,类型为rsa</code></pre><p>执行以后会在 $HOME 目录下生成一个.ssh 文件夹，其中包含私钥文件 <code>id_rsa</code> 和公钥文件 <code>id_rsa.pub</code>。</p><h3 id="step2-复制公钥至服务器"><a href="#step2-复制公钥至服务器" class="headerlink" title="step2 复制公钥至服务器"></a>step2 复制公钥至服务器</h3><pre><code># 登录远程服务器ssh yucicheung@10.170.11.147 # 在服务器上创建.ssh文件夹,如果已经存在就跳过此步mkdir .ssh # 为了保证.ssh文件夹的安全，应取消其他用户对文件夹的所有权限chmod 700 .ssh# 退出登录exit# 本地主机的公钥复制到远程服务器,作为已认证密钥scp /home/yucicheung/.ssh/id_rsa.pub yucicheung@10.170.44.206:/home/yucicheung/.ssh/authorized_keys</code></pre><p>在进行以上配置以后，再进行连接时，就可以免去口令 (密码) 的输入了。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1Y2ljaGV1bmcvYXJ0aWNsZS9kZXRhaWxzLzc5NDI3NTc4">https://blog.csdn.net/yucicheung/article/details/79427578<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+      <category term="操作系统" scheme="https://blog.fuocu.cn/categories/Linux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Ubuntu" scheme="https://blog.fuocu.cn/tags/Ubuntu/"/>
+    
+      <category term="终端" scheme="https://blog.fuocu.cn/tags/%E7%BB%88%E7%AB%AF/"/>
+    
+      <category term="CentOS" scheme="https://blog.fuocu.cn/tags/CentOS/"/>
+    
+      <category term="ssh" scheme="https://blog.fuocu.cn/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>适用于 Web 开发人员使用的国外 8 款免费图标包</title>
+    <link href="https://blog.fuocu.cn/Code/HTML/8-foreign-free-icon-packages-for-web-developers/"/>
+    <id>https://blog.fuocu.cn/Code/HTML/8-foreign-free-icon-packages-for-web-developers/</id>
+    <published>2020-02-28T14:00:08.000Z</published>
+    <updated>2020-07-31T05:49:28.345Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><p>使用图标是使您的设计更加有趣和引人注目的最快和最简单的方法之一。添加适当的图标可以使用户界面更加清晰，引导用户浏览页面并向用户显示每个按钮或链接的功能。</p><p>在这篇文章中，我们收集了 6 个最可靠，最精美的图标包。我们将它们分为三类：字体图标，SVG 和 CSS 图标。在我们掌握资源之前，让我们快速看看每种类型的优缺点：</p><h2 id="Feather-Icons"><a href="#Feather-Icons" class="headerlink" title="Feather Icons"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9mZWF0aGVyaWNvbnMuY29tLw==">Feather Icons<i class="fa fa-external-link-alt"></i></span></strong></h2><p>类型: SVG 图标的数量: 240 许可: MIT</p><p><a href="https://i.loli.net/2020/03/01/rARnisXMhDc5bBK.png"><img src="https://i.loli.net/2020/03/01/rARnisXMhDc5bBK.png"></a></p><p>Feather 是最流行的开源图标集之一。所有的图标都设计在一个 24x24 的网格上，并具有相同的圆角样式，一致的外观。轻松用于框架集成的项目可用于 Angular，Vue 和 React。</p><h2 id="Linea"><a href="#Linea" class="headerlink" title="Linea"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpbmVhLWlvL0xpbmVhLUljb25zZXQ=">Linea<i class="fa fa-external-link-alt"></i></span></strong></h2><p>类型: SVG, PNG, Icon font 图标的数量: 730 + 许可: CCBY</p><p><a href="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2566022213,2695735692&amp;fm=173&amp;s=FFA8386395D34DCA0E7CD4CE0000C0B1&amp;w=639&amp;h=321&amp;img.JPEG"><img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2566022213,2695735692&amp;fm=173&amp;s=FFA8386395D34DCA0E7CD4CE0000C0B1&amp;w=639&amp;h=321&amp;img.JPEG"></a></p><p>Linea 提供了大量精美的现代图标，其特点是外观清晰、轮廓分明。所有的图标都有不同的分类，包括基本的，音乐的，电子商务的，软件的等等。</p><h2 id="Octicons"><a href="#Octicons" class="headerlink" title="Octicons"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9vY3RpY29ucy5naXRodWIuY29tLw==">Octicons<i class="fa fa-external-link-alt"></i></span></strong></h2><p>类型: SVG 图标的数量: 170 + 许可: GitHub</p><p><a href="https://i.loli.net/2020/03/01/qo4atciuxRAjrKW.png"><img src="https://i.loli.net/2020/03/01/qo4atciuxRAjrKW.png"></a></p><p>Octicons 是 GitHub 可扩展的手工 SVG 图标集。它包括 GitHub 和编程相关的图标，如数据库图标，git 操作图标，等等。</p><h2 id="Glyph"><a href="#Glyph" class="headerlink" title="Glyph"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9nbHlwaGljb25zLmNvbS8=">Glyph<i class="fa fa-external-link-alt"></i></span></strong></h2><p>类型: SVG 图标的数量: 800 许可: CC BY-SA 4.0</p><p><a href="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=923376770,1279189336&amp;fm=173&amp;s=88295C32C7834D431CF595CE000080B1&amp;w=640&amp;h=332&amp;img.JPEG"><img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=923376770,1279189336&amp;fm=173&amp;s=88295C32C7834D431CF595CE000080B1&amp;w=640&amp;h=332&amp;img.JPEG"></a></p><p>在项目的 GitHub 中，您可以下载一个 Node.js 脚本来自定义图标包，这种方法适用于仅包含您真正需要的图标。</p><h2 id="Font-Awesome"><a href="#Font-Awesome" class="headerlink" title="Font Awesome"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9mb250YXdlc29tZS5jb20v">Font Awesome<i class="fa fa-external-link-alt"></i></span></strong></h2><p>类型: Icon Font 图标的数量: 675 许可: SIL OFL 1.1</p><p><a href="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3729748029,3061899287&amp;fm=173&amp;s=04306C32FFD168D256DD1DCE0000C0B1&amp;w=639&amp;h=291&amp;img.JPEG"><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3729748029,3061899287&amp;fm=173&amp;s=04306C32FFD168D256DD1DCE0000C0B1&amp;w=639&amp;h=291&amp;img.JPEG"></a></p><p>网页最受欢迎的图标字体（GitHub 上超过五万颗星），Font Awesome 提供了大量图标，这些图标是为可扩展性，通用浏览器支持和视觉障碍用户的良好可访问性而构建的。</p><h2 id="Ionicons"><a href="#Ionicons" class="headerlink" title="Ionicons"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9pb25pY29ucy5jb20v">Ionicons<i class="fa fa-external-link-alt"></i></span></strong></h2><p>类型: Icon Font 图标的数量: 260 + 许可: MIT</p><p><a href="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3885957737,2135973538&amp;fm=173&amp;s=C8A43C72C7544DC21859F0CB0000E0B3&amp;w=640&amp;h=313&amp;img.JPEG"><img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3885957737,2135973538&amp;fm=173&amp;s=C8A43C72C7544DC21859F0CB0000E0B3&amp;w=640&amp;h=313&amp;img.JPEG"></a></p><p>Ionic Framework 为后面的团队设置了一个非常漂亮的图标。提供超过 260 个漂亮的图标，其中一些是厚重的平面风格，另一些是现代的细线风格。</p><h2 id="Material-Icons"><a href="#Material-Icons" class="headerlink" title="Material Icons"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9tYXRlcmlhbC5pby8=">Material Icons<i class="fa fa-external-link-alt"></i></span></strong></h2><p>类型: Icon Font 图标的数量: 900 + 许可: Apache</p><p><a href="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4026651160,2494006360&amp;fm=173&amp;s=5CAA3473DF2348034855F0DA000080B1&amp;w=640&amp;h=288&amp;img.JPEG"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4026651160,2494006360&amp;fm=173&amp;s=5CAA3473DF2348034855F0DA000080B1&amp;w=640&amp;h=288&amp;img.JPEG"></a></p><p>Google 的 Material Design 语言的官方图标和 Android 中的所有图标。它包含超过 900 个图标，都是以一致的 Material 风格制作的，保证了你在项目使用起来有一致的风格。</p><h2 id="Icono"><a href="#Icono" class="headerlink" title="Icono"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9zYWVlZGFsaXBvb3IuZ2l0aHViLmlvL2ljb25vLw==">Icono<i class="fa fa-external-link-alt"></i></span></strong></h2><p>类型: CSS Icons 图标的数量: 130 许可: MIT</p><p><a href="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3301879937,1352144964&amp;fm=173&amp;s=D2300A645EA1C9620AB6B6430200F0F9&amp;w=640&amp;h=337&amp;img.JPEG"><img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3301879937,1352144964&amp;fm=173&amp;s=D2300A645EA1C9620AB6B6430200F0F9&amp;w=640&amp;h=337&amp;img.JPEG"></a></p><p>纯 CSS 图标的集合。要实现它们，只需要下载.css 样式表，创建一个空的 HTML 元素，然后添加相应的类。所有的图标都是这样的，只需要一个 HTML 元素就可以工作。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Code" scheme="https://blog.fuocu.cn/categories/Code/"/>
+    
+      <category term="HTML" scheme="https://blog.fuocu.cn/categories/Code/HTML/"/>
+    
+    
+      <category term="代码" scheme="https://blog.fuocu.cn/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="前端" scheme="https://blog.fuocu.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原生 js 中编码的三种方法</title>
+    <link href="https://blog.fuocu.cn/Code/JavaScript/three-coding-methods-in-native-js/"/>
+    <id>https://blog.fuocu.cn/Code/JavaScript/three-coding-methods-in-native-js/</id>
+    <published>2020-02-28T11:38:48.000Z</published>
+    <updated>2020-07-31T05:49:28.485Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><p>在开发中经常需要对用户输入的数据进行编码然后才能通过 HTTP 请求发送给后台，或者对传递过来的数据进行解码。在 JS 中原生提供了三种编码 / 解码方式，分别是&nbsp;<code>**encodeURI**</code>、&nbsp;<code>**encodeURIComponent**</code> 和&nbsp;<code>**escape**</code>。</p><h2 id="encodeURI"><a href="#encodeURI" class="headerlink" title="encodeURI"></a>encodeURI</h2><p>该方法不会对 ASCII 表中的字母和数字编码，同时也不会对 ASCII 中的标点符号编码&nbsp;<code>**-_.~*’()**</code>&nbsp;在 URI 中具有特殊含义的符号&nbsp;<code>**;/?:@&amp;=+$,#**</code> 同样不会被编码。</p><p>var url = ‘<span class="exturl" data-url="aHR0cHM6Ly9nb29nbGUuY29tL3BhdGhuYW1lP2E9MSZhbXA7Yj1hYmNkZSZhbXA7Yz0lRTklQkIlODQlRTUlQjElQjEjaGFzaCYjMzk7">https://google.com/pathname?a=1&amp;b=abcde&amp;c = 黄山 #hash'<i class="fa fa-external-link-alt"></i></span>;<br>encodeURI (url); // 返回 <span class="exturl" data-url="aHR0cHM6Ly9nb29nbGUuY29tL3BhdGhuYW1lP2E9MSZhbXA7Yj1hYmNkZSZhbXA7Yz0lRTklQkIlODQlRTUlQjElQjEjaGFzaA==">https://google.com/pathname?a=1&amp;b=abcde&amp;c=%E9%BB%84%E5%B1%B1#hash<i class="fa fa-external-link-alt"></i></span></p><p>encodeURI(“-<em>.~*’()”); // 返回 -</em>.~*’()</p><p>encodeURI (“;/?:@&amp;=+$,#”); // 返回；/?:@&amp;=+$,#</p><h2 id="encodeURIComponent"><a href="#encodeURIComponent" class="headerlink" title="encodeURIComponent"></a>encodeURIComponent</h2><p>该方法相比 encodeURI 多编码 URI 中具有特殊含义的符号&nbsp;<code>**;/?:@&amp;=+$,#**</code></p><p>var url = ‘<span class="exturl" data-url="aHR0cHM6Ly9nb29nbGUuY29tL3BhdGhuYW1lP2E9MSZhbXA7Yj1hYmNkZSZhbXA7Yz0lRTklQkIlODQlRTUlQjElQjEjaGFzaCYjMzk7">https://google.com/pathname?a=1&amp;b=abcde&amp;c = 黄山 #hash'<i class="fa fa-external-link-alt"></i></span>;<br>encodeURIComponent (url); // 打印 “https%3A%2F%2Fgoogle.com%2Fpathname%3Fa%3D1%26b%3Dabcde%26c%3D% E9% BB%84% E5% B1% B1%23hash”</p><p>encodeURIComponent(“-<em>.~*’()”); // 返回 -</em>.~*’()</p><p>encodeURIComponent (“;/?:@&amp;=+$,#”); // 返回 %3B%2F%3F%3A%40%26%3D%2B%24%2C%23</p><p>通过对比可看出方法 <code>encodeURI</code> 和 <code>encodeURIComponent</code> 编码中文的返回结果是一样的。</p><p>encodeURI (“黄山”); // 返回 % E9% BB%84% E5% B1% B1</p><p>encodeURIComponent (“黄山”); // 返回 % E9% BB%84% E5% B1% B1</p><h2 id="escape（不推荐使用，推荐使用上面两个方法代替）"><a href="#escape（不推荐使用，推荐使用上面两个方法代替）" class="headerlink" title="escape（不推荐使用，推荐使用上面两个方法代替）"></a>escape（不推荐使用，推荐使用上面两个方法代替）</h2><p>该方法会对 ASCII 中&nbsp;* <em>字母、数字及符号</em> @-_+./** 之外的所有字符进行编码。</p><p>var url = ‘<span class="exturl" data-url="aHR0cHM6Ly9nb29nbGUuY29tL3BhdGhuYW1lP2E9MSZhbXA7Yj1hYmNkZSZhbXA7Yz0lRTklQkIlODQlRTUlQjElQjEjaGFzaCYjMzk7">https://google.com/pathname?a=1&amp;b=abcde&amp;c = 黄山 #hash'<i class="fa fa-external-link-alt"></i></span>;<br>escape (url); // 返回 https%3A//google.com/pathname%3Fa%3D1%26b%3Dabcde%26c%3D% u9EC4% u5C71%23hash</p><p>console.log(escape(“*@-<em>+./“)); // 打印 *@-</em>+./</p><p>escape 对于汉字的编码和上面两个方法的编码结果并不一样。</p><p>encodeURI (“黄山”); // 返回 % E9% BB%84% E5% B1% B1</p><p>encodeURIComponent (“黄山”); // 返回 % E9% BB%84% E5% B1% B1</p><p>escape (“黄山”); // 返回 % u9EC4% u5C71</p><h2 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h2><p>三种编码方法对应的解码方法分别是：</p><p><strong>编码</strong></p><p><strong>解码</strong></p><p>encodeURI</p><p>decodeURI</p><p>encodeURIComponent</p><p>decodeURIComponent</p><p>escape</p><p>unescape</p><p>var res = encodeURI (“黄山”); // % E9% BB%84% E5% B1% B1<br>decodeURI (res); // 返回 黄山</p><p>var res = encodeURIComponent (“黄山”); // % E9% BB%84% E5% B1% B1<br>decodeURI (res); // 返回 黄山</p><p>var res = escape (“黄山”); // % u9EC4% u5C71<br>unescape (res); // 返回 黄山</p><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xldHRlclRpZ2VyL2FydGljbGUvZGV0YWlscy83OTYyMzk5MQ==">https://blog.csdn.net/letterTiger/article/details/79623991<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Code" scheme="https://blog.fuocu.cn/categories/Code/"/>
+    
+      <category term="JavaScript" scheme="https://blog.fuocu.cn/categories/Code/JavaScript/"/>
+    
+    
+      <category term="代码" scheme="https://blog.fuocu.cn/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JavaScript" scheme="https://blog.fuocu.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac 系统的访达 Finder 侧边栏目录的英文转中文</title>
+    <link href="https://blog.fuocu.cn/MacOS/mac-finder-english/"/>
+    <id>https://blog.fuocu.cn/MacOS/mac-finder-english/</id>
+    <published>2020-02-28T05:21:47.000Z</published>
+    <updated>2020-07-31T05:49:28.433Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><p>通过下图可以看到，我的 Finder 中的影片变为了英文的 Movies：</p><p><a href="https://i.loli.net/2020/02/28/AsfQ4TIHXZ1FSLi.jpg"><img src="https://i.loli.net/2020/02/28/AsfQ4TIHXZ1FSLi.jpg"></a></p><p>想把 Mac 电脑的访达 Finder 中的英文目录转成中文，可以参考以下办法：</p><p>打开 Mac 电脑终端，按需自取命令即可。比如，我的只有【影片】-【Movies】，我只需选择命令 6 即可。</p><p><strong>1.# 桌面文件夹，Desktop 变回中文，打开 “终端”，输入以下命令：</strong></p><p>touch ~/Desktop/.localized</p><blockquote><p>回车，重启 Finder</p></blockquote><p><strong>2.# 文稿文件夹，Documents 变回中文，打开 “终端”，输入以下命令：</strong></p><p>touch ~/Documents/.localized</p><blockquote><p>回车，重启 Finder</p></blockquote><p><strong>3. 下载文件夹，downloads 变回中文，打开 “终端”，输入以下命令：</strong></p><p>touch ~/downloads/.localized</p><blockquote><p>回车，重启 Finder</p></blockquote><p><strong>4.# 图片：</strong></p><p>touch ~/Pictures/.localized</p><blockquote><p>回车，重启 Finder</p></blockquote><p><strong>5.# 音乐：</strong></p><p>touch ~/Music/.localized</p><blockquote><p>回车，重启 Finder</p></blockquote><p><strong>6.# 影片：</strong></p><p>touch ~/Movies/.localized</p><blockquote><p>回车，重启 Finder</p></blockquote><p>以上就是给大家分享的 Mac 电脑 finder 英文目录转中文的图文教程，是不是简单又实用！希望对大家有所帮助！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="MacOS" scheme="https://blog.fuocu.cn/categories/MacOS/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="MacOS" scheme="https://blog.fuocu.cn/tags/MacOS/"/>
+    
+      <category term="终端" scheme="https://blog.fuocu.cn/tags/%E7%BB%88%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Word 查找和替换通配符 (完全版)</title>
+    <link href="https://blog.fuocu.cn/MacOS/Windows/word-find-and-replace-wildcards/"/>
+    <id>https://blog.fuocu.cn/MacOS/Windows/word-find-and-replace-wildcards/</id>
+    <published>2020-02-27T13:23:20.000Z</published>
+    <updated>2020-07-31T05:49:28.493Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><h2 id="Word查找栏代码·通配符一览表"><a href="#Word查找栏代码·通配符一览表" class="headerlink" title="Word查找栏代码·通配符一览表"></a>Word 查找栏代码・通配符一览表</h2><p><strong>序号</strong></p><p><strong>清除使用通配符复选框</strong></p><p><strong>勾选使用通配符复选框</strong></p><p>特殊字符</p><p>代码</p><p>特殊字符</p><p>代码 or 通配符</p><p>1</p><p>任意单个字符</p><p>^?</p><p>任意单个字符</p><p>?</p><p>2</p><p>任意数字</p><p>^#</p><p>任意数字（单个）</p><p>[0-9]</p><p>3</p><p>任意英文字母</p><p>^$</p><p>任意英文字母</p><p>[a-zA-Z]</p><p>4</p><p>段落标记</p><p>^p</p><p>段落标记</p><p>^13</p><p>5</p><p>手动换行符</p><p>^l</p><p>手动换行符</p><p>^l or ^11</p><p>6</p><p>图形</p><p>^g or ^1</p><p>图形</p><p>^g</p><p>7</p><p>1/4 长划线</p><p>^+</p><p>1/4 长划线</p><p>^q</p><p>8</p><p>长划线</p><p>^j</p><p>长划线</p><p>^+</p><p>9</p><p>短划线</p><p>^q</p><p>短划线</p><p>^=</p><p>10</p><p>制表符</p><p>^t</p><p>制表符</p><p>^t</p><p>11</p><p>脱字号</p><p>^</p><p>脱字号</p><p>^^</p><p>12</p><p>分栏符</p><p>^v</p><p>分栏符</p><p>^n or ^14</p><p>13</p><p>分节符</p><p>^b</p><p>分节符 / 分页符</p><p>^m</p><p>14</p><p>省略号</p><p>^n</p><p>省略号</p><p>^i</p><p>15</p><p>全角省略号</p><p>^i</p><p>全角省略号</p><p>^j</p><p>16</p><p>无宽非分隔符</p><p>^z</p><p>无宽非分隔符</p><p>^z</p><p>17</p><p>无宽可选分隔符</p><p>^x</p><p>无宽可选分隔符</p><p>^x</p><p>18</p><p>不间断空格</p><p>^s</p><p>不间断空格</p><p>^s</p><p>19</p><p>不间断连字符</p><p>^~</p><p>不间断连字符</p><p>^~</p><p>20</p><p>¶ 段落符号</p><p>^%</p><p>表达式</p><p>( )</p><p>21</p><p>§ 分节符</p><p>^</p><p>单词结尾</p><p>&lt;</p><p>22</p><p>脚注标记</p><p>^f or ^2</p><p>单词开头</p><blockquote></blockquote><p>23</p><p>可选连字符</p><p>^-</p><p>任意字符串</p><p>*</p><p>24</p><p>空白区域</p><p>^w</p><p>指定范围外任意单个字符</p><p>[!x-z]</p><p>25</p><p>手动分页符</p><p>^m</p><p>指定范围内任意单个字符</p><p>[ - ]</p><p>26</p><p>尾注标记</p><p>^e</p><p>1 个以上前一字符或表达式</p><p>@</p><p>27</p><p>域</p><p>^d</p><p>n 个前一字符或表达式</p><p>{n}</p><p>28</p><p>Unicode 字符</p><p>^Unnnn</p><p>&nbsp;</p><p>{n,}</p><p>29</p><p>全角空格</p><p>^u8195</p><p>n 到 m 个前一字符或表达式</p><p>{ n,m }</p><p>30</p><p>半角空格</p><p>^32 or ^u8194</p><p>所有小写英文字母</p><p>[a-z]</p><p>31</p><p>批注</p><p>^a or ^5</p><p>所有大写英文字母</p><p>[A-Z]</p><p>32</p><p>&nbsp;</p><p>&nbsp;</p><p>所有西文字符</p><p>[^1-^127]</p><p>33</p><p>&nbsp;</p><p>&nbsp;</p><p>所有中文汉字和中文标点</p><p>[!^1-^127]</p><p>34</p><p>&nbsp;</p><p>&nbsp;</p><p>所有中文汉字（CJK 统一字符）</p><p>[一 - 龥] or [一 - 﨩]</p><p>35</p><p>&nbsp;</p><p>&nbsp;</p><p>所有中文标点</p><p>[! 一 - 龥 ^1-^127]</p><p>36</p><p>&nbsp;</p><p>&nbsp;</p><p>所有非数字字符</p><p>[!0-9]</p><blockquote><p>注：要查找已被定义为通配符的字符，该字符前键入反斜杠 \ 。查找？、<em>、（、）、[、] 等的代码分别是 \？、\</em>、\(、\)、\[、\] 。</p></blockquote><h2 id="Word替换栏代码·通配符一览表"><a href="#Word替换栏代码·通配符一览表" class="headerlink" title="Word替换栏代码·通配符一览表"></a>Word 替换栏代码・通配符一览表</h2><p><strong>序号</strong></p><p>清除使用通配符复选框</p><p>勾选使用通配符复选框</p><p>特殊字符</p><p>代码</p><p>特殊字符</p><p>代码 or 通配符</p><p>0</p><p>&nbsp;</p><p>&nbsp;</p><p>要查找的表达式 \n</p><p>\</p><p>1</p><p>段落标记↵</p><p>^p</p><p>&nbsp;段落标记↵</p><p>^p</p><p>2</p><p>手动换行符↓</p><p>^l</p><p>手动换行符↓</p><p>^l</p><p>3</p><p>查找的内容</p><p>^&amp;</p><p>查找的内容&nbsp;</p><p>^&amp;</p><p>4</p><p>剪贴板内容</p><p>^c</p><p>剪贴板内容</p><p>^c</p><p>5</p><p>省略号</p><p>^i</p><p>省略号</p><p>^i</p><p>6</p><p>全角省略号</p><p>^j</p><p>全角省略号</p><p>^j</p><p>7</p><p>制表符</p><p>^t</p><p>制表符</p><p>^t</p><p>8</p><p>长划线</p><p>^+</p><p>长划线</p><p>^+</p><p>9</p><p>1/4 长划线 (&nbsp;—&nbsp;)</p><p>^q</p><p>1/4 长划线 (&nbsp;—&nbsp;)</p><p>^q</p><p>10</p><p>短划线 (&nbsp;–&nbsp;)</p><p>^=</p><p>短划线 (&nbsp;–&nbsp;)</p><p>^=</p><p>11</p><p>脱字号</p><p>^^</p><p>脱字号</p><p>^^</p><p>12</p><p>手动分页符</p><p>^m or ^12</p><p>手动分页符</p><p>^m</p><p>13</p><p>可选连字符（_）</p><p>^-</p><p>可选连字符（_）</p><p>^-</p><p>14</p><p>不间断连字符（-）</p><p>^~</p><p>不间断连字符（-）</p><p>^~</p><p>15</p><p>不间断空格</p><p>^s</p><p>不间断空格</p><p>^s</p><p>16</p><p>无宽非分隔符</p><p>^z</p><p>无宽非分隔符</p><p>^z</p><p>17</p><p>无宽可选分隔符</p><p>^x</p><p>无宽可选分隔符</p><p>^x</p><p>18</p><p>分栏符</p><p>^n</p><p>分栏符</p><p>^n</p><p>19</p><p>§ 分节符</p><p>^%</p><p>&nbsp;§ 分节符</p><p>^%</p><p>20</p><p>¶ 段落符号</p><p>^v</p><p>¶ 段落符号</p><p>^v</p><h2 id="Word通配符用法详解"><a href="#Word通配符用法详解" class="headerlink" title="Word通配符用法详解"></a><strong>Word 通配符用法详解</strong></h2><p><strong>1**</strong>、任意单个字符：**</p><p>“?” 可以代表任意单个字符，输入几个 “?” 就代表几个未知字符。如：<br>输入 “? 国” 就可以找到诸如 “中国”、“美国”、“英国” 等字符；<br>输入 “??? 国” 可以找到 “孟加拉国” 等字符。</p><p><strong>2、任意多个字符：</strong></p><p>&nbsp;“<em>” 可以代表任意多个字符。如：<br>输入 “</em>国” 就可以找到 “中国”、“美国”、 “孟加拉国” 等字符。</p><p><strong>3**</strong>、指定字符之一：**</p><p>&nbsp;“[]” 框内的字符可以是指定要查找的字符之一，如：<br>输入 “[中美] 国” 就可以找到 “中国”、“美国”。 又如：<br>输入 “th [iu] g”，就可查找到 “thigh” 和 “thug”。&nbsp;<br>输入 “[学硕博] 士”，查找到的将会是学士、士、硕士、博士。&nbsp;<br>输入 “[大中小] 学” 可以查找到 “大学”、“中学” 或 “小学”，但不查找 “求学”、“开学” 等。<br>输入 “[高矮] 个” 的话，Word 查找工具就可以找到 “高个”、“矮个” 等内容。</p><p><strong>4**</strong>、指定范围内的任意单个字符：**</p><p>&nbsp;“[x-x]” 可以指定某一范围内的任意单个字符，如：<br>输入 “[a-e] ay” 就可以找到 “bay”、“day” 等字符，要注意的是指定范围内的字符必须用升序。 用升序。如：<br>输入 “[a-c] mend” 的话，Word 查找工具就可以找到 “amend”、“bmend”、“cmend” 等字符内容。</p><p>**<br>5、排除指定范、排除指定范围内的任意单个字符：**</p><p>“[!x-x]” 可以用来排除指定范围内的任意单个字符，如：<br>输入 “[!c-f]” 就可以找到 “bay”、“gay”、“lay” 等字符，但是不等字符，但是不会找到 “cay”、“day” 等字符。要注意范围必须用升序。<br>又如：<br>输入 “[!a-c]” 的话，word 程序就可以找到 “good”、“see”、“these” 等目标字符，而所有包含字符 a、b、c 之类的内容都不会在查找结果中出现。<br>又如：<br>输入 “m [!a] st”，用，用来查找 “mist” 和 “most” 不会查找 “mast”。&nbsp;<br>输入 “[!a] n”，查到的将会是除 an 以外的所有可能组合如：合如：in、on 等。</p><p><strong>6**</strong>、指定前一字符的个数：**</p><p>“{n}” 可以用来指定要查找的字符中包含前一字符的个数，如：<br>输入 “cho {1} se” 就是说包含 1 个前一字符 “o”，可以找到 “chose”，输入 “cho {2} se” 就是说包含 2 个前一字符 “o”，可以找到， “choose”。&nbsp;<br>又如：<br>输入 “lit {1} le” 就是说包含 1 个前一字符 “t”，可以找到 “litle”。&nbsp;<br>输入 “lit {2} le” 就是说包含 2 个前一字符 “t”，可以找到 “little”。&nbsp;<br>输入 “te {2} n”，表示查找 “teen” 而不会查找 “ten”。&nbsp;<br>输入 “of {2} ice”，查找到的将会是 office。</p><p><strong>7**</strong>、指定前一字符、指定前一字符数范围：**</p><p>“{x,x}” 可以用指定要查找字符中前一字符数范围，如：<br>输入 “cho {1,2}”，则说明包含前一字符 “o” 数目范围是 1-2 个，则可以找到 “chose”、“choose”。</p><p>&nbsp;&nbsp;<br><strong>8**</strong>、一个以上的前一字符：**</p><p>&nbsp;“@” 可以用来指定要查找字符中包含一个以上的前一字符，如：<br>输入 “cho@se”，就可以找到， “chose”、“choose” 等字符。</p><p><strong>9**</strong>、指定起始字符串：**</p><p>“&lt;” 可以用来指定要查找字符中的起始字符串，如：<br>输入 “&lt;ag”，就说明要查找的字符的起始字符为 “ag”，可以找到 “ago”、“agree”、“again” 等字符。<br>输入 “&lt;te” 的话，可能查到 “ten”、“tea” 等。</p><p><strong>10**</strong>、指定结尾字符串：**</p><p>&nbsp;“&gt;” 可以用来指定要查找字符中的结尾字符串，如：<br>输入 “er&gt;”，就说明要查找的字符的结尾字符为 “er”，可以找到 “ver”、“her”、“lover” 等等。<br>输入 “en&gt;”， 就说明要查找到以 “en” 结尾的所有目标对象，可能找到 “ten”、“pen”、“men”<br>输入 “up&gt;”，就说明要查找到以 “up” 结尾的所有目标对象，例如会找到 “setup”、“cup” 等等。</p><p><strong>11**</strong>、表达式查找：**</p><p>“（）”，尤其用于多个关键词的组合查找。<br>键入 “（America）（China）”，在 “替换为” 中键入 “\2 \1”，Word 找到 “America China” 并替换为 “China America”。&nbsp;<br>输入 “&lt;(江山)*(多娇)&gt;”，就表示查找的是所有以 “江山” 开头并且 以 “多娇” 结尾的字符串。</p><p>另外为了更精确的查找，你还可以把以上的通配符联合起来使用，如：<br>输入 “&lt;(ag)*(er)&gt;” 则表示查找所有以 “ag” 开头并且以 “er” 结尾的单词，注意这时需要用括号将来区分开不同的查找规则。最后还要注意如果要查找已经被定义为通配符的字符，如 “<em>”、“?” 等字符，必须在该字符前面加上反斜杠 “\”，如：输入 “\</em>” 则表示查找字符 “*”。</p><h2 id="使用通配符搜索"><a href="#使用通配符搜索" class="headerlink" title="使用通配符搜索"></a>使用通配符搜索</h2><p>选中 “使用通配符” 复选框后，Word 只查找与指定文本精确匹配的文本（请注意，“区分大小写” 和 “全字匹配” 复选框会变灰而不可用，表明这些选项已自动选中，您不能关闭这些选项）。</p><p>要查找已被定义为通配符的字符，请在该字符前键入反斜扛 (\)，例如，要查找问号，可键入 “\？”。</p><p><strong>序号</strong></p><p><strong>查找内容</strong></p><p><strong>通配符</strong></p><p><strong>示例</strong></p><p>1</p><p>任意单个字符</p><p>?</p><p>例如，s?t 可查找 “sat” 和 “set”。</p><p>2</p><p>任意字符串</p><p>*</p><p>例如，s*d 可查找 “sad” 和 “started”。</p><p>3</p><p>单词的开头</p><p>&lt;</p><p>例如，&lt;(inter) 查找 “interesting” 和 “intercept”，但不查找 “splintered”。</p><p>4</p><p>单词的结尾</p><blockquote></blockquote><p>例如，(in)&gt; 查找 “in” 和 “within”，但不查找 “interesting”。</p><p>5</p><p>指定字符之一</p><p>[]</p><p>例如，w [io] n 查找 “win” 和 “won”。</p><p>6</p><p>指定范围内任意单个字符</p><p>[-]</p><p>例如，[r-t] ight 查找 “right” 和 “sight”。必须用升序来表示该范围。</p><p>7</p><p>中括号内指定字符范围以外的任意单个字符</p><p>[!x-z]</p><p>例如，t [!a-m] ck 查找 “tock” 和 “tuck”，但不查找 “tack” 和 “tick”。</p><p>8</p><p>n 个重复的前一字符或表达式</p><p>{n}</p><p>例如，fe {2} d 查找 “feed”，但不查找 “fed”。</p><p>9</p><p>至少 n 个前一字符或表达式</p><p>{n,}</p><p>例如，fe {1,} d 查找 “fed” 和 “feed”。</p><p>10</p><p>n 到 m 个前一字符或表达式</p><p>{n,m}</p><p>例如，10 {1,3} 查找 “10”、“100” 和 “1000”。</p><p>11</p><p>一个以上的前一字符或表达式</p><p>@</p><p>例如，lo@t 查找 “lot” 和 “loot”。</p><blockquote><p>一些代码只有在选中或清除 “使用通配符” 选项时才能使用。</p><p>使用代码搜索</p><p>可以在 “查找内容” 或 “替换为” 框中使用的代码</p></blockquote><p>段落标记 ()</p><p>键入 ^p（选中 “使用通配符” 复选框时在 “查找内容” 框中无效）或键入 ^13</p><p>制表符 ()</p><p>键入 ^t 或键入 ^9</p><p>ASCII 字符</p><p>键入 ^nnn，其中 nnn 是字符代码</p><p>ANSIcharacter</p><p>键入 ^0nnn，其中 nnn 是字符代码</p><p>长划线 (—)</p><p>键入 ^+</p><p>短划线 (–)</p><p>键入 ^=</p><p>脱字号</p><p>键入 ^^</p><p>手动换行符 ()</p><p>键入 ^l 或键入 ^11</p><p>分栏符</p><p>键入 ^n 或键入 ^14</p><p>分页符或分节符</p><p>键入 ^12（替换时，插入分页符）</p><p>手动分页符</p><p>键入 ^m（当选中 “使用通配符” 复选框时，还将查找或替换分节符）</p><p>不间断空格 ()</p><p>键入 ^s</p><p>不间断连字符 ()</p><p>键入 ^~</p><p>可选连字符 ()</p><p>键入 ^-</p><blockquote><p>只能在 “查找内容” 框中使用的代码（选中 “使用通配符” 复选框时）</p></blockquote><p>图片或图形（仅嵌入）</p><p>键入 ^g</p><blockquote><p>只能在 “查找内容” 框中使用的代码（清除 “使用通配符” 复选框时）</p></blockquote><p>任意字符</p><p>键入 ^?</p><p>任意数字</p><p>键入 ^#</p><p>任意字</p><p>键入 ^$</p><p>Unicode 字符</p><p>键入 ^Unnnn，其中 “nnnn” 是字符代码</p><p>图片或图形（仅嵌入）</p><p>键入 ^1</p><p>脚注标记</p><p>键入 ^f 或键入 ^2</p><p>尾注标记</p><p>键入 ^e</p><p>域</p><p>键入 ^d</p><p>正在打开域大括号（当域代码可见时）</p><p>键入 ^19</p><p>正在关闭域大括号（当域代码可见时）</p><p>键入 ^21</p><p>批注</p><p>键入 ^a 或键入 ^5</p><p>分节符</p><p>键入 ^b</p><p>全角空格 (Unicode)</p><p>键入 ^u8195</p><p>半角空格 (Unicode)</p><p>键入 ^u8194</p><p>白色空格</p><p>键入 ^w（可以是常规空格、不间断空格以及制表符的任意组合）</p><blockquote><p>只能在 “替换为” 框中使用的代码</p></blockquote><p>“Windows 剪贴板” 的内容</p><p>键入 ^c</p><p>“查找内容” 框的内容</p><p>键入 ^&amp;</p><hr><blockquote><p>选中 “使用通配符” 复选框后，Microsoft Word 不识别在 “查找内容” 框中输入的用于下列项目的代码：尾注和脚注标记、域、段落标记、分节符或空白区域。若要搜索这些项目，可以在 “查找内容” 框中键入下列替换代码。（注意，没有可用于域的替换代码）</p></blockquote><p>若要查找脚注或尾注标记</p><p>键入 “^2”</p><p>注意，Word 无法区分脚注和尾注标记。</p><p>若要查找段落标记</p><p>键入 “^13”</p><p>&nbsp;</p><p>若要查找分节符</p><p>键入 “^12”</p><p>Word 将搜索手动分页符和分节符。</p><p>查找空白区域</p><p>键入 “空格 {1,}”</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="MacOS" scheme="https://blog.fuocu.cn/categories/MacOS/"/>
+    
+      <category term="Windows" scheme="https://blog.fuocu.cn/categories/MacOS/Windows/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Word" scheme="https://blog.fuocu.cn/tags/Word/"/>
+    
+      <category term="正则表达式" scheme="https://blog.fuocu.cn/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 数据库基础命令大全</title>
+    <link href="https://blog.fuocu.cn/Linux/MacOS/Windows/mysql-database-basic-commands/"/>
+    <id>https://blog.fuocu.cn/Linux/MacOS/Windows/mysql-database-basic-commands/</id>
+    <published>2020-02-25T08:58:18.000Z</published>
+    <updated>2020-07-31T05:49:28.459Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><h2 id="1、连接Mysql"><a href="#1、连接Mysql" class="headerlink" title="1、连接Mysql"></a>1、连接 Mysql</h2><ul><li>格式：</li></ul><p>mysql -h 主机地址 -u 用户名 -p 用户密码</p><ul><li>本地</li></ul><p>mysql  -utaoyali -ptaoyali</p><ul><li>远程</li></ul><p>mysql  -h192.168.110.110 -utaoyali -ptaoyali</p><blockquote><p>注意用户名前可以有空格也可以没有空格，但是密码前必须没有空格，否则让你重新输入密码。</p></blockquote><h2 id="2、修改密码"><a href="#2、修改密码" class="headerlink" title="2、修改密码"></a>2、修改密码</h2><ul><li>格式：</li></ul><p>mysqladmin -u 用户名 -p 旧密码 password 新密码</p><ul><li>给 root 加个密码 ab12</li></ul><p>mysqladmin -u root -password ab12<br>  注：因为开始时 root 没有密码，所以 - p 旧密码一项就可以省略了。 如果进入了 mysql 后想修改密码，就直接用 mysql 语句就好了：<br>set PASSWORD=PASSWORD (“123”); 注意 mysql 语句以分号结束</p><ul><li>再将 root 的密码改为 djg345</li></ul><p>mysqladmin -u root -p ab12 password djg345</p><h2 id="3、增加新用户"><a href="#3、增加新用户" class="headerlink" title="3、增加新用户"></a>3、增加新用户</h2><blockquote><p>注意：和上面不同，下面的因为是 MYSQL 环境中的命令，所以后面都带一个分号作为命令结束符</p></blockquote><ul><li>格式：</li></ul><p>grant select on 数据库.* to 用户名 @登录主机 identified by “密码”</p><ul><li>增加一个用户 <code>test1</code> 密码为 <code>abc</code>，让他可以在任何主机上登录，并对所有数据库有查询、插入、修改、删除的权限。首先用 <code>root</code> 用户连入 <code>MYSQL</code>，然后键入以下命令：</li></ul><p>grant select,insert,update,delete on <em>.</em> to [email=test1@”%]test1@”%[/email]” Identified by “abc”; </p><blockquote><p>但增加的用户是十分危险的，你想如某个人知道 test1 的密码，那么他就可以在 internet 上的任何一台电脑上登录你的 mysql 数据库并对你的数据可以为所欲为了，解决办法见？。</p></blockquote><ul><li>增加一个用户 <code>test2</code> 密码为 <code>abc</code>, 让他只可以在 <code>localhost</code> 上登录，并可以对数据库 <code>mydb</code> 进行查询、插入、修改、删除的操作 (<code>localhost</code> 指本地主机，即 <code>MYSQL</code> 数据库所在的那台主机), 这样用户即使用知道 test2 的密码，他也无法从 <code>internet</code> 上直接访问数据库，只能通过 <code>MYSQL</code> 主机上的 <code>web</code> 页来访问了。</li></ul><p>grant select,insert,update,delete on mydb.* to [email=test2@localhost]test2@localhost[/email] identified by “”;</p><h2 id="4、数据库操作"><a href="#4、数据库操作" class="headerlink" title="4、数据库操作"></a>4、数据库操作</h2><ul><li>创建数据库</li></ul><p>create database database_name; </p><p>修改指定数据库中所有 <code>varchar</code> 类型的表字段的字符集为 <code>UTF8</code>，并将排序规则修改为 <code>utf8_general_ci</code></p><p>SELECT CONCAT(‘ALTER TABLE <code>', table\_name, '</code> MODIFY <code>', column\_name, '</code> ‘, DATA_TYPE, ‘(‘, CHARACTER_MAXIMUM_LENGTH, ‘) CHARACTER SET UTF8 COLLATE utf8_general_ci’, (CASE WHEN IS_NULLABLE = ‘NO’ THEN ‘ NOT NULL’ ELSE ‘’ END), ‘;’)<br>FROM information_schema.COLUMNS<br>WHERE TABLE_SCHEMA = ‘databaseName’<br>AND DATA_TYPE = ‘varchar’<br>AND<br>(<br>    CHARACTER_SET_NAME != ‘utf8’<br>    OR<br>    COLLATION_NAME != ‘utf8_general_ci’<br>);</p><p>修改指定数据库中所有数据表的字符集为 <code>UTF8</code>，并将排序规则修改为 <code>utf8_general_ci</code></p><p>SELECT CONCAT(‘ALTER TABLE ‘, table_name, ‘ CONVERT TO CHARACTER SET  utf8 COLLATE utf8_unicode_ci;’)<br>FROM information_schema.TABLES<br>WHERE TABLE_SCHEMA = ‘databaseName’</p><h2 id="5、数据表数据操作"><a href="#5、数据表数据操作" class="headerlink" title="5、数据表数据操作"></a>5、数据表数据操作</h2><ul><li>显示所有的数据库</li></ul><p>show databases;</p><ul><li>进入 dataBase_name 数据库</li></ul><p>use dataBase_name;</p><ul><li>显示 <code>dataBase_name</code> 数据库的所有表</li></ul><p>show tables;</p><ul><li>显示 table_name 表的字段信息</li></ul><p>desc  table_name;</p><ul><li>创建表</li></ul><p>create table  MIFit_Image (name char(100), path char(100), count int(10), firstName char(100), firstMD5 char(100), secondName char(100), secondMD5 char(100), thirdName char(100), thirdMD5 char(100)); </p><ul><li>修改表名</li></ul><p>rename table MIFit_Image to MIFit_Image_New</p><ul><li>删除表</li></ul><p>drop table tableName; </p><ul><li>插入数据</li></ul><p>insert into MIFit_Image (name, path, count, firstName, firstMD5, secondName, secondMD5, thirdName, thirdMD5) VALUES (‘test’, ‘test’, 1, ‘name1’, ‘md1’, ‘name2’, ‘md2’, ‘name3’, ‘md3’); </p><ul><li>查询表中的数据</li></ul><p>select * from MIFit_Image;</p><p>select * from MIFit_Image where name = ‘test’;</p><p>select * from MyClass order by id limit 0,2;</p><ul><li>查询数据库中的重复数据 （ | b71edca50989258e68fadcc3cb9bc689 | 2 | ）</li></ul><p>select firstMD5, count(*) as count from MIFit_Image group by firstMD5 having count &gt; 1; </p><ul><li>查询重复数据的其它字段的数据</li></ul><p>select folderName, path, firstMD5 from MIFit_Image where firstMD5 in (select firstMD5 from MIFit_Image group by firstMD5 having count(firstMD5) &gt; 1); </p><ul><li>更新数据</li></ul><p>update MIFit_Image set folderName =’Mary’ where id=1; </p><ul><li>删除数据</li></ul><p>delete from MIFit_Image where folderName = ‘test’; </p><h2 id="6、数据表字段操作"><a href="#6、数据表字段操作" class="headerlink" title="6、数据表字段操作"></a>6、数据表字段操作</h2><ul><li>添加字段 （int 自增 不为 null 主键）</li></ul><p>alter table MIFit_Image add id int auto_increment not null primary key; </p><ul><li>修改字段的顺序 (id 放置最前)</li></ul><p>ALTER TABLE 表名 MODIFY 字段名 1 数据类型 FIRST ｜ AFTER 字段名 2;<br>其中：</p><p>字段名 1：表示需要修改位置的字段的名称。<br>数据类型：表示 “字段名 1” 的数据类型。<br>FIRST：指定位置为表的第一个位置。<br>AFTER 字段名 2：指定 “字段名 1” 插入在 “字段名 2” 之后。</p><p>alter table MIFit_Image modify id int first;</p><p>alter table MIFit_Image modify id int after name;</p><ul><li>移除 id 主键标志</li></ul><p>alter table MIFit_Image modify id int, drop primary key; </p><ul><li>修改字段名 name 为 folderName</li></ul><p>alter table MIFit_Image change name folderName char(100); </p><ul><li>删除字段</li></ul><p>alter table testTable drop folderName; </p><ul><li><p>加索引</p><p>alter table MIFit_Image add index indexName (folderName); </p></li><li><p>删除索引</p></li></ul><p>alter table MIFit_Image drop index indexName;</p><p>更多命令参考：<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8yOWEzYTU1MGVlZWU=">http://www.jianshu.com/p/29a3a550eeee<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+      <category term="MacOS" scheme="https://blog.fuocu.cn/categories/Linux/MacOS/"/>
+    
+      <category term="Windows" scheme="https://blog.fuocu.cn/categories/Linux/MacOS/Windows/"/>
+    
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="终端" scheme="https://blog.fuocu.cn/tags/%E7%BB%88%E7%AB%AF/"/>
+    
+      <category term="MySQL" scheme="https://blog.fuocu.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VMware 虚拟机安装 ElementaryOS。超详细图文教程</title>
+    <link href="https://blog.fuocu.cn/Linux/vmware-virtual-machine-installation-elementaryos/"/>
+    <id>https://blog.fuocu.cn/Linux/vmware-virtual-machine-installation-elementaryos/</id>
+    <published>2020-02-24T15:03:46.000Z</published>
+    <updated>2020-07-31T05:49:28.491Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><ul><li><strong>ElementaryOS</strong> 镜像下载</li></ul><p>前往官网下载<span class="exturl" data-url="aHR0cHM6Ly9lbGVtZW50YXJ5LmlvL3poX0NOLw=="> ElementaryOS<i class="fa fa-external-link-alt"></i></span>最新版操作系统。</p><p>目前最新版为：<strong>elementary OS 5.1.2 Hera 1.49 GB | 64-bit</strong></p><p>输入金额 0，点击下载 iso 镜像</p><p><a href="https://i.fuocu.cn/images/2020/02/24/7903c347f87c60f052d52e0cd300bc71.png"><img src="https://i.fuocu.cn/images/2020/02/24/7903c347f87c60f052d52e0cd300bc71.png"></a></p><ul><li>VMware 虚拟机下载并安装</li></ul><p>前往 <span class="exturl" data-url="aHR0cHM6Ly93d3cudm13YXJlLmNvbS9wcm9kdWN0cy93b3Jrc3RhdGlvbi1wcm8vd29ya3N0YXRpb24tcHJvLWV2YWx1YXRpb24uaHRtbA==">VMware 官网<i class="fa fa-external-link-alt"></i></span>下载最新版安装包。</p><p>安装 ，尽量不要装 C 盘，原因你懂的。</p><p>输入序列号激活 <code>UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA</code>、<code>VF750-4MX5Q-488DQ-9WZE9-ZY2D6</code></p><h2 id="二、开始安装"><a href="#二、开始安装" class="headerlink" title="二、开始安装"></a>二、开始安装</h2><h3 id="1、创建-elementary-OS-虚拟机"><a href="#1、创建-elementary-OS-虚拟机" class="headerlink" title="1、创建 elementary OS 虚拟机"></a>1、创建 elementary OS 虚拟机</h3><ul><li>启动 VMware</li><li> 创建新的虚拟机，默认即可，点击下一步</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/24/787117d3b49210a87ea55cb89a29f3c4.png"><img src="https://i.fuocu.cn/images/2020/02/24/787117d3b49210a87ea55cb89a29f3c4.png"></a></p><ul><li>选择<strong>安装程序光盘映像文件</strong>，选中刚才下载的 Elementary OS iso 镜像文件，点击下一步</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/24/13439f925ae705e628295db87c1e47aa.png"><img src="https://i.fuocu.cn/images/2020/02/24/13439f925ae705e628295db87c1e47aa.png"></a></p><ul><li>操作系统版本选择 <strong>Linux</strong>、<strong>其他 Linux 5.x 或更高版本内核 64 位</strong>，点击下一步</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/24/86d54863f942c820b6984ee62372e962.png"><img src="https://i.fuocu.cn/images/2020/02/24/86d54863f942c820b6984ee62372e962.png"></a></p><ul><li>修改默认的虚拟机名称和存储位置，点击下一步 。这里也不推荐安装在 C 盘。</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/24/4002e1c5d2a18c7822ab99584c0927f8.png"><img src="https://i.fuocu.cn/images/2020/02/24/4002e1c5d2a18c7822ab99584c0927f8.png"></a></p><ul><li>内存看情况给，但是建议不低于 20G，这里我选择 30G。点击下一步</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/24/50428e665dd6e02ea4385602eec3fd3e.png"><img src="https://i.fuocu.cn/images/2020/02/24/50428e665dd6e02ea4385602eec3fd3e.png"></a></p><ul><li>这里选择<strong>自定义硬件</strong></li></ul><p><a href="https://i.fuocu.cn/images/2020/02/24/02a9409888270e7e2675a6fe40b0a2ed.png"><img src="https://i.fuocu.cn/images/2020/02/24/02a9409888270e7e2675a6fe40b0a2ed.png"></a></p><ul><li>内存不低于 1G， 处理器配置 2 核（当前操作系统内核数的一半），网络选择桥接网络，点击关闭</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/24/826928b363b270ab80280aa5b1369642.png"><img src="https://i.fuocu.cn/images/2020/02/24/826928b363b270ab80280aa5b1369642.png"></a></p><ul><li>然后点击完成，然后点击开启虚拟机</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/24/78abc98d4faf476defef37018e3f7ac4.png"><img src="https://i.fuocu.cn/images/2020/02/24/78abc98d4faf476defef37018e3f7ac4.png"></a></p><h3 id="2、安装系统"><a href="#2、安装系统" class="headerlink" title="2、安装系统"></a>2、安装系统</h3><ul><li>语言根据自己需求选择，这里选择中文简体，点击<strong>安装 elementary</strong></li></ul><p><img src="https://i.fuocu.cn/images/2020/02/25/ab4fb944af91d46d38f5f585348d29de.png"></p><ul><li> 选择键盘，默认即可，点击继续</li><li>更新和其他软件，默认，点击继续</li><li>安装类型，根据需求选择，这里我默认，点击继续</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/25/874696efb4a49af7de13fd89bdf13078.png"><img src="https://i.fuocu.cn/images/2020/02/25/874696efb4a49af7de13fd89bdf13078.png"></a></p><ul><li>选择时区，这里我选择 <strong>Shanghai</strong></li></ul><p><a href="https://i.fuocu.cn/images/2020/02/25/4bdc316627fd7e99f31827a1d1ea032d.png"><img src="https://i.fuocu.cn/images/2020/02/25/4bdc316627fd7e99f31827a1d1ea032d.png"></a></p><ul><li> 设置个人用户名、密码</li><li>这个过程会比较漫长，你可以去喝杯咖啡</li><li>提示 重启电脑，先把虚拟机关闭，然后右击虚拟机，点击设置。</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/25/68522c47762d7684f5c6ade0dd22716c.png"><img src="https://i.fuocu.cn/images/2020/02/25/68522c47762d7684f5c6ade0dd22716c.png"></a></p><ul><li>点击 <strong>CD/DVD</strong>，将启动时连接<strong>去掉勾选</strong>，点击确定，再次启动虚拟机</li></ul><p><a href="https://i.fuocu.cn/images/2020/02/25/bf1c2e3fbc443269ff232be7d866d461.png"><img src="https://i.fuocu.cn/images/2020/02/25/bf1c2e3fbc443269ff232be7d866d461.png"></a></p><h3 id="3、在虚拟机中安装-VMware-Tools"><a href="#3、在虚拟机中安装-VMware-Tools" class="headerlink" title="3、在虚拟机中安装 VMware Tools"></a>3、在虚拟机中安装 <strong>VMware Tools</strong></h3><ol><li><strong>物理机：</strong><ul><li>选择 <strong>虚拟机 &gt; 安装 VMware Tools</strong></li></ul></li><li><strong> 虚拟机：</strong><ul><li>在虚拟机中会挂载 <strong>VMware Tools</strong> CD</li><li> 进入挂载的 <strong>VMware Tools</strong>，拷贝 <strong>VMwareTools</strong> 文件到 <strong>Documents</strong> 目录下（在 CDROM 中无法写入）</li><li>右击 <strong>VMware Tools</strong> 选择<strong>提取到此处</strong></li><li>打开终端，输入</li></ul></li></ol><p>cd 文档 /vmware-tools-distrib<br>sudo ./vmware-install.pl -d</p><p>要在主机和虚拟机之间拖拽文件和复制粘贴文本，需要执行</p><p>/usr/bin/vmware-user</p><p>安装完毕，界面欣赏</p><p><a href="https://i.fuocu.cn/images/2020/02/25/e8a9486d35b0bc31ba50a82f0f53de22.png"><img src="https://i.fuocu.cn/images/2020/02/25/e8a9486d35b0bc31ba50a82f0f53de22.png"></a></p><h3 id="4、添加中文软件源"><a href="#4、添加中文软件源" class="headerlink" title="4、添加中文软件源"></a>4、添加中文软件源</h3><ul><li>终端执行命令导入软件仓库密匙串</li></ul><p>sudo wget -O - <span class="exturl" data-url="aHR0cDovL3BhY2thZ2UuZWxlbWVudGFyeW9zLmNuL2Jpb25pYy9rZXkvcGFja2FnZS5ncGcua2V5">http://package.elementaryos.cn/bionic/key/package.gpg.key<i class="fa fa-external-link-alt"></i></span> | sudo apt-key add -</p><ul><li>使用命令 <code>sudo io.elementary.code/etc/apt/sources.1ist</code> 打开文件并在最后新起一行粘贴下面软件源地址信息然后保存：</li></ul><p>5.0 添加 <code>deb http://package.elementaryos.cn/bionic/bionic main</code></p><ul><li><p>终端执行 <code>sudo apt update</code> 更新软件包缓存</p></li><li><p>终端执行 <code>sudo apt upgrade</code> 进行系统更新</p></li></ul><p>具体操作请前往：<span class="exturl" data-url="aHR0cHM6Ly9lbGVtZW50YXJ5b3MuY24vc3RvcmFnZS5odG1s">https://elementaryos.cn/storage.html<i class="fa fa-external-link-alt"></i></span></p><blockquote><p>本次教程到此结束，参考文章：<span class="exturl" data-url="aHR0cHM6Ly9qYW5jYXQuZ2l0aHViLmlvL3Bvc3QvMjAxOC93aW4xMC12bXdhcmUtaW5zdGFsbC1lbGVtZW50YXJ5LW9zLw==">https://jancat.github.io/post/2018/win10-vmware-install-elementary-os/<i class="fa fa-external-link-alt"></i></span></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="终端" scheme="https://blog.fuocu.cn/tags/%E7%BB%88%E7%AB%AF/"/>
+    
+      <category term="软件源" scheme="https://blog.fuocu.cn/tags/%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DNS 的作用以及修改 DNS 的方法</title>
+    <link href="https://blog.fuocu.cn/NetWork/dns-e7-9a-84-e4-bd-9c-e7-94-a8-e4-bb-a5-e5-8f-8a-e4-bf-ae-e6-94-b9dns-e7-9a-84-e6-96-b9-e6-b3-95/"/>
+    <id>https://blog.fuocu.cn/NetWork/dns-e7-9a-84-e4-bd-9c-e7-94-a8-e4-bb-a5-e5-8f-8a-e4-bf-ae-e6-94-b9dns-e7-9a-84-e6-96-b9-e6-b3-95/</id>
+    <published>2020-02-23T11:22:04.000Z</published>
+    <updated>2020-07-31T05:49:28.396Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><h2 id="1、DNS的作用及修改DNS的方法"><a href="#1、DNS的作用及修改DNS的方法" class="headerlink" title="1、DNS的作用及修改DNS的方法"></a>1、DNS 的作用及修改 DNS 的方法</h2><h3 id="1-1-DNS的作用"><a href="#1-1-DNS的作用" class="headerlink" title="1.1.DNS的作用"></a>1.1.DNS 的作用</h3><p>DNS 就是将域名映射成 ip 的分布式数据库服务器，它的作用如下图：</p><p><img src="https://cdn.fuocu.cn/wp-content/uploads/2020/02/1582451509-683cdebe719ed41.png"></p><h3 id="1-2-修改DNS的方法"><a href="#1-2-修改DNS的方法" class="headerlink" title="1.2.修改DNS的方法"></a>1.2. 修改 DNS 的方法</h3><p>常用的 DNS 服务器</p><ol><li>114.114.114.114<ul><li>114.114.114.114 是国内移动、电信和联通通用的 DNS，手机和电脑端都可以使用，干净无广告，解析成功率相对来说更高，国内用户使用的比较多，而且速度相对快、稳定，是国内用户上网常用的 DNS。</li></ul></li><li>8.8.8.8<ul><li>8.8.8.8 是 GOOGLE 公司提供的 DNS，该地址是全球通用的，相对来说，更适合国外以及访问国外网站的用户使用。</li></ul></li></ol><h4 id="1-2-1-修改本机的DNS"><a href="#1-2-1-修改本机的DNS" class="headerlink" title="1.2.1.修改本机的DNS"></a>1.2.1. 修改本机的 DNS</h4><p>修改本机 DNS 只是影响本机的域名解析服务器，而不影响局域网中其它主机的 DNS。</p><ul><li>Windows</li></ul><p>修改方法为：网络和共享中心选择” 更改适配器设置”——&gt; 右键” 无线网络连接” 属性 ——&gt; 双击 “internet 协议（TCP/IPV4）”</p><p><a href="https://i.fuocu.cn/images/2020/02/23/3ad1a2f427504ab2e268f55a9d7e0b80.png"><img src="https://i.fuocu.cn/images/2020/02/23/3ad1a2f427504ab2e268f55a9d7e0b80.png"></a></p><p>但是需要注意的一点是，更改完本机 dns 之后需要打开命令提示符，输入 ipconfig /flushdns 这条命令来刷新 dns，否则更改完之后短时间之内还是以之前的 dns 来解析。</p><ul><li>MacOS</li></ul><p>修改方法为：<strong>系统偏好设置</strong>选择” 网络”——&gt;” 高级”——&gt; “DNS”</p><p><a href="https://i.fuocu.cn/images/2020/02/23/fb992864d49e018f1b34fb95adff85f5.png"><img src="https://i.fuocu.cn/images/2020/02/23/fb992864d49e018f1b34fb95adff85f5.png"></a></p><p>点击左下角的 “+” 号，输入即可。</p><h4 id="1-2-2-修改路由的DNS"><a href="#1-2-2-修改路由的DNS" class="headerlink" title="1.2.2.修改路由的DNS"></a>1.2.2. 修改路由的 DNS</h4><p>修改路由器的 dns 则是把连接路由器的所有终端进行修改，该修改项是存在于 <code>dhcp</code> 信息里，因此每个连接该路由器的终端都会获取到设置的 <code>dns</code>。但需要注意一点，若终端已连接路由器，路由器在更改 dns 之后无重启操作，那么之前连接的终端依然以之前获取的 dns 来解析，除非路由器进行重启，或者让终端进行重新连接。</p><p>修改路由 DNS 的方法：打开网址<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMS4xLw=="> 192.168.1.1/<i class="fa fa-external-link-alt"></i></span>以管理员密码登录到路由器管理页面，做下图设置：</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="NetWork" scheme="https://blog.fuocu.cn/categories/NetWork/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="IP" scheme="https://blog.fuocu.cn/tags/IP/"/>
+    
+      <category term="MacOS" scheme="https://blog.fuocu.cn/tags/MacOS/"/>
+    
+      <category term="DNS" scheme="https://blog.fuocu.cn/tags/DNS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SCSS 教程</title>
+    <link href="https://blog.fuocu.cn/Code/scss-course/"/>
+    <id>https://blog.fuocu.cn/Code/scss-course/</id>
+    <published>2020-02-23T07:48:51.000Z</published>
+    <updated>2020-07-31T05:49:28.481Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><p><strong><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Fzcy5oay8=">Sass<i class="fa fa-external-link-alt"></i></span>** 是成熟、稳定、强大的</strong> CSS 预处理器 **，而 SCSS 是 Sass3 版本当中引入的新语法特性，完全兼容 CSS3 的同时继承了 Sass 强大的动态功能。</p><h1 id="特性概览"><a href="#特性概览" class="headerlink" title="特性概览"></a>特性概览</h1><p><code>CSS</code> 书写代码规模较大的 <code>Web</code> 应用时，容易造成选择器、层叠的复杂度过高，因此推荐通过 SASS 预处理器进行 <code>CSS</code> 的开发，<code>SASS</code> 提供的变量、嵌套、混合、继承等特性，让 <code>CSS</code> 的书写更加有趣与程式化。</p><hr><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量用来存储需要在 CSS 中复用的信息，例如颜色和字体。SASS 通过 $ 符号去声明一个变量。</p><p>$font-stack: Helvetica, sans-serif;<br>$primary-color: #333;</p><p>body {<br>  font: 100% $font-stack;<br>  color: $primary-color;<br>}</p><p>上面例子中变量 $font-stack 和 $primary-color 的值将会替换所有引用他们的位置。</p><p>body {<br>  font: 100% Helvetica, sans-serif;<br>  color: #333; }</p><h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><p><code>SASS</code> 允许开发人员以嵌套的方式使用 <code>CSS</code>，但是过度的使用嵌套会让产生的 <code>CSS</code> 难以维护，因此是一种不好的实践，下面的例子表达了一个典型的网站导航样式：</p><p>nav {<br>  ul {<br>    margin: 0;<br>    padding: 0;<br>    list-style: none;<br>  }</p><p>  li { display: inline-block; }</p><p>  a {<br>    display: block;<br>    padding: 6px 12px;<br>    text-decoration: none;<br>  }<br>}</p><p>大家注意上面代码中的 ul、li、a 选择器都被嵌套在 nav 选择器当中使用，这是一种书写更高可读性 CSS 的良好方式，编译后产生的 CSS 代码如下：</p><p>nav ul {<br>  margin: 0;<br>  padding: 0;<br>  list-style: none; }<br>nav li {<br>  display: inline-block; }<br>nav a {<br>  display: block;<br>  padding: 6px 12px;<br>  text-decoration: none; }</p><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p><code>SASS</code> 能够将代码分割为多个片段，并以 <code>underscore</code> 风格的下划线作为其命名前缀（<code>_partial.scss</code>），SASS 会通过这些下划线来辨别哪些文件是 <code>SASS</code> 片段，并且不让片段内容直接生成为 <code>CSS</code> 文件，从而只是在使用 @import 指令的位置被导入。<code>CSS</code> 原生的 <code>@import</code> 会通过额外的 <code>HTTP</code> 请求获取引入的样式片段，而 <code>SASS</code> 的 <code>@import</code> 则会直接将这些引入的片段合并至当前 <code>CSS</code> 文件，并且不会产生新的 HTTP 请求。下面例子中的代码，将会在 <code>base.scss</code> 文件当中引入<code>_reset.scss</code> 片断。</p><p>// _reset.scss<br>html, body, ul, ol {<br>  margin:  0;<br>  padding: 0;<br>}</p><p>// base.scss<br>@import ‘reset’;<br>body {<br>  font: 100% Helvetica, sans-serif;<br>  background-color: #efefef;<br>}</p><p>SASS 中引入片断时，可以缺省使用文件扩展名，因此上面代码中直接通过 @import ‘reset’引入，编译后生成的代码如下：</p><p>html, body, ul, ol {<br>  margin: 0;<br>  padding: 0; }</p><p>body {<br>  font: 100% Helvetica, sans-serif;<br>  background-color: #efefef; }</p><h2 id="混合"><a href="#混合" class="headerlink" title="混合"></a>混合</h2><p>混合（Mixin）用来分组那些需要在页面中复用的 CSS 声明，开发人员可以通过向 Mixin 传递变量参数来让代码更加灵活，该特性在添加浏览器兼容性前缀的时候非常有用，SASS 目前使用 @mixin name 指令来进行混合操作。</p><p>@mixin border-radius($radius) {<br>          border-radius: $radius;<br>      -ms-border-radius: $radius;<br>     -moz-border-radius: $radius;<br>  -webkit-border-radius: $radius;<br>}</p><p>.box {<br>  @include border-radius(10px);<br>}</p><p>上面的代码建立了一个名为 border-radius 的 Mixin，并传递了一个变量 $radius 作为参数，然后在后续代码中通过 @include border-radius (10px) 使用该 Mixin，最终编译的结果如下：</p><p>.box {<br>  border-radius: 10px;<br>  -ms-border-radius: 10px;<br>  -moz-border-radius: 10px;<br>  -webkit-border-radius: 10px; }</p><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承是 SASS 中非常重要的一个特性，可以通过 @extend 指令在选择器之间复用 CSS 属性，并且不会产生冗余的代码，下面例子将会通过 SASS 提供的继承机制建立一系列样式：</p><p>// 这段代码不会被输出到最终生成的 CSS 文件，因为它没有被任何代码所继承。<br>%other-styles {<br>  display: flex;<br>  flex-wrap: wrap;<br>}</p><p>// 下面代码会正常输出到生成的 CSS 文件，因为它被其接下来的代码所继承。<br>%message-common {<br>  border: 1px solid #ccc;<br>  padding: 10px;<br>  color: #333;<br>}</p><p>.message {<br>  @extend %message-common;<br>}</p><p>.success {<br>  @extend %message-common;<br>  border-color: green;<br>}</p><p>.error {<br>  @extend %message-common;<br>  border-color: red;<br>}</p><p>.warning {<br>  @extend %message-common;<br>  border-color: yellow;<br>}</p><p>上面代码将.message 中的 CSS 属性应用到了.success、.error、.warning 上面，魔法将会发生在最终生成的 CSS 当中。这种方式能够避免在 HTML 元素上书写多个 class 选择器，最终生成的 CSS 样式是下面这样的：</p><p>.message, .success, .error, .warning {<br>  border: 1px solid #ccc;<br>  padding: 10px;<br>  color: #333; }</p><p>.success {<br>  border-color: green; }</p><p>.error {<br>  border-color: red; }</p><p>.warning {<br>  border-color: yellow; }</p><h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p>SASS 提供了标准的算术运算符，例如 <code>+、-、*、/、%</code>。在接下来的例子里，我们尝试在 aside 和 article 选择器当中对宽度进行简单的计算。</p><p>.container { width: 100%; }</p><p>article[role=”main”] {<br>  float: left;<br>  width: 600px / 960px * 100%;<br>}</p><p>aside[role=”complementary”] {<br>  float: right;<br>  width: 300px / 960px * 100%;<br>}</p><p>上面代码以 960px 为基准建立了简单的流式网格布局，SASS 提供的算术运算符让开发人员可以更容易的将像素值转换为百分比，最终生成的 CSS 样式如下所示：</p><p>.container {<br>  width: 100%; }</p><p>article[role=”main”] {<br>  float: left;<br>  width: 62.5%; }</p><p>aside[role=”complementary”] {<br>  float: right;<br>  width: 31.25%; }</p><h1 id="CSS扩展"><a href="#CSS扩展" class="headerlink" title="CSS扩展"></a>CSS 扩展</h1><h2 id="引用父级选择器”-amp-”"><a href="#引用父级选择器”-amp-”" class="headerlink" title="引用父级选择器”&amp;”"></a>引用父级选择器”&amp;”</h2><p>Scss 使用”&amp;” 关键字在 CSS 规则中引用父级选择器，例如在嵌套使用伪类选择器的场景下：</p><p>/<em>===== SCSS =====</em>/<br>a {<br>  font-weight: bold;<br>  text-decoration: none;<br>  &amp;:hover { text-decoration: underline; }<br>  body.firefox &amp; { font-weight: normal; }<br>}</p><p>/<em>===== CSS =====</em>/<br>a {<br>  font-weight: bold;<br>  text-decoration: none; }<br>  a:hover {<br>    text-decoration: underline; }<br>  body.firefox a {<br>    font-weight: normal; }</p><p>无论 CSS 规则嵌套的深度怎样，关键字”&amp;” 都会使用父级选择器级联替换全部其出现的位置：</p><p>/<em>===== SCSS =====</em>/<br>#main {<br>  color: black;<br>  a {<br>    font-weight: bold;<br>    &amp;:hover { color: red; }<br>  }<br>}</p><p>/<em>===== CSS =====</em>/<br>#main {<br>  color: black; }<br>  #main a {<br>    font-weight: bold; }<br>    #main a:hover {<br>      color: red; }</p><p>“&amp;” 必须出现在复合选择器开头的位置，后面再连接自定义的后缀，例如：</p><p>/<em>===== SCSS =====</em>/<br>#main {<br>  color: black;<br>  &amp;-sidebar { border: 1px solid; }<br>}</p><p>/<em>===== CSS =====</em>/<br>#main {<br>  color: black; }<br>  #main-sidebar {<br>    border: 1px solid; }</p><p>如果在父级选择器不存在的场景使用 &amp;，Scss 预处理器会报出错误信息。</p><h2 id="嵌套属性"><a href="#嵌套属性" class="headerlink" title="嵌套属性"></a>嵌套属性</h2><p>CSS 许多属性都位于相同的命名空间（例如 font-family、font-size、font-weight 都位于 font 命名空间下），Scss 当中只需要编写命名空间一次，后续嵌套的子属性都将会位于该命名空间之下，请看下面的代码：</p><p>/<em>===== SCSS =====</em>/<br>.demo {<br>  // 命令空间后带有冒号:<br>  font: {<br>    family: fantasy;<br>    size: 30em;<br>    weight: bold;<br>  }<br>}</p><p>/<em>===== CSS =====</em>/<br>.demo {<br>  font-family: fantasy;<br>  font-size: 30em;<br>  font-weight: bold; }</p><p>命令空间上可以直接书写 CSS 简写属性，但是日常开发中建议直接书写 CSS 简写属性，尽量保持 CSS 语法的一致性。</p><p>.demo {<br>  font: 20px/24px fantasy {<br>    weight: bold;<br>  }<br>}</p><p>.demo {<br>  font: 20px/24px fantasy;<br>    font-weight: bold;<br>}</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Code" scheme="https://blog.fuocu.cn/categories/Code/"/>
+    
+    
+      <category term="代码" scheme="https://blog.fuocu.cn/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="sass" scheme="https://blog.fuocu.cn/tags/sass/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OCC 命令给 ownCloud/Nextcloud 手动添加文件</title>
+    <link href="https://blog.fuocu.cn/Linux/occ-command-to-manually-add-files-to-owncloud-nextcloud/"/>
+    <id>https://blog.fuocu.cn/Linux/occ-command-to-manually-add-files-to-owncloud-nextcloud/</id>
+    <published>2020-02-21T17:53:02.000Z</published>
+    <updated>2020-07-31T05:49:28.464Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><p>有时候，直接通过 Web 页面上传文件并不那么方便，于是有的朋友就直接把文件上传到服务器里，然后拷贝到 data 目录下，打开 <code>ownCloud</code>，却还是之前的文件。 这是因为虽然上传了文件，但是 <code>ownCloud/Nextcloud</code> 的数据库里并没有这个文件的信息。文件信息都被存储在数据库的 <code>oc_filecach</code>e 表 <a href="https://i.loli.net/2020/02/22/6zRqSpc3yDWGrJk.png"><img src="https://i.loli.net/2020/02/22/6zRqSpc3yDWGrJk.png"></a></p><h2 id="使用OCC命令更新文件索引。"><a href="#使用OCC命令更新文件索引。" class="headerlink" title="使用OCC命令更新文件索引。"></a>使用 OCC 命令更新文件索引。</h2><p>occ 有三个用于管理 Nextcloud 中文件的命令：<br>files<br>files:cleanup #清楚文件缓存<br>files:scan #重新扫描文件系统<br>files:transfer-ownership #将所有文件和文件夹都移动到另一个文件夹</p><ul><li>我们需要使用</li></ul><p>files:scan</p><ul><li>来扫描新文件。</li></ul><p>格式:<br>files:scan [-p|–path=”…”] [-q|–quiet] [-v|vv|vvv –verbose] [–all]<br>[user_id1] … [user_idN]<br>参数:<br>user_id #扫描所指定的用户（一个或多个，多个用户 ID 之间要使用空格分开）的所有文件<br>选项:<br>–path #限制扫描路径<br>–all #扫描所有已知用户的所有文件<br>–quiet #不输出统计信息<br>–verbose #在扫描过程中显示正在处理的文件和目录<br>–unscanned #仅扫描以前未扫描过的文件</p><ul><li>以下是一个具体的命令示例：</li></ul><p>sudo -u www-data php occ files:scan –all #扫描所有用户的所有文件<br>sudo -u www php /www/wwwroot/ 站点文件夹 /occ files:scan –all #宝塔面板</p><ul><li>执行命令后未进行扫描并列出扫描信息。</li></ul><p><a href="https://i.loli.net/2020/02/22/gD6mb7UzQVHBCyi.png"><img src="https://i.loli.net/2020/02/22/gD6mb7UzQVHBCyi.png"></a> &nbsp;</p><ul><li>如果不想显示扫描信息，可以在后面加上 <code>--quiet</code></li><li>如下：</li></ul><p>sudo -u www-data php occ files:scan –all –quiet<br>sudo -u www php /www/wwwroot/ 站点文件夹 /occ files:scan&nbsp;–all&nbsp;–quiet #宝塔面板</p><h2 id="指定扫描位置"><a href="#指定扫描位置" class="headerlink" title="指定扫描位置"></a>指定扫描位置</h2><ul><li>总是扫描全部信息并不是那么有必要，还会白白消耗服务器资源。</li></ul><h3 id="指定扫描的用户"><a href="#指定扫描的用户" class="headerlink" title="指定扫描的用户"></a>指定扫描的用户</h3><ul><li>列出所有用户：</li></ul><p>sudo -u www-data php occ user:list<br>sudo -u www php /www/wwwroot/ 站点文件夹 /occ user:list #宝塔面板</p><p><a href="https://i.loli.net/2020/02/22/ebnfvP7HIxsZQCD.png"><img src="https://i.loli.net/2020/02/22/ebnfvP7HIxsZQCD.png"></a></p><ul><li>为指定用户扫描文件：</li></ul><p>sudo -u www-data php occ files:scan 指定用户<br>sudo -u www php /www/wwwroot/ 站点文件夹 /occ files:scan&nbsp;指定用户 #宝塔面板</p><h3 id="指定扫描目录"><a href="#指定扫描目录" class="headerlink" title="指定扫描目录"></a>指定扫描目录</h3><ul><li>当使用 <code>--path</code> 选项时，该路径必须包含以下部分：</li></ul><p>“user_id/files/path”<br>#或<br>“user_id/files/mount_name”<br>#或<br>“user_id/files/mount_name/path”</p><ul><li>其中，<code>/files/</code> 是必须要加上的，不可忽略。</li><li>示例：</li></ul><p>sudo -u www-data php occ files:scan –path=”/ChengYe/files/Photos” #指向用户 ChengYe 的 Photos 文件夹<br>sudo -u www php /www/wwwroot/ 站点文件夹 /occ files:scan –path=”/ 指定用户 /files/Photos” #指向指定用户的 Photos 文件夹 #宝塔面板</p><p><span class="exturl" data-url="aHR0cHM6Ly93d3cub3JnbGVhZi5jb20vMjQwMC5odG1s">https://www.orgleaf.com/2400.html<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="PHP" scheme="https://blog.fuocu.cn/tags/PHP/"/>
+    
+      <category term="NextCloud" scheme="https://blog.fuocu.cn/tags/NextCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何给 Ubuntu 系统清理垃圾</title>
+    <link href="https://blog.fuocu.cn/Linux/clean-up-the-garbage-for-ubuntu-system/"/>
+    <id>https://blog.fuocu.cn/Linux/clean-up-the-garbage-for-ubuntu-system/</id>
+    <published>2020-02-21T09:08:18.000Z</published>
+    <updated>2020-07-31T05:49:28.392Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><p>使用 <strong>Windows</strong> 的同学都知道，我们可以利用各种安全卫士以及系统清理工具来清除系统运行时产生的系统垃圾。那么当你禁不住开源系统的诱惑，开始尝试 <strong>Ubuntu</strong> 系统时，是不是经常在思考该如何在 <strong>Ubuntu</strong> 下清理系统垃圾呢？下面，就让跟着本文来给你的 <strong>Ubuntu</strong> 系统来一次大扫除吧。 方法 / 步骤</p><h2 id="1、清理下载的软件包"><a href="#1、清理下载的软件包" class="headerlink" title="1、清理下载的软件包"></a>1、清理下载的软件包</h2><p>不过与你想象的可能有很大的不同，<strong>Ubuntu</strong> 系统在运行时是不会产生无用垃圾的。这一点与 <strong>Windows</strong> 系统有很大的不同。但是我们在升级系统时，软件管理器下载的软件包，系统则不会自动删除，其实这样做也是考虑到你可能会再次安装从而加快再次安装的速度考虑。当然了，我们普通用户，一旦下载安装完毕，其安装包也就没有存在的必要了，当然如果你是要安装更新并管理一大堆电脑的系统管理员就另当别论咯。更何况，我们再次安装时，只要你选择了一个合适的软件源，那下载速度一样是飞快的。因此，我们隔一段时间就可清理一下 <code>apt-get</code> 等软件管理器下载下来的安装包咯。</p><p>我们先看一下，这些安装包占了多大空间吧。按快捷键 ctrl+alt+t 打开终端，输入命令<br>du –h /var/cache/apt/archives<br>回车之后，我们就可以看到安装包所占用的空间咯。<br>那我们就来删除这些软件包吧。若你生性小心谨慎，那就只删除那些你已经将其卸载掉的软件的软件。删除你已经卸载掉的软件包的命令为<br>sudo　apt-get autoclean<br>若你想清理出更多的空间，而且网速又比较快的话，那你大可以把电脑上存储的安装包全部卸载咯，命令为<br>sudo　apt-get clean<br>还有一类软件包，我们每个人都应该删除，那就是你已经卸载了，但是一些只有它依赖而别的软件包都不需要的软件包还留在你的系统里。说简单点就是，类似于你在 windows 系统中卸载软件时残留在系统里的垃圾咯。卸载这些孤立包的命令为<br>sudo　apt-get autoremove</p><h2 id="2、删除不用的老旧内核"><a href="#2、删除不用的老旧内核" class="headerlink" title="2、删除不用的老旧内核"></a>2、删除不用的老旧内核</h2><blockquote><p>若你的系统更新过好多次，如 <strong>Ubuntu</strong>，在系统升级的过程中，其所使用 <strong>Linux</strong> 内核也可能更新。因此，升级多次后，你的 <strong>boot</strong> 文件夹就会变得比较大，其原因就是因为虽然系统更新升级了新内核，但是老内核依然留在了你的系统中。也许你会说系统太笨了，不知道升级了新的就该把老的删除吗？实际上，不删除掉老的内核也是一种安全测试。虽然说，系统升级包在释放出之前已经进行了广泛的测试，但依然可能有意外存在，所以才不删除掉老的内核，以便于使用新升级的内核无法启动时，你能马上使用老内核进行启动，不至于导致你无法进入系统的悲剧。不过在你升级完毕，重启后能进入系统后，说明新内核已经很好的兼容了你的电脑，那么你就可以放心大胆的删除掉老内核咯，也好腾出更多空间让你使用哦。</p></blockquote><p>不过老内核时一定要小心，那就是 —— 千万不要删错咯。所以删除之前要先看一看你现在正在使用的内核是哪一个。方法是在终端中输入命令<br>uname –r，然后看其显示的内核版本是多少。看准了自己使用的内核后，你就可以放心大胆的删除那些不用的老内核。<br>打开终端，敲入命令 dpkg –get-selections | grep linux<br>然后将不用的内核文件 image、头文件 headers 删除掉就可以咯。在终端中输入命令<br>sudo apt-get purge 内核文件名 头文件名<br>删除内核后，就可以省下很多空间哦<br>3.3</p><h2 id="3、清理浏览器的缓存文件。"><a href="#3、清理浏览器的缓存文件。" class="headerlink" title="&nbsp;3、清理浏览器的缓存文件。"></a>&nbsp;3、清理浏览器的缓存文件。</h2><blockquote><p>我们在 Ubuntu 中经常使用的浏览器当然是火狐浏览器咯，在我们浏览网页时，它会把网页缓存到本地，因此会在本地保留一些缓存文件，若你是个有洁癖的人，或者喜欢给系统清理垃圾的话，我们也可以删除火狐浏览器的缓存。 方法是打开火狐的首选项 - &gt; 隐私与安全 - &gt; Cookie 和网站数据，点击右边的<strong>清除数据</strong>按钮就可以咯，如下图所示：</p></blockquote><p><a href="https://i.loli.net/2020/02/21/VYcCDTBArQfnyGe.png"><img src="https://i.loli.net/2020/02/21/VYcCDTBArQfnyGe.png"></a></p><h2 id="4、清除已卸载软件的残留配置文件。"><a href="#4、清除已卸载软件的残留配置文件。" class="headerlink" title="4、清除已卸载软件的残留配置文件。"></a>4、清除已卸载软件的残留配置文件。</h2><p>在我们使用系统的过程中，有时候需要把不用的软件给卸载掉。若你无需再次安装该软件，可以把软件的配置文件也清理掉，此时在卸载软件的时候，尽可能使用 <code>sudo apt-get purge xxxxx（xxxx为要卸载的软件名）</code>，这样可以将软件以及它的配置文件均卸载干净。不过由于这样或那样的原因，系统中有时候会残留下某些已卸载软件的配置文件。如果想清除掉这些残留的配置文件，我们可以使用一款常见的软件来完成 —— 新力得软件包管理器（<strong>synaptic</strong>）来清除已卸载软件的残留配置文件。 这个方法适用于多种 <strong>Ubuntu</strong> 以及 <strong>Debain</strong> 系的 <strong>Linux</strong> 系统，如 <strong>Mint</strong> 以及深度 <strong>Linux</strong> 系统 <em>原文地址：<span class="exturl" data-url="aHR0cHM6Ly9qaW5neWFuLmJhaWR1LmNvbS9hcnRpY2xlL2U2Yzg1MDNjMWUwNWQ2ZTU0ZjFhMTgwOC5odG1s">https://jingyan.baidu.com/article/e6c8503c1e05d6e54f1a1808.html<i class="fa fa-external-link-alt"></i></span></em></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Ubuntu" scheme="https://blog.fuocu.cn/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CENTOS8 宝塔下安装 aria2 和 AriaNg 添加 HTTPS 访问支持</title>
+    <link href="https://blog.fuocu.cn/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/install-aria2-and-ariang-is-ssl/"/>
+    <id>https://blog.fuocu.cn/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/install-aria2-and-ariang-is-ssl/</id>
+    <published>2020-02-20T09:01:34.000Z</published>
+    <updated>2020-07-31T05:49:28.423Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><p>首先你安装得有一台安装了 CENTOS7 的 KVM 架构的 vps，安装宝塔完毕。 首先安装 ARIA2，这个我们直接用某大佬的一键脚本吧：</p><p>wget -N –no-check-certificate <span class="exturl" data-url="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1RveW9EQWRvdWJpQmFja3VwL2RvdWJpL21hc3Rlci9hcmlhMi5zaA==">https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/aria2.sh<i class="fa fa-external-link-alt"></i></span> &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh</p><p>安装完毕后，会展示出你的服务器地址，你的 NPC 访问密码，端口和默认下载目录。 宝塔里面创建站点，比如创建<span class="exturl" data-url="aHR0cHM6Ly9kb3dubG9hZC5mdW9jdS5jbi8="> download.fuocu.cn<i class="fa fa-external-link-alt"></i></span>(如果你懒得折腾，而且也愿意用安全的 <code>HTTPS</code> 走你的数据，你直接用我搭建的 <code>AriaNg</code> 前端访问即可，后面都不用看了，填写你的 <code>ARIA2</code> 配置信息即可，反正这个只有你自己填写好你的 <code>NPC</code> 密码，服务器地址，端口等信息后才可以用，而且服务端不会有任何记录） 为了自己的数据传输安全，在宝塔后台申请 <strong>Let’s Encrypt</strong> 的证书，这个简单，只要你的域名提前做好解析，填写好邮箱，很快就可以申请成功。 去宝塔的后台界面远程下载 <code>AriaNg</code>，下载地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21heXN3aW5kL0FyaWFOZy9yZWxlYXNlcy9kb3dubG9hZC8xLjEuNC9BcmlhTmctMS4xLjQuemlw">https://github.com/mayswind/AriaNg/releases/download/1.1.4/AriaNg-1.1.4.zip<i class="fa fa-external-link-alt"></i></span> 当然如果你看到这篇笔记晚于 2020 年 2 月，你也可以去 **<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21heXN3aW5kL0FyaWFOZy9yZWxlYXNlcw==">AriaNg 发布页<i class="fa fa-external-link-alt"></i></span>** 去寻找最新版本。 下载完成后，宝塔后台就可以解压缩，解压缩到根目录。 现在问题来了，你用你创建好的<span class="exturl" data-url="aHR0cHM6Ly9kb3dubG9hZC5mdW9jdS5jbi8="> download.fuocu.cn<i class="fa fa-external-link-alt"></i></span>在浏览器里访问，填写我们前面安装 aria2 的 NPC 密码后依然显示未连接。原因？就是因为我们需要更改 <code>ARIA2</code> 的配置文件。</p><p>vi /root/.aria2/aria2.conf</p><p>找到，没有可以自行添加到配置文件。</p><p>#是否启用 RPC 服务的 SSL/TLS 加密<br>#rpc-secure=true<br>#申请的域名 crt 证书文件路径，自行修改<br>#rpc-certificate=/root/xxx.crt<br>## 申请的域名 key 证书文件路径，自行修改<br>#rpc-private-key=/root/xxx.key</p><p>首先把上述三行的注释去掉，开启 <strong>HTTPS</strong> 访问支持，关键是下面两个证书文件路径，哪里找，其实你的站点配置信息里面有，如果你的宝塔安装的是 <strong>nginx</strong>，在你的站点 <strong>nginx</strong> 配置文件中包含路径。进入宝塔后台，站点设置里面找到 <strong>nginx</strong> 配置： 找到：</p><p>ssl_certificate /www/server/panel/vhost/cert/aria2.zhanghaitao.com/fullchain.pem;<br>ssl_certificate_key /www/server/panel/vhost/cert/aria2.zhanghaitao.com/privkey.pem</p><p>先别急，你如果直接填写这两个文件地址不会成功，我在这里耽误了 3 个小时才折腾完毕，记得谢我，评论区见。需要把 <code>privkey.pem</code> 用 openssl 转换一下，进入这个目录：</p><p>cd /www/server/panel/vhost/cert/download.fuocu.cn/<br>openssl rsa -in privkey.pem -out privkey.key</p><p>转换完成后，你得到了 <code>privkey.key</code> 这个文件：</p><p>vi /root/.aria2/aria2.conf</p><p>编辑为：</p><p># 启用加密后 RPC 服务需要使用 https 或者 wss 协议连接<br>rpc-secure=true<br># 在 RPC 服务中启用 SSL/TLS 加密时的证书文件 (.pem/.crt)<br>rpc-certificate=/www/server/panel/vhost/cert/aria2.zhanghaitao.com/fullchain.pem<br># 在 RPC 服务中启用 SSL/TLS 加密时的私钥文件 (.key)<br>rpc-private-key=/www/server/panel/vhost/cert/aria2.zhanghaitao.com/privkey.key</p><p>重新启动 <code>ARIA2</code></p><p>service aria2 restart</p><p>再访问你的 AriaNg 你会发现连接成功，尽情享受吧：）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+      <category term="宝塔面板" scheme="https://blog.fuocu.cn/categories/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Cloud" scheme="https://blog.fuocu.cn/tags/Cloud/"/>
+    
+      <category term="APP" scheme="https://blog.fuocu.cn/tags/APP/"/>
+    
+      <category term="Aria2" scheme="https://blog.fuocu.cn/tags/Aria2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>宝塔面板搭建 NextCloud 安全问题及插件推荐</title>
+    <link href="https://blog.fuocu.cn/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/nextcloud-bug-in-pagoda-panel-building-and-solutions/"/>
+    <id>https://blog.fuocu.cn/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/nextcloud-bug-in-pagoda-panel-building-and-solutions/</id>
+    <published>2020-02-19T09:59:52.000Z</published>
+    <updated>2020-07-31T05:49:28.462Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><p>终于要写这个了啊 采用 LAMP 架构安装 Nextcloud 私有云盘是一个很简单的过程，但是由于是开源软件，难免会存在一些 BUG 和小问题，这里罗列了安装过程中可能会出现的一些问题并汇总，仅供参考。</p><ul><li>使用宝塔面板和 Nextcloud 搭建私有云 / 网盘图文教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnVvY3UuY24vYXJjaGl2ZXMvdXNlLXRoZS1wYWdvZGEtcGFuZWwtYW5kLW5leHRjbG91ZC10by1idWlsZC1hLXByaXZhdGUtY2xvdWQtb25saW5lLWRpc2stZ3JhcGhpYy10dXRvcmlhLw==">https://www.fuocu.cn/archives/use-the-pagoda-panel-and-nextcloud-to-build-a-private-cloud-online-disk-graphic-tutoria/<i class="fa fa-external-link-alt"></i></span></li></ul><blockquote><p>先看一下我与到的问题</p></blockquote><p><a href="https://i.loli.net/2020/02/19/STcQfVUZYKCIe9B.png"><img src="https://i.loli.net/2020/02/19/STcQfVUZYKCIe9B.png"></a></p><blockquote><p>当时看到的时候头都大了，问题太多了，下面咱们来一一解决。</p></blockquote><h2 id="1、红色问题"><a href="#1、红色问题" class="headerlink" title="1、红色问题"></a>1、红色问题</h2><blockquote><p>您的数据目录和文件可以从互联网直接访问。<code>.htaccess</code> 文件不起作用。强烈建议您配置 <code>Web</code> 服务器，以便数据目录不再可访问，或者您可以将数据目录移动到 <code>Web</code> 服务器文档根目录。</p></blockquote><p>解决方法是修改 nextcloud 绑定的网站配置文件，添加 nextcloud 常用目录禁止访问即可，加入下列代码</p><p>location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {<br>  deny all;<br>}</p><p><a href="https://i.loli.net/2020/02/19/V7ZwytdpWP2L6Rk.png"><img src="https://i.loli.net/2020/02/19/V7ZwytdpWP2L6Rk.png"></a></p><h2 id="2、黄色问题"><a href="#2、黄色问题" class="headerlink" title="2、黄色问题"></a>2、黄色问题</h2><blockquote><p>PHP 的安装似乎不正确，无法访问系统环境变量。<code>getenv("PATH")</code> 函数测试返回了一个空值。 请参照<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5leHRjbG91ZC5jb20vc2VydmVyLzE4L2dvLnBocD90bz1hZG1pbi1waHAtZnBt">安装说明文档 ↗<i class="fa fa-external-link-alt"></i></span>中的 <code>PHP</code> 配置说明查阅您服务器的 PHP 配置信息，特别是在使用 <code>php-fpm</code> 时。</p></blockquote><p>从宝塔文件管理，打开 <code>/www/server/php/74/etc/php-fpm.conf</code>，在其尾部添加一行</p><p>env[PATH] = /usr/local/bin:/usr/bin:/bin:/usr/local/php/bin</p><p>保存并重启 PHP 即可解决该问题。 <a href="https://i.loli.net/2020/02/19/qcpvSMj8BO9tF5n.png"><img src="https://i.loli.net/2020/02/19/qcpvSMj8BO9tF5n.png"></a></p><blockquote><p>PHP 内存限制低于建议值 <code>512MB</code>。</p></blockquote><p>在<strong>宝塔 PHP 配置修改</strong>中把 <strong>脚本运行内存</strong> 修改为 512MB 以上就行。这里我修改为 <strong>1024MB</strong>。然后点击保存即可。 <a href="https://i.loli.net/2020/02/19/N1dTyMnQRXZujsI.png"><img src="https://i.loli.net/2020/02/19/N1dTyMnQRXZujsI.png"></a></p><blockquote><p>HTTP 请求头 “<strong>X-Content-Type-Options</strong>“ 没有配置为 “<code>nosniff</code>“。这是一个潜在的安全或隐私风险，我们建议您调整这项设置。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+      <category term="宝塔面板" scheme="https://blog.fuocu.cn/categories/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/"/>
+    
+    
+      <category term="PHP" scheme="https://blog.fuocu.cn/tags/PHP/"/>
+    
+      <category term="MySQL" scheme="https://blog.fuocu.cn/tags/MySQL/"/>
+    
+      <category term="NextCloud" scheme="https://blog.fuocu.cn/tags/NextCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用宝塔面板和 Nextcloud 搭建私有云 / 网盘图文教程</title>
+    <link href="https://blog.fuocu.cn/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/use-the-pagoda-panel-and-nextcloud-to-build-a-private-cloud-online-disk-graphic-tutoria/"/>
+    <id>https://blog.fuocu.cn/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/use-the-pagoda-panel-and-nextcloud-to-build-a-private-cloud-online-disk-graphic-tutoria/</id>
+    <published>2020-02-19T04:17:23.000Z</published>
+    <updated>2020-07-31T05:49:28.487Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><blockquote><p><strong>Nextcloud 是一款自由 (开源) 的类 Dropbox 软件，由 ownCloud 分支演化形成。它使用 PHP 和 JavaScript 编写，支持多种数据库系统，比如 MySQL/MariaDB、PostgreSQL、Oracle 数据库和 SQLite。它可以使你的桌面系统和云服务器中的文件保持同步，Nextcloud 为 Windows、<span class="exturl" data-url="aHR0cHM6Ly93d3cubGludXhwcm9iZS5jb20v">Linux<i class="fa fa-external-link-alt"></i></span>、Mac、安卓以及苹果手机都提供了客户端支持。</strong></p></blockquote><p><strong>Nextcloud</strong> 并非只是 <strong>Dropbox</strong> 的克隆，它还提供了很多附加特性，如日历、联系人、计划任务以及流媒体 <strong>Ampache</strong>。 在这篇文章中，我将向你展示如何在 <strong>宝塔面板</strong> 服务器中安装和配置最新版本的 <strong>Nextcloud 18.1</strong>。我会通过 <strong>Nginx</strong> 和 <strong>PHP7-FPM</strong> 来运行 Nextcloud，同时使用 MariaDB 做为数据库系统。 [caption id=”” align=”alignnone” width=”1510”]<a href="https://i.loli.net/2020/02/19/VZmg2MXO1ApN6tD.jpg"><img src="https://i.loli.net/2020/02/19/VZmg2MXO1ApN6tD.jpg" alt="NextCloud"></a> NextCloud[/caption]</p><h2 id="安装-nextcloud-的过程"><a href="#安装-nextcloud-的过程" class="headerlink" title="安装 nextcloud 的过程"></a>安装 nextcloud 的过程</h2><h3 id="一、提前把域名解析到-vps-的-IP。"><a href="#一、提前把域名解析到-vps-的-IP。" class="headerlink" title="一、提前把域名解析到 vps 的 IP。"></a>一、提前把域名解析到 vps 的 IP。</h3><h3 id="二、使用宝塔面板（宝塔面板官方网址：点我进入）搭建好-php-环境，安装的时候选择-lnmp-环境，php7-以上版本速度更快，效率更高。"><a href="#二、使用宝塔面板（宝塔面板官方网址：点我进入）搭建好-php-环境，安装的时候选择-lnmp-环境，php7-以上版本速度更快，效率更高。" class="headerlink" title="二、使用宝塔面板（宝塔面板官方网址：点我进入）搭建好 php 环境，安装的时候选择 lnmp 环境，php7 以上版本速度更快，效率更高。"></a>二、使用宝塔面板（宝塔面板官方网址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYnQuY24v">点我进入<i class="fa fa-external-link-alt"></i></span>）搭建好 php 环境，安装的时候选择 lnmp 环境，php7 以上版本速度更快，效率更高。</h3><h3 id="三、到这个地址-https-nextcloud-com-install-下载-nextcloud-最新安装文件，打开后点击-download，在弹窗中右键点击-Download-Nextcloud，复制链接地址。"><a href="#三、到这个地址-https-nextcloud-com-install-下载-nextcloud-最新安装文件，打开后点击-download，在弹窗中右键点击-Download-Nextcloud，复制链接地址。" class="headerlink" title="三、到这个地址 https://nextcloud.com/install/ 下载 nextcloud 最新安装文件，打开后点击 download，在弹窗中右键点击 Download Nextcloud，复制链接地址。"></a>三、到这个地址 <span class="exturl" data-url="aHR0cHM6Ly9uZXh0Y2xvdWQuY29tL2luc3RhbGwv">https://nextcloud.com/install/<i class="fa fa-external-link-alt"></i></span> 下载 nextcloud 最新安装文件，打开后点击 download，在弹窗中右键点击 Download Nextcloud，复制链接地址。</h3><h3 id="四、进入宝塔面板后台-gt-gt-文件，选择网站根目录，点击远程下载后在弹窗中粘贴上面的下载地址，点击确定开始下载。安装文件才-58M，几秒钟就下载完毕了。"><a href="#四、进入宝塔面板后台-gt-gt-文件，选择网站根目录，点击远程下载后在弹窗中粘贴上面的下载地址，点击确定开始下载。安装文件才-58M，几秒钟就下载完毕了。" class="headerlink" title="四、进入宝塔面板后台>>文件，选择网站根目录，点击远程下载后在弹窗中粘贴上面的下载地址，点击确定开始下载。安装文件才 58M，几秒钟就下载完毕了。"></a>四、进入宝塔面板后台 &gt;&gt; 文件，选择网站根目录，点击远程下载后在弹窗中粘贴上面的下载地址，点击确定开始下载。安装文件才 58M，几秒钟就下载完毕了。</h3><p><a href="https://i.loli.net/2020/02/19/m7Te8tIvoBCxwkW.png"><img src="https://i.loli.net/2020/02/19/m7Te8tIvoBCxwkW.png"></a></p><h3 id="五、刷新一下当前页面就看到下载后的-nextcloud-安装包了，在名字后面点击解压，会解压缩到-nextcloud-文件夹。进入这个文件夹，全选，剪切，回到网站根目录，粘贴所有（后台右上角），这样就把-nextcloud-的安装文件放到网站根目录了。"><a href="#五、刷新一下当前页面就看到下载后的-nextcloud-安装包了，在名字后面点击解压，会解压缩到-nextcloud-文件夹。进入这个文件夹，全选，剪切，回到网站根目录，粘贴所有（后台右上角），这样就把-nextcloud-的安装文件放到网站根目录了。" class="headerlink" title="五、刷新一下当前页面就看到下载后的 nextcloud 安装包了，在名字后面点击解压，会解压缩到 nextcloud 文件夹。进入这个文件夹，全选，剪切，回到网站根目录，粘贴所有（后台右上角），这样就把 nextcloud 的安装文件放到网站根目录了。"></a>五、刷新一下当前页面就看到下载后的 nextcloud 安装包了，在名字后面点击解压，会解压缩到 nextcloud 文件夹。进入这个文件夹，全选，剪切，回到网站根目录，粘贴所有（后台右上角），这样就把 nextcloud 的安装文件放到网站根目录了。</h3><p><a href="https://i.loli.net/2020/02/19/SzAQuNrMc5R1ikU.png"><img src="https://i.loli.net/2020/02/19/SzAQuNrMc5R1ikU.png"></a></p><blockquote><p>以上复制、剪切、粘贴的功能全都在宝塔面板后台的网页端完成的，不需要登陆服务器操作，确实很方便，即使没操作过的新手也能很快上手。</p></blockquote><h3 id="六、打开域名就看到了创建管理员账号界面，输入管理员账号密码，数据库名和密码，数据库用户名。点击“安装完成”。"><a href="#六、打开域名就看到了创建管理员账号界面，输入管理员账号密码，数据库名和密码，数据库用户名。点击“安装完成”。" class="headerlink" title="六、打开域名就看到了创建管理员账号界面，输入管理员账号密码，数据库名和密码，数据库用户名。点击“安装完成”。"></a>六、打开域名就看到了创建管理员账号界面，输入管理员账号密码，数据库名和密码，数据库用户名。点击 “安装完成”。</h3><p><a href="https://i.loli.net/2020/02/19/AfFkQKYv6LRd4Ee.png"><img src="https://i.loli.net/2020/02/19/AfFkQKYv6LRd4Ee.png"></a></p><h3 id="七、进入-nextcloud-后台界面。看到提示可以下载-PC-端、手机端、苹果系统的-app-使用。"><a href="#七、进入-nextcloud-后台界面。看到提示可以下载-PC-端、手机端、苹果系统的-app-使用。" class="headerlink" title="七、进入 nextcloud 后台界面。看到提示可以下载 PC 端、手机端、苹果系统的 app 使用。"></a>七、进入 nextcloud 后台界面。看到提示可以下载 PC 端、手机端、苹果系统的 app 使用。</h3><h3 id="八、进入-设置-gt-概览-可以看到还有很多安全问题，可以到这里查看并解决。"><a href="#八、进入-设置-gt-概览-可以看到还有很多安全问题，可以到这里查看并解决。" class="headerlink" title="八、进入 设置 -> 概览 可以看到还有很多安全问题，可以到这里查看并解决。"></a>八、进入 <code>设置 -&gt; 概览</code> 可以看到还有很多安全问题，可以到<a href="https://www.fuocu.cn/archives/nextcloud-bug-in-pagoda-panel-building-and-solutions/"><strong>这里</strong></a>查看并解决。</h3><p><a href="https://i.loli.net/2020/02/19/STcQfVUZYKCIe9B.png"><img src="https://i.loli.net/2020/02/19/STcQfVUZYKCIe9B.png"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+      <category term="宝塔面板" scheme="https://blog.fuocu.cn/categories/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/"/>
+    
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="PHP" scheme="https://blog.fuocu.cn/tags/PHP/"/>
+    
+      <category term="MySQL" scheme="https://blog.fuocu.cn/tags/MySQL/"/>
+    
+      <category term="NextCloud" scheme="https://blog.fuocu.cn/tags/NextCloud/"/>
+    
+      <category term="NGINX" scheme="https://blog.fuocu.cn/tags/NGINX/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>谷歌云 ssh 开启 root 密码登录</title>
+    <link href="https://blog.fuocu.cn/Linux/google-cloud-ssh-enable-root-password-login/"/>
+    <id>https://blog.fuocu.cn/Linux/google-cloud-ssh-enable-root-password-login/</id>
+    <published>2020-02-19T02:47:53.000Z</published>
+    <updated>2020-07-31T05:49:28.398Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><ol><li><p>先选择从浏览器打开 ssh 连接服务器  </p><blockquote><p>连接登录成功后，输入以下命令</p></blockquote><pre><code>sudo -i #切换到rootpasswd #修改密码</code></pre></li></ol><pre><code>然后会要求输入新密码，然后再重复一次密码，输入密码的时候不会显示出来，所以直接输入密码，然后回车，再然后重复输入密码回车。修改`root`密码完成</code></pre><ol start="2"><li><p>接着修改 SSH 配置文件 <code>/etc/ssh/sshd_config</code></p><pre><code>vim /etc/ssh/sshd_config #编辑文件</code></pre></li></ol><pre><code>找到以下内容并修改    PermitRootLogin yes #默认为no，需要开启root用户访问改为yes    PasswordAuthentication yes #默认为no，改为yes开启密码登陆修改完成后，再下按 esc 键，然后再输入    :wq #保存并退出</code></pre><ol start="3"><li><p>最后重启下服务器即可  </p><pre><code>reboot #重启服务器</code></pre></li></ol><h2 id="登录示例"><a href="#登录示例" class="headerlink" title="登录示例"></a>登录示例</h2><h3 id="外部-ip-地址"><a href="#外部-ip-地址" class="headerlink" title="外部 ip 地址"></a>外部 ip 地址</h3><p><a href="https://i.loli.net/2020/02/19/uWTcldwva4kqFI1.png"><img src="https://i.loli.net/2020/02/19/uWTcldwva4kqFI1.png" alt="外部id地址"></a></p><p>外部 id 地址</p><h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p><a href="https://i.loli.net/2020/02/19/nlQrOKAhC2pNZ4m.png"><img src="https://i.loli.net/2020/02/19/nlQrOKAhC2pNZ4m.png" alt="登录示例"></a></p><p>登录示例</p><p><a href="https://i.loli.net/2020/02/19/vfjo32UQz4lhgmn.png"><img src="https://i.loli.net/2020/02/19/vfjo32UQz4lhgmn.png" alt="登录示例"></a></p><p>登录示例</p><h3 id="如无法连接可以查看下防火墙规则"><a href="#如无法连接可以查看下防火墙规则" class="headerlink" title="如无法连接可以查看下防火墙规则"></a>如无法连接可以查看下防火墙规则</h3><p><a href="https://i.loli.net/2020/02/19/fxOI7CFEleVHWyY.png"><img src="https://i.loli.net/2020/02/19/fxOI7CFEleVHWyY.png" alt="防火墙规则"></a></p><p>防火墙规则</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Cloud" scheme="https://blog.fuocu.cn/tags/Cloud/"/>
+    
+      <category term="IP" scheme="https://blog.fuocu.cn/tags/IP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS8.1 64 位如何修改软件源</title>
+    <link href="https://blog.fuocu.cn/Linux/modify-software-source-in-centos-8-1-64-bit/"/>
+    <id>https://blog.fuocu.cn/Linux/modify-software-source-in-centos-8-1-64-bit/</id>
+    <published>2020-02-18T12:05:57.000Z</published>
+    <updated>2020-07-31T05:49:28.448Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"></div><a id="more"></a><hr><h2 id="第一步：备份，以免出错后可以恢复。"><a href="#第一步：备份，以免出错后可以恢复。" class="headerlink" title="第一步：备份，以免出错后可以恢复。"></a>第一步：备份，以免出错后可以恢复。</h2><p><code>mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</code></p><h2 id="第二步：下载新的CentOS-Base-repo到-etc-yum-repos-d"><a href="#第二步：下载新的CentOS-Base-repo到-etc-yum-repos-d" class="headerlink" title="第二步：下载新的CentOS-Base.repo到/etc/yum.repos.d/"></a>第二步：下载新的 CentOS-Base.repo 到 /etc/yum.repos.d/</h2><h3 id="阿里云："><a href="#阿里云：" class="headerlink" title="阿里云："></a>阿里云：</h3><ul><li>CentOS 5 :&nbsp;<code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</code></li><li>CentOS 6 :<code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</code></li><li>CentOS 7 :&nbsp;<code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</code></li><li>CentOS 8 : <code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo</code></li></ul><h3 id="网易云："><a href="#网易云：" class="headerlink" title="网易云："></a>网易云：</h3><ul><li>CentOS 5 :&nbsp;<code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS5-Base-163.repo</code></li><li>CentOS 6 :<code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS6-Base-163.repo</code></li><li>CentOS 7 :&nbsp;<code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo</code></li></ul><blockquote><p>网易云目前还没有 CentOS 8 的软件源。</p></blockquote><h3 id="当然，除了网易和阿里之外，国内还有其他不错的yum源，比如中科大和搜狐的等，大家可以根据自己需求下载"><a href="#当然，除了网易和阿里之外，国内还有其他不错的yum源，比如中科大和搜狐的等，大家可以根据自己需求下载" class="headerlink" title="当然，除了网易和阿里之外，国内还有其他不错的yum源，比如中科大和搜狐的等，大家可以根据自己需求下载"></a>当然，除了网易和阿里之外，国内还有其他不错的 <code>yum</code> 源，比如中科大和搜狐的等，大家可以根据自己需求下载</h3><ul><li>中科大的 Linux 安装镜像源：<span class="exturl" data-url="aHR0cDovL2NlbnRvcy51c3RjLmVkdS5jbi8=">http://centos.ustc.edu.cn/<i class="fa fa-external-link-alt"></i></span></li><li>搜狐的 Linux 安装镜像源：<span class="exturl" data-url="aHR0cDovL21pcnJvcnMuc29odS5jb20v">http://mirrors.sohu.com/<i class="fa fa-external-link-alt"></i></span></li><li>北京首都在线科技：<span class="exturl" data-url="aHR0cDovL21pcnJvcnMueXVuLWlkYy5jb20v">http://mirrors.yun-idc.com/<i class="fa fa-external-link-alt"></i></span></li></ul><h2 id="第三步：运行以下命令生成缓存"><a href="#第三步：运行以下命令生成缓存" class="headerlink" title="第三步：运行以下命令生成缓存"></a>第三步：运行以下命令生成缓存</h2><p>yum clean all<br>yum makecache</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.fuocu.cn/categories/Linux/"/>
+    
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="CentOS" scheme="https://blog.fuocu.cn/tags/CentOS/"/>
+    
+      <category term="软件源" scheme="https://blog.fuocu.cn/tags/%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在本地搭建 Hexo 博客框架，并部署到 Github。</title>
+    <link href="https://blog.fuocu.cn/Code/build-blog-website-by-hexo-github/"/>
+    <id>https://blog.fuocu.cn/Code/build-blog-website-by-hexo-github/</id>
+    <published>2020-02-14T13:38:23.000Z</published>
+    <updated>2020-07-31T05:50:05.479Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note default"><h3 id="什么是-Hexo-？"><a href="#什么是-Hexo-？" class="headerlink" title="什么是 Hexo ？"></a>什么是 Hexo ？</h3></div><a id="more"></a><hr><h3 id="什么是-Hexo-？"><a href="#什么是-Hexo-？" class="headerlink" title="什么是 Hexo ？"></a>什么是 Hexo ？</h3><p>Hexo 是一个快速、简单且强大的部落格框架。能够使用 Markdown 语法来新增文章，快速渲染你的文章，有强大的外挂系统及丰富的扩充性，简单易用，让你可以专注与写作中，不被複杂的操作影响写作的体验，对于习惯使用 Markdown 纪录内容的人可说是一大福音，可以套用主题让你的网页变得更加漂亮，重点来了！Hexo 是由台湾人制作的，官方文件都有中文语系的支援，更能降低入门的门槛。 官网： <span class="exturl" data-url="aHR0cDovL2hleG8uaW8v">http://hexo.io<i class="fa fa-external-link-alt"></i></span> GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhv">https://github.com/hexojs/hexo<i class="fa fa-external-link-alt"></i></span></p><h3 id="什么是-GitHub-？"><a href="#什么是-GitHub-？" class="headerlink" title="什么是 GitHub ？"></a>什么是 GitHub ？</h3><p>GitHub 是通过 Git 进行版本控制的软件源代码托管服务，由 GitHub 公司（曾称 Logical Awesome）的开发者 Chris Wanstrath、PJ Hyett 和 Tom Preston-Werner 使用 Ruby on Rails 编写而成。（维基百科） 官网：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLw==">https://github.com<i class="fa fa-external-link-alt"></i></span></p><h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>使用 github pages 服务搭建博客的好处有：</p><ol><li>全是静态文件，访问速度快；</li><li>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</li><li>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于 github 的；</li><li>数据绝对安全，基于 github 的版本管理，想恢复到哪个历史版本都行；</li><li>博客内容可以轻松打包、转移、发布到其它平台；</li><li>等等；</li></ol><h3 id="1-1-准备工作"><a href="#1-1-准备工作" class="headerlink" title="1.1. 准备工作"></a>1.1. 准备工作</h3><p>在开始一切之前，你必须已经：</p><ul><li>有一个 github 账号，没有的话去注册一个；</li><li>安装了 node.js、npm，并了解相关基础知识；</li><li>安装了 git for windows（或者其它 git 客户端）</li></ul><p>本文所使用的环境：</p><ul><li>Windows10</li><li><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3MvaW5kZXguaHRtbA==">node.js@12.14.1<i class="fa fa-external-link-alt"></i></span></li><li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9kb3dubG9hZHM=">git@2.25.0<i class="fa fa-external-link-alt"></i></span></li><li><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3MvaW5kZXguaHRtbA==">hexo@3.9.0<i class="fa fa-external-link-alt"></i></span></li></ul><h2 id="2、搭建github博客"><a href="#2、搭建github博客" class="headerlink" title="2、搭建github博客"></a>2、搭建 github 博客</h2><h3 id="2-1-创建仓库"><a href="#2-1-创建仓库" class="headerlink" title="2.1. 创建仓库"></a>2.1. 创建仓库</h3><p>新建一个名为<code>你的用户名.github.io</code> 的仓库，比如说，如果你的 github 用户名是 test，那么你就新建 <code>test.github.io</code> 的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <span class="exturl" data-url="aHR0cDovL3Rlc3QuZ2l0aHViLmlvLw==">http://test.github.io<i class="fa fa-external-link-alt"></i></span> 了，是不是很方便？ 由此可见，每一个 github 账户最多只能创建一个这样可以直接使用域名访问的仓库。 几个注意的地方：</p><ol><li>注册的邮箱一定要验证，否则不会成功；</li><li>仓库名字必须是：<code>username.github.io</code>，其中 <code>username</code> 是你的用户名；</li><li>仓库创建成功不会立即生效，需要过一段时间，大概 10-30 分钟，或者更久，我的等了半个小时才生效；</li></ol><p>创建成功后，默认会在你这个仓库里生成一些示例页面，以后你的网站所有代码都是放在这个仓库里啦。</p><h3 id="2-2-绑定域名"><a href="#2-2-绑定域名" class="headerlink" title="2.2. 绑定域名"></a>2.2. 绑定域名</h3><p>当然，你不绑定域名肯定也是可以的，就用默认的 <code>xxx.github.io</code> 来访问，如果你想更个性一点，想拥有一个属于自己的域名，那也是 OK 的。 首先你要注册一个域名，域名注册以前总是推荐去 <code>godaddy</code>，现在觉得其实国内的阿里云也挺不错的，价格也不贵，毕竟是大公司，放心！ 绑定域名分 2 种情况：带 www 和不带 www 的。 域名配置最常见有 2 种方式，CNAME 和 A 记录，CNAME 填写域名，A 记录填写 IP，由于不带 www 方式只能采用 A 记录，所以必须先 ping 一下<code>你的用户名.github.io</code> 的 IP，然后到你的域名 DNS 设置页，将 A 记录指向你 ping 出来的 IP，将 CNAME 指向<code>你的用户名.github.io</code>，这样可以保证无论是否添加 www 都可以访问，如下： <a href="https://i.loli.net/2020/02/15/oCH6dlQSvz9y3On.png"><img src="https://i.loli.net/2020/02/15/oCH6dlQSvz9y3On.png"></a> 然后到你的 github 项目根目录新建一个名为 CNAME 的文件（无后缀），里面填写你的域名，加不加 www 看你自己喜好，因为经测试：</p><ul><li>如果你填写的是没有 www 的，比如 mygit.me，那么无论是访问 <span class="exturl" data-url="aHR0cDovL3d3dy5teWdpdC5tZS8=">http://www.mygit.me<i class="fa fa-external-link-alt"></i></span> 还是 <span class="exturl" data-url="aHR0cDovL215Z2l0Lm1lLw==">http://mygit.me<i class="fa fa-external-link-alt"></i></span> ，都会自动跳转到 <span class="exturl" data-url="aHR0cDovL215Z2l0Lm1lLw==">http://mygit.me<i class="fa fa-external-link-alt"></i></span></li><li>如果你填写的是带 www 的，比如 <span class="exturl" data-url="aHR0cDovL3d3dy5teWdpdC5tZS8=">www.mygit.me<i class="fa fa-external-link-alt"></i></span> ，那么无论是访问 <span class="exturl" data-url="aHR0cDovL3d3dy5teWdpdC5tZS8=">http://www.mygit.me<i class="fa fa-external-link-alt"></i></span> 还是 <span class="exturl" data-url="aHR0cDovL215Z2l0Lm1lLw==">http://mygit.me<i class="fa fa-external-link-alt"></i></span> ，都会自动跳转到 <span class="exturl" data-url="aHR0cDovL3d3dy5teWdpdC5tZS8=">http://www.mygit.me<i class="fa fa-external-link-alt"></i></span></li><li>如果你填写的是其它子域名，比如 abc.mygit.me，那么访问 <span class="exturl" data-url="aHR0cDovL2FiYy5teWdpdC5tZS8=">http://abc.mygit.me<i class="fa fa-external-link-alt"></i></span> 没问题，但是访问 <span class="exturl" data-url="aHR0cDovL215Z2l0Lm1lLw==">http://mygit.me<i class="fa fa-external-link-alt"></i></span> ，不会自动跳转到 <span class="exturl" data-url="aHR0cDovL2FiYy5teWdpdC5tZS8=">http://abc.mygit.me<i class="fa fa-external-link-alt"></i></span></li></ul><p><a href="https://i.loli.net/2020/02/14/mkpGldxjHu53Jvc.png"><img src="https://i.loli.net/2020/02/14/mkpGldxjHu53Jvc.png"></a> <a href="https://i.loli.net/2020/02/14/jU6AiKkHY3ZSbd4.png"><img src="https://i.loli.net/2020/02/14/jU6AiKkHY3ZSbd4.png"></a> 另外说一句，在你绑定了新域名之后，原来的<code>你的用户名.github.io</code> 并没有失效，而是会自动跳转到你的新域名。</p><h2 id="3、配置SSH-key"><a href="#3、配置SSH-key" class="headerlink" title="3、配置SSH key"></a>3、配置 SSH key</h2><p>为什么要配置这个呢？因为你提交代码肯定要拥有你的 github 权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用 ssh key 来解决本地和服务器的连接问题。 <code>$ cd ~/. ssh #检查本机已存在的ssh密钥</code> 如果提示：No such file or directory 说明你是第一次使用 git。 <code>ssh-keygen -t rsa -C "邮件地址"</code> 然后连续 3 次回车，最终会生成一个文件在用户目录下，打开用户目录，找到<code>.ssh\id_rsa.pub</code> 文件，记事本打开并复制里面的内容，打开你的 github 主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key： <a href="https://i.loli.net/2020/02/14/tnmoY5iSaWBX2kJ.png"><img src="https://i.loli.net/2020/02/14/tnmoY5iSaWBX2kJ.png"></a> 将刚复制的内容粘贴到 key 那里，title 随便填，保存。</p><h3 id="3-1-测试是否成功"><a href="#3-1-测试是否成功" class="headerlink" title="3.1. 测试是否成功"></a>3.1. 测试是否成功</h3><p><code>$ ssh -T git@github.com # 注意邮箱地址不用改</code> 如果提示 <code>Are you sure you want to continue connecting (yes/no)?</code>，输入 yes，然后会看到：</p><blockquote><p><em>Hi liuxianan! You’ve successfully authenticated, but GitHub does not provide shell access.</em></p></blockquote><p>看到这个信息说明 SSH 已配置成功！ 此时你还需要配置： <code>$ git config --global user.name "liuxianan" // 你的github用户名，非昵称</code> <code>$ git config --global user.email "xxx@qq.com" // 填写你的github注册邮箱</code> 具体这个配置是干嘛的我没仔细深究。</p><h2 id="4、使用hexo写博客"><a href="#4、使用hexo写博客" class="headerlink" title="4、使用hexo写博客"></a>4、使用 hexo 写博客</h2><h3 id="4-1-原理"><a href="#4-1-原理" class="headerlink" title="4.1. 原理"></a>4.1. 原理</h3><p>由于 github pages 存放的都是静态文件，博客存放的不只是文章内容，还有文章列表、分类、标签、翻页等动态内容，假如每次写完一篇文章都要手动更新博文目录和相关链接信息，相信谁都会疯掉，所以 hexo 所做的就是将这些 md 文件都放在本地，每次写完文章后调用写好的命令来批量完成相关页面的生成，然后再将有改动的页面提交到 github。</p><h3 id="4-2-注意事项"><a href="#4-2-注意事项" class="headerlink" title="4.2. 注意事项"></a>4.2. 注意事项</h3><p>安装之前先来说几个注意事项：</p><ol><li>很多命令既可以用 Windows 的 cmd 来完成，也可以使用 git bash 来完成，但是部分命令会有一些问题，为避免不必要的问题，建议全部使用 git bash 来执行；</li><li>hexo 不同版本差别比较大，网上很多文章的配置信息都是基于 2.x 的，所以注意不要被误导；</li><li>hexo 有 2 种<code>_config.yml</code> 文件，一个是根目录下的全局的<code>_config.yml</code>，一个是各个 <code>theme</code> 下的；</li></ol><h3 id="4-3-安装"><a href="#4-3-安装" class="headerlink" title="4.3. 安装"></a>4.3. 安装</h3><pre><code>$ npm install -g hexo</code></pre><h3 id="4-4-初始化"><a href="#4-4-初始化" class="headerlink" title="4.4. 初始化"></a>4.4. 初始化</h3><p>在电脑的某个地方新建一个名为 hexo 的文件夹（名字可以随便取），比如我的是 <code>F:\Workspaces\hexo</code>，由于这个文件夹将来就作为你存放代码的地方，所以最好不要随便放。 <code>$ cd /f/Workspaces/hexo/</code> <code>$ hexo init</code> hexo 会自动下载一些文件到这个目录，包括 node_modules，目录结构如下图： <a href="https://i.loli.net/2020/02/14/We7JNDSIZ4ckMps.png"><img src="https://i.loli.net/2020/02/14/We7JNDSIZ4ckMps.png"></a> <code>$ hexo g # 生成</code> <code>$ hexo s # 启动服务</code> 执行以上命令之后，hexo 就会在 public 文件夹生成相关 html 文件，这些文件将来都是要提交到 github 去的： <a href="https://i.loli.net/2020/02/14/YAwMBnN1j5yKgLV.png"><img src="https://i.loli.net/2020/02/14/YAwMBnN1j5yKgLV.png"></a> <code>hexo s</code> 是开启本地预览服务，打开浏览器访问 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLw==">http://localhost:4000<i class="fa fa-external-link-alt"></i></span> 即可看到内容。 <a href="https://i.loli.net/2020/02/14/3ktMhDWcORioaup.png"><img src="https://i.loli.net/2020/02/14/3ktMhDWcORioaup.png"></a></p><h3 id="4-5-修改主题"><a href="#4-5-修改主题" class="headerlink" title="4.5. 修改主题"></a>4.5. 修改主题</h3><p>既然默认主题很丑，那我们别的不做，首先来替换一个好看点的主题。这是 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3RoZW1lcy8=">官方主题<i class="fa fa-external-link-alt"></i></span>。 个人比较喜欢的 2 个主题：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Bpbmdnb2QvaGV4by10aGVtZS1qZWt5bGw=">hexo-theme-jekyll<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpdHRlbi9oZXhvLXRoZW1lLXlpbGlh">hexo-theme-yilia<i class="fa fa-external-link-alt"></i></span>。 首先下载这个主题： <code>$ cd /f/Workspaces/hexo/</code> <code>$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code> 下载后的主题都在这里： <a href="https://i.loli.net/2020/02/14/Nf67RxO2klJdM5c.png"><img src="https://i.loli.net/2020/02/14/Nf67RxO2klJdM5c.png"></a> 修改<code>_config.yml</code> 中的 <code>theme: landscape</code> 改为 <code>theme: yilia</code>，然后重新执行 <code>hexo g</code> 来重新生成。 如果出现一些莫名其妙的问题，可以先执行 <code>hexo clean</code> 来清理一下 public 的内容，然后再来重新生成和发布。</p><h3 id="4-6-上传之前"><a href="#4-6-上传之前" class="headerlink" title="4.6. 上传之前"></a>4.6. 上传之前</h3><blockquote><p>在上传代码到 github 之前，一定要记得先把你以前所有代码下载下来（虽然 github 有版本管理，但备份一下总是好的），因为从 hexo 提交代码时会把你以前的所有代码都删掉。</p></blockquote><h3 id="4-7-上传到github"><a href="#4-7-上传到github" class="headerlink" title="4.7. 上传到github"></a>4.7. 上传到 github</h3><p>如果你一切都配置好了，发布上传很容易，一句 <code>hexo d</code> 就搞定，当然关键还是你要把所有东西配置好。 首先，<code>ssh key</code> 肯定要配置好。 其次，配置<code>_config.yml</code> 中有关 deploy 的部分： 正确写法：</p><p>deploy:<br>&nbsp;&nbsp;type:&nbsp;git<br>&nbsp;&nbsp;repository:&nbsp;<span class="exturl" data-url="bWFpbHRvOiYjeDY3OyYjeDY5OyYjeDc0OyYjNjQ7JiMxMDM7JiN4Njk7JiN4NzQ7JiN4Njg7JiMxMTc7JiM5ODsmI3gyZTsmIzk5OyYjeDZmOyYjeDZkOw==">git@github.com<i class="fa fa-external-link-alt"></i></span>:liuxianan/liuxianan.github.io.git<br> &nbsp;branch:&nbsp;master</p><p>错误写法：</p><p>deploy:<br>&nbsp;&nbsp;type: github<br>&nbsp;&nbsp;repository: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpdXhpYW5hbi9saXV4aWFuYW4uZ2l0aHViLmlvLmdpdA==">https://github.com/liuxianan/liuxianan.github.io.git<i class="fa fa-external-link-alt"></i></span><br> &nbsp;branch: master</p><p>后面一种写法是 hexo2.x 的写法，现在已经不行了，无论是哪种写法，此时直接执行 <code>hexo d</code> 的话一般会报如下错误： <code>Deployer not found: github 或者 Deployer not found: git</code> 原因是还需要安装一个插件： <code>npm install hexo-deployer-git --save</code> 其它命令不确定，部署这个命令一定要用 git bash，否则会提示 <code>Permission denied (publickey).</code> 打开你的 git bash，输入 <code>hexo d</code> 就会将本次有改动的代码全部提交，没有改动的不会：</p><h3 id="4-8-保留CNAME、README-md等文件"><a href="#4-8-保留CNAME、README-md等文件" class="headerlink" title="4.8. 保留CNAME、README.md等文件"></a>4.8. 保留 CNAME、README.md 等文件</h3><p>提交之后网页上一看，发现以前其它代码都没了，此时不要慌，一些非 md 文件可以把他们放到 source 文件夹下，这里的所有文件都会原样复制（除了 md 文件）到 public 目录的： <a href="https://i.loli.net/2020/02/14/WdeYlXztnFsH587.png"><img src="https://i.loli.net/2020/02/14/WdeYlXztnFsH587.png"></a> 由于 hexo 默认会把所有 md 文件都转换成 html，包括 README.md，所有需要每次生成之后、上传之前，手动将 README.md 复制到 public 目录，并删除 README.html。</p><h3 id="4-9-常用hexo命令"><a href="#4-9-常用hexo命令" class="headerlink" title="4.9. 常用hexo命令"></a>4.9. 常用 hexo 命令</h3><blockquote><p>常见命令：</p></blockquote><p>hexo new “postName” #新建文章<br>hexo&nbsp;new&nbsp;page&nbsp;“pageName”&nbsp;# 新建页面<br>hexo&nbsp;generate&nbsp;# 生成静态页面至 public 目录<br>hexo&nbsp;server&nbsp;# 开启预览访问端口（默认端口 4000，’ctrl&nbsp;+&nbsp;c’关闭 server）<br>hexo&nbsp;deploy&nbsp;# 部署到 GitHub<br>hexo&nbsp;help&nbsp;&nbsp;#&nbsp;查看帮助<br>hexo version&nbsp;&nbsp;# 查看 Hexo 的版本</p><blockquote><p>缩写：</p></blockquote><p>hexo n == hexo new<br>hexo&nbsp;g&nbsp;==&nbsp;hexo&nbsp;generate<br>hexo&nbsp;s&nbsp;==&nbsp;hexo&nbsp;server<br>hexo d == hexo deploy</p><blockquote><p>组合命令：</p></blockquote><p>hexo s -g #生成并本地预览<br>hexo d -g #生成并上传</p><h3 id="4-10-config-yml"><a href="#4-10-config-yml" class="headerlink" title="4.10. _config.yml"></a>4.10. _config.yml</h3><p>这里面都是一些全局配置，每个参数的意思都比较简单明了，所以就不作详细介绍了。 需要特别注意的地方是，冒号后面必须有一个空格，否则可能会出问题。</p><h3 id="4-11-写博客"><a href="#4-11-写博客" class="headerlink" title="4.11. 写博客"></a>4.11. 写博客</h3><p>定位到我们的 hexo 根目录，执行命令： <code>hexo new 'my-first-blog'</code> hexo 会帮我们在<code>_posts</code> 下生成相关 md 文件： <a href="https://i.loli.net/2020/02/14/sUKjNzRLxEVPS2g.png"><img src="https://i.loli.net/2020/02/14/sUKjNzRLxEVPS2g.png"></a> 当然你也可以直接自己新建 md 文件，用这个命令的好处是帮我们自动生成了时间。 一般完整格式如下：</p><p>---<br><code class="hljs">title:&nbsp;postName&nbsp;# 文章页面上的显示名称，一般是中文<br>date:&nbsp;2013-12-02&nbsp;15:30:16&nbsp;# 文章生成时间，一般不改，当然也可以任意修改<br>categories:&nbsp;默认分类&nbsp;# 分类<br>tags:&nbsp;[tag1,tag2,tag3]&nbsp;# 文章标签，可空，多标签请用格式，注意：后面有个空格<br>description:&nbsp;附加一段文章摘要，字数最好在 140 字以内，会出现在 meta 的 description 里面<br>---</code class="hljs"></p><p>以下是正文</p><p>那么 <code>hexo new page 'postName'</code> 命令和 <code>hexo new 'postName'</code> 有什么区别呢？ <code>hexo new page 'my-second-blog'</code> 最终部署时生成：<code>hexo\public\my-second-blog\index.html</code>，但是它不会作为文章出现在博文目录。</p><h4 id="4-11-1-写博客工具"><a href="#4-11-1-写博客工具" class="headerlink" title="4.11.1. 写博客工具"></a>4.11.1. 写博客工具</h4><p>那么用什么工具写博客呢？这个我还没去找，以前自己使用 editor.md 简单弄了个，大家有好用的 hexo 写博客工具可以推荐个。</p><h4 id="4-11-2-如何让博文列表不显示全部内容"><a href="#4-11-2-如何让博文列表不显示全部内容" class="headerlink" title="4.11.2. 如何让博文列表不显示全部内容"></a>4.11.2. 如何让博文列表不显示全部内容</h4><p>默认情况下，生成的博文目录会显示全部的文章内容，如何设置文章摘要的长度呢？ 答案是在合适的位置加上 <code>&lt;!--more--&gt;</code> 即可，例如：</p><p># 前言</p><p>使用 github&nbsp;pages 服务搭建博客的好处有：</p><p>1.&nbsp;全是静态文件，访问速度快；<br>2.&nbsp;免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；<br>3.&nbsp;可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于 github 的；</p><!--more--><p>4.&nbsp;数据绝对安全，基于 github 的版本管理，想恢复到哪个历史版本都行；<br>5.&nbsp;博客内容可以轻松打包、转移、发布到其它平台；<br>6. 等等；</p><p>最终效果： <a href="https://i.loli.net/2020/02/14/Zgsaxid5ABepVqt.png"><img src="https://i.loli.net/2020/02/14/Zgsaxid5ABepVqt.png"></a></p><h2 id="5、最终效果"><a href="#5、最终效果" class="headerlink" title="5、最终效果"></a>5、最终效果</h2><p>可以访问我的 <code>Git</code> 博客来查看效果： <span class="exturl" data-url="aHR0cHM6Ly9mdW5neXVhLmdpdGh1Yi5pby8=">https://fungyua.github.io<i class="fa fa-external-link-alt"></i></span> 不过呢，其实这个博客我只是拿来玩一玩的，没打算真的把它当博客，因为我已经有一个自己的博客了，哈哈！正因如此，本文仅限入门学习，关于 <code>hexo</code> 搭建个人博客的更高级玩法大家可以另找教程。</p><h2 id="6、参考"><a href="#6、参考" class="headerlink" title="6、参考"></a>6、参考</h2><p><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS96aGNuY24vcC80MDk3ODgxLmh0bWw=">http://www.cnblogs.com/zhcncn/p/4097881.html<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cDovL3d3dy5qaWFuc2h1LmNvbS9wLzA1Mjg5YTRiYzhiMg==">http://www.jianshu.com/p/05289a4bc8b2<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cDovL2Jsb2cuaGFvamkubWUvYnVpbGQtYmxvZy13ZWJzaXRlLWJ5LWhleG8tZ2l0aHViLmh0bWw=">http://blog.haoji.me/build-blog-website-by-hexo-github.html<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note default&quot;&gt;&lt;h3 id=&quot;什么是-Hexo-？&quot;&gt;&lt;a href=&quot;#什么是-Hexo-？&quot; class=&quot;headerlink&quot; title=&quot;什么是 Hexo ？&quot;&gt;&lt;/a&gt;什么是 Hexo ？&lt;/h3&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="Code" scheme="https://blog.fuocu.cn/categories/Code/"/>
+    
+    
+      <category term="笔记" scheme="https://blog.fuocu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="技巧" scheme="https://blog.fuocu.cn/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Git" scheme="https://blog.fuocu.cn/tags/Git/"/>
+    
+      <category term="Hexo" scheme="https://blog.fuocu.cn/tags/Hexo/"/>
+    
+      <category term="Nodejs" scheme="https://blog.fuocu.cn/tags/Nodejs/"/>
+    
+      <category term="npm" scheme="https://blog.fuocu.cn/tags/npm/"/>
+    
+  </entry>
+  
+</feed>
