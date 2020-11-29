@@ -681,7 +681,7 @@ Here is the original list again:
 <p>在上传代码到 github 之前，一定要记得先把你以前所有代码下载下来（虽然 github 有版本管理，但备份一下总是好的），因为从 hexo 提交代码时会把你以前的所有代码都删掉。</p>
 </blockquote>
 <h3 id="4-7-上传到github"><a href="#4-7-上传到github" class="headerlink" title="4.7. 上传到github"></a>4.7. 上传到 github</h3><p>如果你一切都配置好了，发布上传很容易，一句 <code>hexo d</code> 就搞定，当然关键还是你要把所有东西配置好。 首先，<code>ssh key</code> 肯定要配置好。 其次，配置<code>_config.yml</code> 中有关 deploy 的部分： 正确写法：</p>
-<p>deploy:<br>&nbsp;&nbsp;type:&nbsp;git<br>&nbsp;&nbsp;repository:&nbsp;<span class="exturl" data-url="bWFpbHRvOiYjeDY3OyYjeDY5OyYjeDc0OyYjNjQ7JiMxMDM7JiN4Njk7JiN4NzQ7JiN4Njg7JiMxMTc7JiM5ODsmI3gyZTsmIzk5OyYjeDZmOyYjeDZkOw==">git@github.com<i class="fa fa-external-link-alt"></i></span>:liuxianan/liuxianan.github.io.git<br> &nbsp;branch:&nbsp;master</p>
+<p>deploy:<br>&nbsp;&nbsp;type:&nbsp;git<br>&nbsp;&nbsp;repository:&nbsp;<span class="exturl" data-url="bWFpbHRvOiYjeDY3OyYjeDY5OyYjeDc0OyYjNjQ7JiN4Njc7JiMxMDU7JiMxMTY7JiMxMDQ7JiMxMTc7JiM5ODsmIzQ2OyYjOTk7JiN4NmY7JiN4NmQ7">git@github.com<i class="fa fa-external-link-alt"></i></span>:liuxianan/liuxianan.github.io.git<br> &nbsp;branch:&nbsp;master</p>
 <p>错误写法：</p>
 <p>deploy:<br>&nbsp;&nbsp;type: github<br>&nbsp;&nbsp;repository: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpdXhpYW5hbi9saXV4aWFuYW4uZ2l0aHViLmlvLmdpdA==">https://github.com/liuxianan/liuxianan.github.io.git<i class="fa fa-external-link-alt"></i></span><br> &nbsp;branch: master</p>
 <p>后面一种写法是 hexo2.x 的写法，现在已经不行了，无论是哪种写法，此时直接执行 <code>hexo d</code> 的话一般会报如下错误： <code>Deployer not found: github 或者 Deployer not found: git</code> 原因是还需要安装一个插件： <code>npm install hexo-deployer-git --save</code> 其它命令不确定，部署这个命令一定要用 git bash，否则会提示 <code>Permission denied (publickey).</code> 打开你的 git bash，输入 <code>hexo d</code> 就会将本次有改动的代码全部提交，没有改动的不会：</p>
@@ -775,35 +775,6 @@ Here is the original list again:
       </tags>
   </entry>
   <entry>
-    <title>如何给 Ubuntu 系统清理垃圾</title>
-    <url>/Linux/clean-up-the-garbage-for-ubuntu-system/</url>
-    <content><![CDATA[<div class="note default"></div>
-
-<a id="more"></a>
-
-<hr>
-<p>使用 <strong>Windows</strong> 的同学都知道，我们可以利用各种安全卫士以及系统清理工具来清除系统运行时产生的系统垃圾。那么当你禁不住开源系统的诱惑，开始尝试 <strong>Ubuntu</strong> 系统时，是不是经常在思考该如何在 <strong>Ubuntu</strong> 下清理系统垃圾呢？下面，就让跟着本文来给你的 <strong>Ubuntu</strong> 系统来一次大扫除吧。 方法 / 步骤</p>
-<h2 id="1、清理下载的软件包"><a href="#1、清理下载的软件包" class="headerlink" title="1、清理下载的软件包"></a>1、清理下载的软件包</h2><p>不过与你想象的可能有很大的不同，<strong>Ubuntu</strong> 系统在运行时是不会产生无用垃圾的。这一点与 <strong>Windows</strong> 系统有很大的不同。但是我们在升级系统时，软件管理器下载的软件包，系统则不会自动删除，其实这样做也是考虑到你可能会再次安装从而加快再次安装的速度考虑。当然了，我们普通用户，一旦下载安装完毕，其安装包也就没有存在的必要了，当然如果你是要安装更新并管理一大堆电脑的系统管理员就另当别论咯。更何况，我们再次安装时，只要你选择了一个合适的软件源，那下载速度一样是飞快的。因此，我们隔一段时间就可清理一下 <code>apt-get</code> 等软件管理器下载下来的安装包咯。</p>
-<p>我们先看一下，这些安装包占了多大空间吧。按快捷键 ctrl+alt+t 打开终端，输入命令<br>du –h /var/cache/apt/archives<br>回车之后，我们就可以看到安装包所占用的空间咯。<br>那我们就来删除这些软件包吧。若你生性小心谨慎，那就只删除那些你已经将其卸载掉的软件的软件。删除你已经卸载掉的软件包的命令为<br>sudo　apt-get autoclean<br>若你想清理出更多的空间，而且网速又比较快的话，那你大可以把电脑上存储的安装包全部卸载咯，命令为<br>sudo　apt-get clean<br>还有一类软件包，我们每个人都应该删除，那就是你已经卸载了，但是一些只有它依赖而别的软件包都不需要的软件包还留在你的系统里。说简单点就是，类似于你在 windows 系统中卸载软件时残留在系统里的垃圾咯。卸载这些孤立包的命令为<br>sudo　apt-get autoremove</p>
-<h2 id="2、删除不用的老旧内核"><a href="#2、删除不用的老旧内核" class="headerlink" title="2、删除不用的老旧内核"></a>2、删除不用的老旧内核</h2><blockquote>
-<p>若你的系统更新过好多次，如 <strong>Ubuntu</strong>，在系统升级的过程中，其所使用 <strong>Linux</strong> 内核也可能更新。因此，升级多次后，你的 <strong>boot</strong> 文件夹就会变得比较大，其原因就是因为虽然系统更新升级了新内核，但是老内核依然留在了你的系统中。也许你会说系统太笨了，不知道升级了新的就该把老的删除吗？实际上，不删除掉老的内核也是一种安全测试。虽然说，系统升级包在释放出之前已经进行了广泛的测试，但依然可能有意外存在，所以才不删除掉老的内核，以便于使用新升级的内核无法启动时，你能马上使用老内核进行启动，不至于导致你无法进入系统的悲剧。不过在你升级完毕，重启后能进入系统后，说明新内核已经很好的兼容了你的电脑，那么你就可以放心大胆的删除掉老内核咯，也好腾出更多空间让你使用哦。</p>
-</blockquote>
-<p>不过老内核时一定要小心，那就是 —— 千万不要删错咯。所以删除之前要先看一看你现在正在使用的内核是哪一个。方法是在终端中输入命令<br>uname –r，然后看其显示的内核版本是多少。看准了自己使用的内核后，你就可以放心大胆的删除那些不用的老内核。<br>打开终端，敲入命令 dpkg –get-selections | grep linux<br>然后将不用的内核文件 image、头文件 headers 删除掉就可以咯。在终端中输入命令<br>sudo apt-get purge 内核文件名 头文件名<br>删除内核后，就可以省下很多空间哦<br>3.3</p>
-<h2 id="3、清理浏览器的缓存文件。"><a href="#3、清理浏览器的缓存文件。" class="headerlink" title="&nbsp;3、清理浏览器的缓存文件。"></a>&nbsp;3、清理浏览器的缓存文件。</h2><blockquote>
-<p>我们在 Ubuntu 中经常使用的浏览器当然是火狐浏览器咯，在我们浏览网页时，它会把网页缓存到本地，因此会在本地保留一些缓存文件，若你是个有洁癖的人，或者喜欢给系统清理垃圾的话，我们也可以删除火狐浏览器的缓存。 方法是打开火狐的首选项 - &gt; 隐私与安全 - &gt; Cookie 和网站数据，点击右边的<strong>清除数据</strong>按钮就可以咯，如下图所示：</p>
-</blockquote>
-<p><a href="https://i.loli.net/2020/02/21/VYcCDTBArQfnyGe.png"><img src="https://i.loli.net/2020/02/21/VYcCDTBArQfnyGe.png"></a></p>
-<h2 id="4、清除已卸载软件的残留配置文件。"><a href="#4、清除已卸载软件的残留配置文件。" class="headerlink" title="4、清除已卸载软件的残留配置文件。"></a>4、清除已卸载软件的残留配置文件。</h2><p>在我们使用系统的过程中，有时候需要把不用的软件给卸载掉。若你无需再次安装该软件，可以把软件的配置文件也清理掉，此时在卸载软件的时候，尽可能使用 <code>sudo apt-get purge xxxxx（xxxx为要卸载的软件名）</code>，这样可以将软件以及它的配置文件均卸载干净。不过由于这样或那样的原因，系统中有时候会残留下某些已卸载软件的配置文件。如果想清除掉这些残留的配置文件，我们可以使用一款常见的软件来完成 —— 新力得软件包管理器（<strong>synaptic</strong>）来清除已卸载软件的残留配置文件。 这个方法适用于多种 <strong>Ubuntu</strong> 以及 <strong>Debain</strong> 系的 <strong>Linux</strong> 系统，如 <strong>Mint</strong> 以及深度 <strong>Linux</strong> 系统 <em>原文地址：<span class="exturl" data-url="aHR0cHM6Ly9qaW5neWFuLmJhaWR1LmNvbS9hcnRpY2xlL2U2Yzg1MDNjMWUwNWQ2ZTU0ZjFhMTgwOC5odG1s">https://jingyan.baidu.com/article/e6c8503c1e05d6e54f1a1808.html<i class="fa fa-external-link-alt"></i></span></em></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>技巧</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>canvas 笔记</title>
     <url>/uncategorized/canvas%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<div class="note default"><p>canvas 笔记</p>
@@ -833,6 +804,35 @@ Here is the original list again:
 ]]></content>
       <tags>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何给 Ubuntu 系统清理垃圾</title>
+    <url>/Linux/clean-up-the-garbage-for-ubuntu-system/</url>
+    <content><![CDATA[<div class="note default"></div>
+
+<a id="more"></a>
+
+<hr>
+<p>使用 <strong>Windows</strong> 的同学都知道，我们可以利用各种安全卫士以及系统清理工具来清除系统运行时产生的系统垃圾。那么当你禁不住开源系统的诱惑，开始尝试 <strong>Ubuntu</strong> 系统时，是不是经常在思考该如何在 <strong>Ubuntu</strong> 下清理系统垃圾呢？下面，就让跟着本文来给你的 <strong>Ubuntu</strong> 系统来一次大扫除吧。 方法 / 步骤</p>
+<h2 id="1、清理下载的软件包"><a href="#1、清理下载的软件包" class="headerlink" title="1、清理下载的软件包"></a>1、清理下载的软件包</h2><p>不过与你想象的可能有很大的不同，<strong>Ubuntu</strong> 系统在运行时是不会产生无用垃圾的。这一点与 <strong>Windows</strong> 系统有很大的不同。但是我们在升级系统时，软件管理器下载的软件包，系统则不会自动删除，其实这样做也是考虑到你可能会再次安装从而加快再次安装的速度考虑。当然了，我们普通用户，一旦下载安装完毕，其安装包也就没有存在的必要了，当然如果你是要安装更新并管理一大堆电脑的系统管理员就另当别论咯。更何况，我们再次安装时，只要你选择了一个合适的软件源，那下载速度一样是飞快的。因此，我们隔一段时间就可清理一下 <code>apt-get</code> 等软件管理器下载下来的安装包咯。</p>
+<p>我们先看一下，这些安装包占了多大空间吧。按快捷键 ctrl+alt+t 打开终端，输入命令<br>du –h /var/cache/apt/archives<br>回车之后，我们就可以看到安装包所占用的空间咯。<br>那我们就来删除这些软件包吧。若你生性小心谨慎，那就只删除那些你已经将其卸载掉的软件的软件。删除你已经卸载掉的软件包的命令为<br>sudo　apt-get autoclean<br>若你想清理出更多的空间，而且网速又比较快的话，那你大可以把电脑上存储的安装包全部卸载咯，命令为<br>sudo　apt-get clean<br>还有一类软件包，我们每个人都应该删除，那就是你已经卸载了，但是一些只有它依赖而别的软件包都不需要的软件包还留在你的系统里。说简单点就是，类似于你在 windows 系统中卸载软件时残留在系统里的垃圾咯。卸载这些孤立包的命令为<br>sudo　apt-get autoremove</p>
+<h2 id="2、删除不用的老旧内核"><a href="#2、删除不用的老旧内核" class="headerlink" title="2、删除不用的老旧内核"></a>2、删除不用的老旧内核</h2><blockquote>
+<p>若你的系统更新过好多次，如 <strong>Ubuntu</strong>，在系统升级的过程中，其所使用 <strong>Linux</strong> 内核也可能更新。因此，升级多次后，你的 <strong>boot</strong> 文件夹就会变得比较大，其原因就是因为虽然系统更新升级了新内核，但是老内核依然留在了你的系统中。也许你会说系统太笨了，不知道升级了新的就该把老的删除吗？实际上，不删除掉老的内核也是一种安全测试。虽然说，系统升级包在释放出之前已经进行了广泛的测试，但依然可能有意外存在，所以才不删除掉老的内核，以便于使用新升级的内核无法启动时，你能马上使用老内核进行启动，不至于导致你无法进入系统的悲剧。不过在你升级完毕，重启后能进入系统后，说明新内核已经很好的兼容了你的电脑，那么你就可以放心大胆的删除掉老内核咯，也好腾出更多空间让你使用哦。</p>
+</blockquote>
+<p>不过老内核时一定要小心，那就是 —— 千万不要删错咯。所以删除之前要先看一看你现在正在使用的内核是哪一个。方法是在终端中输入命令<br>uname –r，然后看其显示的内核版本是多少。看准了自己使用的内核后，你就可以放心大胆的删除那些不用的老内核。<br>打开终端，敲入命令 dpkg –get-selections | grep linux<br>然后将不用的内核文件 image、头文件 headers 删除掉就可以咯。在终端中输入命令<br>sudo apt-get purge 内核文件名 头文件名<br>删除内核后，就可以省下很多空间哦<br>3.3</p>
+<h2 id="3、清理浏览器的缓存文件。"><a href="#3、清理浏览器的缓存文件。" class="headerlink" title="&nbsp;3、清理浏览器的缓存文件。"></a>&nbsp;3、清理浏览器的缓存文件。</h2><blockquote>
+<p>我们在 Ubuntu 中经常使用的浏览器当然是火狐浏览器咯，在我们浏览网页时，它会把网页缓存到本地，因此会在本地保留一些缓存文件，若你是个有洁癖的人，或者喜欢给系统清理垃圾的话，我们也可以删除火狐浏览器的缓存。 方法是打开火狐的首选项 - &gt; 隐私与安全 - &gt; Cookie 和网站数据，点击右边的<strong>清除数据</strong>按钮就可以咯，如下图所示：</p>
+</blockquote>
+<p><a href="https://i.loli.net/2020/02/21/VYcCDTBArQfnyGe.png"><img src="https://i.loli.net/2020/02/21/VYcCDTBArQfnyGe.png"></a></p>
+<h2 id="4、清除已卸载软件的残留配置文件。"><a href="#4、清除已卸载软件的残留配置文件。" class="headerlink" title="4、清除已卸载软件的残留配置文件。"></a>4、清除已卸载软件的残留配置文件。</h2><p>在我们使用系统的过程中，有时候需要把不用的软件给卸载掉。若你无需再次安装该软件，可以把软件的配置文件也清理掉，此时在卸载软件的时候，尽可能使用 <code>sudo apt-get purge xxxxx（xxxx为要卸载的软件名）</code>，这样可以将软件以及它的配置文件均卸载干净。不过由于这样或那样的原因，系统中有时候会残留下某些已卸载软件的配置文件。如果想清除掉这些残留的配置文件，我们可以使用一款常见的软件来完成 —— 新力得软件包管理器（<strong>synaptic</strong>）来清除已卸载软件的残留配置文件。 这个方法适用于多种 <strong>Ubuntu</strong> 以及 <strong>Debain</strong> 系的 <strong>Linux</strong> 系统，如 <strong>Mint</strong> 以及深度 <strong>Linux</strong> 系统 <em>原文地址：<span class="exturl" data-url="aHR0cHM6Ly9qaW5neWFuLmJhaWR1LmNvbS9hcnRpY2xlL2U2Yzg1MDNjMWUwNWQ2ZTU0ZjFhMTgwOC5odG1s">https://jingyan.baidu.com/article/e6c8503c1e05d6e54f1a1808.html<i class="fa fa-external-link-alt"></i></span></em></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>技巧</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -882,6 +882,53 @@ Here is the original list again:
       </categories>
       <tags>
         <tag>咨询</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DNS 的作用以及修改 DNS 的方法</title>
+    <url>/NetWork/dns-e7-9a-84-e4-bd-9c-e7-94-a8-e4-bb-a5-e5-8f-8a-e4-bf-ae-e6-94-b9dns-e7-9a-84-e6-96-b9-e6-b3-95/</url>
+    <content><![CDATA[<div class="note default"></div>
+
+<a id="more"></a>
+
+<hr>
+<h2 id="1、DNS的作用及修改DNS的方法"><a href="#1、DNS的作用及修改DNS的方法" class="headerlink" title="1、DNS的作用及修改DNS的方法"></a>1、DNS 的作用及修改 DNS 的方法</h2><h3 id="1-1-DNS的作用"><a href="#1-1-DNS的作用" class="headerlink" title="1.1.DNS的作用"></a>1.1.DNS 的作用</h3><p>DNS 就是将域名映射成 ip 的分布式数据库服务器，它的作用如下图：</p>
+<p><img src="https://cdn.fuocu.cn/wp-content/uploads/2020/02/1582451509-683cdebe719ed41.png"></p>
+<h3 id="1-2-修改DNS的方法"><a href="#1-2-修改DNS的方法" class="headerlink" title="1.2.修改DNS的方法"></a>1.2. 修改 DNS 的方法</h3><p>常用的 DNS 服务器</p>
+<ol>
+<li>114.114.114.114<ul>
+<li>114.114.114.114 是国内移动、电信和联通通用的 DNS，手机和电脑端都可以使用，干净无广告，解析成功率相对来说更高，国内用户使用的比较多，而且速度相对快、稳定，是国内用户上网常用的 DNS。</li>
+</ul>
+</li>
+<li>8.8.8.8<ul>
+<li>8.8.8.8 是 GOOGLE 公司提供的 DNS，该地址是全球通用的，相对来说，更适合国外以及访问国外网站的用户使用。</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-2-1-修改本机的DNS"><a href="#1-2-1-修改本机的DNS" class="headerlink" title="1.2.1.修改本机的DNS"></a>1.2.1. 修改本机的 DNS</h4><p>修改本机 DNS 只是影响本机的域名解析服务器，而不影响局域网中其它主机的 DNS。</p>
+<ul>
+<li>Windows</li>
+</ul>
+<p>修改方法为：网络和共享中心选择” 更改适配器设置”——&gt; 右键” 无线网络连接” 属性 ——&gt; 双击 “internet 协议（TCP/IPV4）”</p>
+<p><a href="https://i.fuocu.cn/images/2020/02/23/3ad1a2f427504ab2e268f55a9d7e0b80.png"><img src="https://i.fuocu.cn/images/2020/02/23/3ad1a2f427504ab2e268f55a9d7e0b80.png"></a></p>
+<p>但是需要注意的一点是，更改完本机 dns 之后需要打开命令提示符，输入 ipconfig /flushdns 这条命令来刷新 dns，否则更改完之后短时间之内还是以之前的 dns 来解析。</p>
+<ul>
+<li>MacOS</li>
+</ul>
+<p>修改方法为：<strong>系统偏好设置</strong>选择” 网络”——&gt;” 高级”——&gt; “DNS”</p>
+<p><a href="https://i.fuocu.cn/images/2020/02/23/fb992864d49e018f1b34fb95adff85f5.png"><img src="https://i.fuocu.cn/images/2020/02/23/fb992864d49e018f1b34fb95adff85f5.png"></a></p>
+<p>点击左下角的 “+” 号，输入即可。</p>
+<h4 id="1-2-2-修改路由的DNS"><a href="#1-2-2-修改路由的DNS" class="headerlink" title="1.2.2.修改路由的DNS"></a>1.2.2. 修改路由的 DNS</h4><p>修改路由器的 dns 则是把连接路由器的所有终端进行修改，该修改项是存在于 <code>dhcp</code> 信息里，因此每个连接该路由器的终端都会获取到设置的 <code>dns</code>。但需要注意一点，若终端已连接路由器，路由器在更改 dns 之后无重启操作，那么之前连接的终端依然以之前获取的 dns 来解析，除非路由器进行重启，或者让终端进行重新连接。</p>
+<p>修改路由 DNS 的方法：打开网址<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMS4xLw=="> 192.168.1.1/<i class="fa fa-external-link-alt"></i></span>以管理员密码登录到路由器管理页面，做下图设置：</p>
+]]></content>
+      <categories>
+        <category>NetWork</category>
+      </categories>
+      <tags>
+        <tag>技巧</tag>
+        <tag>DNS</tag>
+        <tag>IP</tag>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -938,8 +985,8 @@ passwd #修改密码</code></pre>
       <tags>
         <tag>笔记</tag>
         <tag>技巧</tag>
-        <tag>Cloud</tag>
         <tag>IP</tag>
+        <tag>Cloud</tag>
       </tags>
   </entry>
   <entry>
@@ -999,6 +1046,46 @@ passwd #修改密码</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Node.js 对于基于微服务的应用程序开发有多好？</title>
+    <url>/Code/how-good-is-node-js-for-developing-apps-based-on-microservices/</url>
+    <content><![CDATA[<div class="note default"></div>
+
+<a id="more"></a>
+
+<hr>
+<p>在不断发展的业务环境中，应用程序开发人员在将微服务集成到应用程序开发流程中的同时，享有多项明显的好处。 当您将 Node.js 连接到微服务时，项目工作流程将得到增强。在本文中，您将了解到在微服务上进行应用程序开发时 Node.js 的兼容性。 世界各地的开发人员都意识到 Node.js 的潜力。目前，<span class="exturl" data-url="aHR0cHM6Ly9ob3N0aW5ndHJpYnVuYWwuY29tL2Jsb2cvbm9kZS1qcy1zdGF0cy8=">eBay 和 AliExpress<i class="fa fa-external-link-alt"></i></span>正在使用 Node.js 作为主要的后端语言。首先，您需要对 Node.js 和微服务有清晰的了解。</p>
+<h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>Node.js 是一个开放源代码，跨平台的环境和运行时库，旨在在浏览器之外运行用 JavaScript 编写的应用程序。它既不是编程语言，也不是框架。 <a href="https://i.loli.net/2020/02/14/yJMCQhdjRrlnNqB.png"><img src="https://i.loli.net/2020/02/14/yJMCQhdjRrlnNqB.png"></a> 开发人员主要在 Web 服务，移动应用程序和其他 API 等后端服务中使用 Node.js。Uber，PayPal，Wallmart 和 Netflix 等大公司一直在生产中使用此运行时环境。</p>
+<blockquote>
+<p><strong><em>另请阅读：<span class="exturl" data-url="aHR0cHM6Ly93d3cubWluZGludmVudG9yeS5jb20vYmxvZy9wcm9zLWFuZC1jb25zLW9mLW5vZGUtanMtd2ViLWFwcC1kZXZlbG9wbWVudC8=">Node.js Web App 开发的正面和负面方面<i class="fa fa-external-link-alt"></i></span></em></strong></p>
+</blockquote>
+<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>另一方面，微服务是指软件设计模式。这种模式可以将大型应用程序分解为更简单和较小的应用程序的集合。这些应用程序可以单独测试，维护和部署。 此外，它们是根据特定的业务能力松散耦合和组织的。因此，可以将其视为开发软件的面向业务的方式。</p>
+<h2 id="微服务对应用开发者的重要性"><a href="#微服务对应用开发者的重要性" class="headerlink" title="微服务对应用开发者的重要性"></a>微服务对应用开发者的重要性</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在大多数软件项目中，开发人员旨在从一开始就解决一个问题。当另一个问题浮出水面时，工程团队也会尝试解决它。项目的规模在不断扩大，没有解决所有问题。 这是整体式的发展。现有应用程序具有新功能，从而增加了整体复杂性。逐渐地，开发人员发现难以扩展项目，并且浪费了资源。 原因是，他们需要同时缩放每个功能。每次开发人员都需要更改几行代码，这使过程变得很困难。 开发人员发现无法应对微小变化的时候到了。添加新功能成为噩梦，并且该产品已过时。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>微服务旨在解决软件开发的这一问题。基于微服务架构的软件可以由几个较小的组件开发。这些部分可以协同工作，尽管开发人员可以单独构建它们。 此外，他们可以使用任何语言来实现它们。这表明开发人员可以自由使用任何技术，并且它们不限于任何特定的技术。 如果正确实施，微服务可能很小，以至于一个小团队可以在两周内重写它。如果性能似乎很差，那么很快就可以更换服务。 这导致开发风险以及与基础架构运营相关的成本大幅降低。最终，商业公司需要花费更少的钱以获得更好的性能。</p>
+<h2 id="微服务与Node-js之间的匹配"><a href="#微服务与Node-js之间的匹配" class="headerlink" title="微服务与Node.js之间的匹配"></a>微服务与 Node.js 之间的匹配</h2><p>微服务与 Node.js 共享兼容的连接。应该注意的是，开发 Node 的核心动机是简化微服务上的应用程序开发过程。 因此，连接是明确的，因为运行时环境与软件设计模式完全匹配。这个想法是在开发 Node app 时要使用几个分散的小节点。随着应用程序的工作，这些节点相互通信。 显然，在过去的几年中，大型企业和初创企业都将 Node.js 用于基于微服务的应用程序。看起来开发人员对使用 Node 很满意，并且从提高生产率方面可以看出其受欢迎程度。</p>
+<h2 id="使用微服务的主要好处"><a href="#使用微服务的主要好处" class="headerlink" title="使用微服务的主要好处"></a>使用微服务的主要好处</h2><p>开发人员了解，在构建应用程序时，技术并不总是很重要。与可用的技术功能相比，一些开发人员认为业务原理更为重要。 将微服务集成到应用程序开发流程中可以大大简化流程。在这里，您将了解微服务为开发人员提供的切实利益。</p>
+<h3 id="更好的结构"><a href="#更好的结构" class="headerlink" title="更好的结构"></a>更好的结构</h3><p>在结构良好的应用程序中，了解功能变得更加容易。这意味着开发人员必须相应地设计和实现这些功能。 在设计这些应用程序时，微服务会派上用场，从而为它们提供更好的结构。从实践上考虑，它需要较少的时间和金钱进行业务分析。因此，企业可以将资金用于开发过程本身。</p>
+<h3 id="无缝开发"><a href="#无缝开发" class="headerlink" title="无缝开发"></a>无缝开发</h3><p>有时，开发人员发现概念化，构建和维护复杂的应用程序非常困难。使用微服务，他们可以将它们分成更小的位。在此过程中，任务变得更加易于管理和简化。</p>
+<h3 id="更大的可扩展性"><a href="#更大的可扩展性" class="headerlink" title="更大的可扩展性"></a>更大的可扩展性</h3><p>与在传统范例中开发的单片应用程序不同，微服务提供更大程度的可伸缩性。开发人员遇到困难的情况，试图扩大规模，因为该过程确实很耗时。 他们需要找出内部情况，这需要大量的努力。微服务使流程更简单，并增强了项目的可伸缩性。</p>
+<h3 id="错误更少"><a href="#错误更少" class="headerlink" title="错误更少"></a>错误更少</h3><p>使用微服务最终可以减少错误数量。在这种情况下，微服务类似于句子，即人们可以避免错误的一口大小的技术。 因此，修复错误变得更加简单且耗时。目前，开发人员正在探索在应用程序开发期间集成微服务和 Node.js 的好处。</p>
+<h3 id="更好的性能"><a href="#更好的性能" class="headerlink" title="更好的性能"></a>更好的性能</h3><p>每个微服务都被赋予一个任务。开发人员可以无缝优化和调整它们。微服务的目的是刀对厨师。在竞争激烈的业务环境中，应用程序的性能对于建立业务竞争力大有帮助。</p>
+<h2 id="集成Node-js和微服务的好处"><a href="#集成Node-js和微服务的好处" class="headerlink" title="集成Node.js和微服务的好处"></a>集成 Node.js 和微服务的好处</h2><p>在业务价值方面，可以评估在应用程序开发过程中将 Node.js 和微服务集成在一起的好处。Node.js 中开发的面向微服务的应用程序具有许多好处。</p>
+<h3 id="简化工作流程开发"><a href="#简化工作流程开发" class="headerlink" title="简化工作流程开发"></a>简化工作流程开发</h3><p>当工作流程开发得到简化时，开发人员不必干涉彼此的任务。他们只是在正在开发的应用程序的各个部分上工作。 如果在应用程序开发过程中使用整体程序，那么这个问题就会成为一个障碍。Node.js 的优势在于它可以简化工作流程。 由于几个小部分组成了大型应用程序，因此开发人员可以分别处理较小的应用程序，而不是整个遇到问题。</p>
+<h3 id="提高生产力"><a href="#提高生产力" class="headerlink" title="提高生产力"></a>提高生产力</h3><p>Node.js 有一个程序包管理器，其中包含几个模块，能够由开发人员立即使用。这为他们节省了应用开发过程中的大量工作。 此外，Node.js 中的应用程序是用 JavaScript 编写的。这使得前端开发人员可以很容易地理解发生了什么。因此，他们在应用程序中进行了所需的更改。 整个堆栈中可以使用一种语言。此外，开发人员可以在后端和前端使用相同的模块。这可以帮助他们节省大量时间，并在此过程中发挥生产力。</p>
+<h3 id="易于更新和维护"><a href="#易于更新和维护" class="headerlink" title="易于更新和维护"></a>易于更新和维护</h3><p>事实证明，执行维护活动更为简单，因为不会出现复杂的整体代码。因此，开发人员可以在应用程序中无缝编写新功能。 即使执行更新，他们也可以以增量方式增强系统，而不必花费巨额成本进行重写。随着应用程序获得面向服务的模块化结构，节点活动促进了这种方法。</p>
+<h3 id="资料复制"><a href="#资料复制" class="headerlink" title="资料复制"></a>资料复制</h3><p>与 Node.js 完美结合的微服务需要数据复制。此外，开发人员可以从 NoSQL 数据库中受益。 实际上，这是表格式的传统数据库维护模型的替代方法。使用 Node.js，开发人员可以优化此功能的优势。它通常在市场上免费提供。</p>
+<h2 id="应用程序的可靠性和性能"><a href="#应用程序的可靠性和性能" class="headerlink" title="应用程序的可靠性和性能"></a>应用程序的可靠性和性能</h2><p>在数字化环境中进行操作需要开发健壮的应用程序。这些应用程序的可靠性和性能在很大程度上取决于开发团队的能力。 使用 Node.js，开发人员可以开发出功能强大的应用程序，这些应用程序在性能和可靠性方面都可以实现。此外，他们可以无限扩展应用程序，并且过程不会混乱。 只要预算允许，开发人员就可以根据需要放大或缩小功能。在这种情况下，您应该专注于单线程异步体系结构，这是开发人员可以使用 Node 享受的功能。 当前，<span class="exturl" data-url="aHR0cHM6Ly93d3cubWluZGludmVudG9yeS5jb20vbm9kZS1qcy1kZXZlbG9wbWVudC5waHA=">Node.js<i class="fa fa-external-link-alt"></i></span>是获取实时运行的 Web 应用程序的最佳解决方案。由于事件驱动和非阻塞 I / O 模型，这些应用以其高性能而著称。 与面向微服务的应用程序一起，Node 可以处理大量负载，尤其是在响应速度较慢的时候。在无缝集成 Node 和微服务时，仅需要 10％的硬件即可处理负载。 从图中可以明显看出 Node.js 的受欢迎程度。Node Foundation 透露，目前大约有<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Jsb2cvYW5ub3VuY2VtZW50cy9ub2RlanMtZm91bmRhdGlvbi1zdXJ2ZXkv"> 350 万用户<i class="fa fa-external-link-alt"></i></span>正在使用 Node 开发应用程序，并且增长率为 100％。 在这种环境下，开发人员能够提出带有自定义功能的应用程序。显然，开发人员喜欢使用微服务来开发应用程序的 Node.js。 下一代开发人员在开发解决方案时可能会很大程度上依赖此平台。特别是，不愿意使用静态类型的 #C 语言的开发人员可以从此环境中受益。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>现在您可以了解为什么 Node.js 与微服务一起使用效果最佳。这就是开发人员喜欢在这样的环境中工作的原因。 借助微服务，他们可以享受多种好处，例如易于更新和开发，成本控制和轻松扩展。特别是在高流量条件下，微服务和 Node.js 可以完美同步。 创新型企业已经在使用这种微服务和 Node.js 的战术组合。他们能够提高生产率，同时将成本降至最低并实现高性能。开发人员很高兴将 Node.js 用于基于微服务的应用程序。</p>
+]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>咨询</tag>
+        <tag>Nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML 表单笔记</title>
     <url>/Code/html-form-note/</url>
     <content><![CDATA[<div class="note default"></div>
@@ -1054,43 +1141,23 @@ passwd #修改密码</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Node.js 对于基于微服务的应用程序开发有多好？</title>
-    <url>/Code/how-good-is-node-js-for-developing-apps-based-on-microservices/</url>
+    <title>你家宽带是公网 IP 还是内网 IP，两者体验大不同！</title>
+    <url>/NetWork/ipv4-vs/</url>
     <content><![CDATA[<div class="note default"></div>
 
 <a id="more"></a>
 
 <hr>
-<p>在不断发展的业务环境中，应用程序开发人员在将微服务集成到应用程序开发流程中的同时，享有多项明显的好处。 当您将 Node.js 连接到微服务时，项目工作流程将得到增强。在本文中，您将了解到在微服务上进行应用程序开发时 Node.js 的兼容性。 世界各地的开发人员都意识到 Node.js 的潜力。目前，<span class="exturl" data-url="aHR0cHM6Ly9ob3N0aW5ndHJpYnVuYWwuY29tL2Jsb2cvbm9kZS1qcy1zdGF0cy8=">eBay 和 AliExpress<i class="fa fa-external-link-alt"></i></span>正在使用 Node.js 作为主要的后端语言。首先，您需要对 Node.js 和微服务有清晰的了解。</p>
-<h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>Node.js 是一个开放源代码，跨平台的环境和运行时库，旨在在浏览器之外运行用 JavaScript 编写的应用程序。它既不是编程语言，也不是框架。 <a href="https://i.loli.net/2020/02/14/yJMCQhdjRrlnNqB.png"><img src="https://i.loli.net/2020/02/14/yJMCQhdjRrlnNqB.png"></a> 开发人员主要在 Web 服务，移动应用程序和其他 API 等后端服务中使用 Node.js。Uber，PayPal，Wallmart 和 Netflix 等大公司一直在生产中使用此运行时环境。</p>
-<blockquote>
-<p><strong><em>另请阅读：<span class="exturl" data-url="aHR0cHM6Ly93d3cubWluZGludmVudG9yeS5jb20vYmxvZy9wcm9zLWFuZC1jb25zLW9mLW5vZGUtanMtd2ViLWFwcC1kZXZlbG9wbWVudC8=">Node.js Web App 开发的正面和负面方面<i class="fa fa-external-link-alt"></i></span></em></strong></p>
-</blockquote>
-<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>另一方面，微服务是指软件设计模式。这种模式可以将大型应用程序分解为更简单和较小的应用程序的集合。这些应用程序可以单独测试，维护和部署。 此外，它们是根据特定的业务能力松散耦合和组织的。因此，可以将其视为开发软件的面向业务的方式。</p>
-<h2 id="微服务对应用开发者的重要性"><a href="#微服务对应用开发者的重要性" class="headerlink" title="微服务对应用开发者的重要性"></a>微服务对应用开发者的重要性</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在大多数软件项目中，开发人员旨在从一开始就解决一个问题。当另一个问题浮出水面时，工程团队也会尝试解决它。项目的规模在不断扩大，没有解决所有问题。 这是整体式的发展。现有应用程序具有新功能，从而增加了整体复杂性。逐渐地，开发人员发现难以扩展项目，并且浪费了资源。 原因是，他们需要同时缩放每个功能。每次开发人员都需要更改几行代码，这使过程变得很困难。 开发人员发现无法应对微小变化的时候到了。添加新功能成为噩梦，并且该产品已过时。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>微服务旨在解决软件开发的这一问题。基于微服务架构的软件可以由几个较小的组件开发。这些部分可以协同工作，尽管开发人员可以单独构建它们。 此外，他们可以使用任何语言来实现它们。这表明开发人员可以自由使用任何技术，并且它们不限于任何特定的技术。 如果正确实施，微服务可能很小，以至于一个小团队可以在两周内重写它。如果性能似乎很差，那么很快就可以更换服务。 这导致开发风险以及与基础架构运营相关的成本大幅降低。最终，商业公司需要花费更少的钱以获得更好的性能。</p>
-<h2 id="微服务与Node-js之间的匹配"><a href="#微服务与Node-js之间的匹配" class="headerlink" title="微服务与Node.js之间的匹配"></a>微服务与 Node.js 之间的匹配</h2><p>微服务与 Node.js 共享兼容的连接。应该注意的是，开发 Node 的核心动机是简化微服务上的应用程序开发过程。 因此，连接是明确的，因为运行时环境与软件设计模式完全匹配。这个想法是在开发 Node app 时要使用几个分散的小节点。随着应用程序的工作，这些节点相互通信。 显然，在过去的几年中，大型企业和初创企业都将 Node.js 用于基于微服务的应用程序。看起来开发人员对使用 Node 很满意，并且从提高生产率方面可以看出其受欢迎程度。</p>
-<h2 id="使用微服务的主要好处"><a href="#使用微服务的主要好处" class="headerlink" title="使用微服务的主要好处"></a>使用微服务的主要好处</h2><p>开发人员了解，在构建应用程序时，技术并不总是很重要。与可用的技术功能相比，一些开发人员认为业务原理更为重要。 将微服务集成到应用程序开发流程中可以大大简化流程。在这里，您将了解微服务为开发人员提供的切实利益。</p>
-<h3 id="更好的结构"><a href="#更好的结构" class="headerlink" title="更好的结构"></a>更好的结构</h3><p>在结构良好的应用程序中，了解功能变得更加容易。这意味着开发人员必须相应地设计和实现这些功能。 在设计这些应用程序时，微服务会派上用场，从而为它们提供更好的结构。从实践上考虑，它需要较少的时间和金钱进行业务分析。因此，企业可以将资金用于开发过程本身。</p>
-<h3 id="无缝开发"><a href="#无缝开发" class="headerlink" title="无缝开发"></a>无缝开发</h3><p>有时，开发人员发现概念化，构建和维护复杂的应用程序非常困难。使用微服务，他们可以将它们分成更小的位。在此过程中，任务变得更加易于管理和简化。</p>
-<h3 id="更大的可扩展性"><a href="#更大的可扩展性" class="headerlink" title="更大的可扩展性"></a>更大的可扩展性</h3><p>与在传统范例中开发的单片应用程序不同，微服务提供更大程度的可伸缩性。开发人员遇到困难的情况，试图扩大规模，因为该过程确实很耗时。 他们需要找出内部情况，这需要大量的努力。微服务使流程更简单，并增强了项目的可伸缩性。</p>
-<h3 id="错误更少"><a href="#错误更少" class="headerlink" title="错误更少"></a>错误更少</h3><p>使用微服务最终可以减少错误数量。在这种情况下，微服务类似于句子，即人们可以避免错误的一口大小的技术。 因此，修复错误变得更加简单且耗时。目前，开发人员正在探索在应用程序开发期间集成微服务和 Node.js 的好处。</p>
-<h3 id="更好的性能"><a href="#更好的性能" class="headerlink" title="更好的性能"></a>更好的性能</h3><p>每个微服务都被赋予一个任务。开发人员可以无缝优化和调整它们。微服务的目的是刀对厨师。在竞争激烈的业务环境中，应用程序的性能对于建立业务竞争力大有帮助。</p>
-<h2 id="集成Node-js和微服务的好处"><a href="#集成Node-js和微服务的好处" class="headerlink" title="集成Node.js和微服务的好处"></a>集成 Node.js 和微服务的好处</h2><p>在业务价值方面，可以评估在应用程序开发过程中将 Node.js 和微服务集成在一起的好处。Node.js 中开发的面向微服务的应用程序具有许多好处。</p>
-<h3 id="简化工作流程开发"><a href="#简化工作流程开发" class="headerlink" title="简化工作流程开发"></a>简化工作流程开发</h3><p>当工作流程开发得到简化时，开发人员不必干涉彼此的任务。他们只是在正在开发的应用程序的各个部分上工作。 如果在应用程序开发过程中使用整体程序，那么这个问题就会成为一个障碍。Node.js 的优势在于它可以简化工作流程。 由于几个小部分组成了大型应用程序，因此开发人员可以分别处理较小的应用程序，而不是整个遇到问题。</p>
-<h3 id="提高生产力"><a href="#提高生产力" class="headerlink" title="提高生产力"></a>提高生产力</h3><p>Node.js 有一个程序包管理器，其中包含几个模块，能够由开发人员立即使用。这为他们节省了应用开发过程中的大量工作。 此外，Node.js 中的应用程序是用 JavaScript 编写的。这使得前端开发人员可以很容易地理解发生了什么。因此，他们在应用程序中进行了所需的更改。 整个堆栈中可以使用一种语言。此外，开发人员可以在后端和前端使用相同的模块。这可以帮助他们节省大量时间，并在此过程中发挥生产力。</p>
-<h3 id="易于更新和维护"><a href="#易于更新和维护" class="headerlink" title="易于更新和维护"></a>易于更新和维护</h3><p>事实证明，执行维护活动更为简单，因为不会出现复杂的整体代码。因此，开发人员可以在应用程序中无缝编写新功能。 即使执行更新，他们也可以以增量方式增强系统，而不必花费巨额成本进行重写。随着应用程序获得面向服务的模块化结构，节点活动促进了这种方法。</p>
-<h3 id="资料复制"><a href="#资料复制" class="headerlink" title="资料复制"></a>资料复制</h3><p>与 Node.js 完美结合的微服务需要数据复制。此外，开发人员可以从 NoSQL 数据库中受益。 实际上，这是表格式的传统数据库维护模型的替代方法。使用 Node.js，开发人员可以优化此功能的优势。它通常在市场上免费提供。</p>
-<h2 id="应用程序的可靠性和性能"><a href="#应用程序的可靠性和性能" class="headerlink" title="应用程序的可靠性和性能"></a>应用程序的可靠性和性能</h2><p>在数字化环境中进行操作需要开发健壮的应用程序。这些应用程序的可靠性和性能在很大程度上取决于开发团队的能力。 使用 Node.js，开发人员可以开发出功能强大的应用程序，这些应用程序在性能和可靠性方面都可以实现。此外，他们可以无限扩展应用程序，并且过程不会混乱。 只要预算允许，开发人员就可以根据需要放大或缩小功能。在这种情况下，您应该专注于单线程异步体系结构，这是开发人员可以使用 Node 享受的功能。 当前，<span class="exturl" data-url="aHR0cHM6Ly93d3cubWluZGludmVudG9yeS5jb20vbm9kZS1qcy1kZXZlbG9wbWVudC5waHA=">Node.js<i class="fa fa-external-link-alt"></i></span>是获取实时运行的 Web 应用程序的最佳解决方案。由于事件驱动和非阻塞 I / O 模型，这些应用以其高性能而著称。 与面向微服务的应用程序一起，Node 可以处理大量负载，尤其是在响应速度较慢的时候。在无缝集成 Node 和微服务时，仅需要 10％的硬件即可处理负载。 从图中可以明显看出 Node.js 的受欢迎程度。Node Foundation 透露，目前大约有<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Jsb2cvYW5ub3VuY2VtZW50cy9ub2RlanMtZm91bmRhdGlvbi1zdXJ2ZXkv"> 350 万用户<i class="fa fa-external-link-alt"></i></span>正在使用 Node 开发应用程序，并且增长率为 100％。 在这种环境下，开发人员能够提出带有自定义功能的应用程序。显然，开发人员喜欢使用微服务来开发应用程序的 Node.js。 下一代开发人员在开发解决方案时可能会很大程度上依赖此平台。特别是，不愿意使用静态类型的 #C 语言的开发人员可以从此环境中受益。</p>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>现在您可以了解为什么 Node.js 与微服务一起使用效果最佳。这就是开发人员喜欢在这样的环境中工作的原因。 借助微服务，他们可以享受多种好处，例如易于更新和开发，成本控制和轻松扩展。特别是在高流量条件下，微服务和 Node.js 可以完美同步。 创新型企业已经在使用这种微服务和 Node.js 的战术组合。他们能够提高生产率，同时将成本降至最低并实现高性能。开发人员很高兴将 Node.js 用于基于微服务的应用程序。</p>
+<p>“提速降费” 已经喊了很长时间，很多用户家里都升级安装了百兆宽带，再也不会出现一人看电影，全家缓冲的情况了。 不过随着办理宽带用户的增加，公网 IP 使用分配也已逐渐告罄，很多网民都在抱怨：“自家的公网 IP，被偷偷换为内网 IP” <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/afd4511a5fd740c98832c90d7abbbcfd.jpeg"> <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/e756d6c2f60b4c64bb3bce1538f6fbc6.jpg"> <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/cee0cf27987c4a0da674e16127213362.jpg"> 今天我们就来聊一聊公网 IP 和内网 IP 的使用体验都有哪些不同？</p>
+<h2 id="什么是内网IP、公网IP？"><a href="#什么是内网IP、公网IP？" class="headerlink" title="什么是内网IP、公网IP？"></a>什么是内网 IP、公网 IP？</h2><p>内网 IP： <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/aad7c50a14c44321b5785788e820fc64.webp"> 由图可以看到路由器（第一层），交换机（第二层）然后是自己的电脑，所谓的内网就是从路由器以下开始的。我们内网用户的电脑都是经过交换机和路由器之后才能连到外网。 路由器只需一个公网 IP 就可以供下面多个电脑联网使用。由于不同的内网 IP 能够重复使用。所以内网 IP 通常有以下类型： 10.0.0.0<del>10.255.255.255 172.16.0.0</del>172.31.255.255 192.168.0.0~192.168.255.255 这些 IP 就是内网 IP，其中你家的 IP 是否也在其中呢？ 公网 IP： <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/bcb5effcb3fb40679b94b88fb6b1f002.webp"> 拥有公网 IP，用户就无需经过路由器或交换机，直接可以上网。除此之外，还能够直接被外界所访问到，无需经如何设备，直接连接电脑。 如何辨别自家网络是公网 IP 呢？其实除了上文中提到的内网 IP，其余基本都是公网 IP。</p>
+<h2 id="公网IP有什么好处呢？"><a href="#公网IP有什么好处呢？" class="headerlink" title="公网IP有什么好处呢？"></a><strong>公网 IP 有什么好处呢？</strong></h2><p>其实最早我们使用的网络都是公网 IP，但是随着电脑的普及，运营商没有足够的公网 IPV4 地址分配给用户，所以只能偷偷的将公网 IP 换为内网 IP 分给多个用户使用，不过这也给用户使用体验造成了不少影响。 1、公网 IP 有更好的下载体验 <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/2c35c78be9be44b687c1c552dd272718.webp"> 相信不少用户都曾遇到过使用 P2P 下载电影、游戏资源，搜索不到资源或是下载速度慢的情况。如果拥有公网 IP，当进行 P2P 下载的时候，能够更快地找到其他节点，获取更多下载数据，下载速度更快，下载资源也不容易断流。如果是内网 IP，一些稍微 “冷门” 的资源可能根本无法下载。 2、公网 IP 更出色的互联体验 随着物联网的快速发展，很多智能设备都支持连接网络（智能电视、智能摄像头等），例如家中的智能安全摄像头，如果用户是公网 IP，用户可以直接通过公网 IP 连接，不经过任何第三方服务器，免去了泄露隐私的风险。 3、公网 IP 游戏体验更出色 <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/50b707fa611f46819ff027f6c23c6124.webp"> 如果你是一名主机玩家，肯定有过此类经历，一些游戏需要 NAT2 类型才能联机而 NAT3 则不能，还有如果在 Steam 上建主机玩救生之路 2，建好房间后发现别人都进不来。这就是内网 IP 和公网 IP 的区别。公网 IP 无需路由器或交换机转发，联机效率更高，而且有些游戏硬性跪地需要公网 IP 才能连接。</p>
+<h2 id="如何才能更换公网IP"><a href="#如何才能更换公网IP" class="headerlink" title="如何才能更换公网IP?"></a>如何才能更换公网 IP?</h2><p>用户如果对公网 IP 有必要需求，可以尝试联系自家网络运营商，可能有机会更换公网 IP，不过由于目前公网 IP（IPV4）基本已经分配完毕，使用出现枯竭，能够长期使用公网 IP 的可能非常渺小，只能希望 IPV6 技术的尽快普及，彻底解决公网 IP 枯竭的问题。</p>
 ]]></content>
       <categories>
-        <category>Code</category>
+        <category>NetWork</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
-        <tag>咨询</tag>
-        <tag>Nodejs</tag>
+        <tag>IP</tag>
       </tags>
   </entry>
   <entry>
@@ -1128,26 +1195,6 @@ passwd #修改密码</code></pre>
         <tag>Cloud</tag>
         <tag>APP</tag>
         <tag>Aria2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>你家宽带是公网 IP 还是内网 IP，两者体验大不同！</title>
-    <url>/NetWork/ipv4-vs/</url>
-    <content><![CDATA[<div class="note default"></div>
-
-<a id="more"></a>
-
-<hr>
-<p>“提速降费” 已经喊了很长时间，很多用户家里都升级安装了百兆宽带，再也不会出现一人看电影，全家缓冲的情况了。 不过随着办理宽带用户的增加，公网 IP 使用分配也已逐渐告罄，很多网民都在抱怨：“自家的公网 IP，被偷偷换为内网 IP” <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/afd4511a5fd740c98832c90d7abbbcfd.jpeg"> <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/e756d6c2f60b4c64bb3bce1538f6fbc6.jpg"> <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/cee0cf27987c4a0da674e16127213362.jpg"> 今天我们就来聊一聊公网 IP 和内网 IP 的使用体验都有哪些不同？</p>
-<h2 id="什么是内网IP、公网IP？"><a href="#什么是内网IP、公网IP？" class="headerlink" title="什么是内网IP、公网IP？"></a>什么是内网 IP、公网 IP？</h2><p>内网 IP： <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/aad7c50a14c44321b5785788e820fc64.webp"> 由图可以看到路由器（第一层），交换机（第二层）然后是自己的电脑，所谓的内网就是从路由器以下开始的。我们内网用户的电脑都是经过交换机和路由器之后才能连到外网。 路由器只需一个公网 IP 就可以供下面多个电脑联网使用。由于不同的内网 IP 能够重复使用。所以内网 IP 通常有以下类型： 10.0.0.0<del>10.255.255.255 172.16.0.0</del>172.31.255.255 192.168.0.0~192.168.255.255 这些 IP 就是内网 IP，其中你家的 IP 是否也在其中呢？ 公网 IP： <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/bcb5effcb3fb40679b94b88fb6b1f002.webp"> 拥有公网 IP，用户就无需经过路由器或交换机，直接可以上网。除此之外，还能够直接被外界所访问到，无需经如何设备，直接连接电脑。 如何辨别自家网络是公网 IP 呢？其实除了上文中提到的内网 IP，其余基本都是公网 IP。</p>
-<h2 id="公网IP有什么好处呢？"><a href="#公网IP有什么好处呢？" class="headerlink" title="公网IP有什么好处呢？"></a><strong>公网 IP 有什么好处呢？</strong></h2><p>其实最早我们使用的网络都是公网 IP，但是随着电脑的普及，运营商没有足够的公网 IPV4 地址分配给用户，所以只能偷偷的将公网 IP 换为内网 IP 分给多个用户使用，不过这也给用户使用体验造成了不少影响。 1、公网 IP 有更好的下载体验 <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/2c35c78be9be44b687c1c552dd272718.webp"> 相信不少用户都曾遇到过使用 P2P 下载电影、游戏资源，搜索不到资源或是下载速度慢的情况。如果拥有公网 IP，当进行 P2P 下载的时候，能够更快地找到其他节点，获取更多下载数据，下载速度更快，下载资源也不容易断流。如果是内网 IP，一些稍微 “冷门” 的资源可能根本无法下载。 2、公网 IP 更出色的互联体验 随着物联网的快速发展，很多智能设备都支持连接网络（智能电视、智能摄像头等），例如家中的智能安全摄像头，如果用户是公网 IP，用户可以直接通过公网 IP 连接，不经过任何第三方服务器，免去了泄露隐私的风险。 3、公网 IP 游戏体验更出色 <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20171124/50b707fa611f46819ff027f6c23c6124.webp"> 如果你是一名主机玩家，肯定有过此类经历，一些游戏需要 NAT2 类型才能联机而 NAT3 则不能，还有如果在 Steam 上建主机玩救生之路 2，建好房间后发现别人都进不来。这就是内网 IP 和公网 IP 的区别。公网 IP 无需路由器或交换机转发，联机效率更高，而且有些游戏硬性跪地需要公网 IP 才能连接。</p>
-<h2 id="如何才能更换公网IP"><a href="#如何才能更换公网IP" class="headerlink" title="如何才能更换公网IP?"></a>如何才能更换公网 IP?</h2><p>用户如果对公网 IP 有必要需求，可以尝试联系自家网络运营商，可能有机会更换公网 IP，不过由于目前公网 IP（IPV4）基本已经分配完毕，使用出现枯竭，能够长期使用公网 IP 的可能非常渺小，只能希望 IPV6 技术的尽快普及，彻底解决公网 IP 枯竭的问题。</p>
-]]></content>
-      <categories>
-        <category>NetWork</category>
-      </categories>
-      <tags>
-        <tag>IP</tag>
       </tags>
   </entry>
   <entry>
@@ -1476,7 +1523,7 @@ passwd #修改密码</code></pre>
 <td align="center">tar 文件解压</td>
 </tr>
 <tr>
-<td align="center"> ssh <span class="exturl" data-url="bWFpbHRvOiYjeDcyOyYjMTExOyYjeDZmOyYjeDc0OyYjNjQ7JiN4MzE7JiM1NzsmIzUwOyYjNDY7JiM0OTsmI3gzNjsmI3gzODsmI3gyZTsmI3gzMTsmI3gyZTsmI3gzMjsmIzUwOyYjeDMyOw==">root@192.168.1.222<i class="fa fa-external-link-alt"></i></span></td>
+<td align="center"> ssh <span class="exturl" data-url="bWFpbHRvOiYjMTE0OyYjeDZmOyYjeDZmOyYjeDc0OyYjeDQwOyYjeDMxOyYjNTc7JiM1MDsmIzQ2OyYjNDk7JiM1NDsmI3gzODsmI3gyZTsmI3gzMTsmI3gyZTsmI3gzMjsmIzUwOyYjNTA7">root@192.168.1.222<i class="fa fa-external-link-alt"></i></span></td>
 <td align="center">以 root 账号远程连接 222 服务器</td>
 </tr>
 <tr>
@@ -1606,7 +1653,7 @@ passwd #修改密码</code></pre>
 <p>输出语句</p>
 <p>tar -zxf abc.tar.gz</p>
 <p>tar 文件解压</p>
-<p>ssh <span class="exturl" data-url="bWFpbHRvOiYjMTE0OyYjMTExOyYjMTExOyYjeDc0OyYjeDQwOyYjNDk7JiM1NzsmIzUwOyYjeDJlOyYjNDk7JiM1NDsmIzU2OyYjNDY7JiM0OTsmI3gyZTsmI3gzMjsmIzUwOyYjeDMyOw==">root@192.168.1.222<i class="fa fa-external-link-alt"></i></span></p>
+<p>ssh <span class="exturl" data-url="bWFpbHRvOiYjeDcyOyYjeDZmOyYjMTExOyYjMTE2OyYjNjQ7JiN4MzE7JiN4Mzk7JiM1MDsmI3gyZTsmI3gzMTsmIzU0OyYjeDM4OyYjNDY7JiN4MzE7JiN4MmU7JiM1MDsmIzUwOyYjeDMyOw==">root@192.168.1.222<i class="fa fa-external-link-alt"></i></span></p>
 <p>以 root 账号远程连接 222 服务器</p>
 <p>unrar x abc.rar</p>
 <p>rar 文件解压，需要安装 rar 工具</p>
@@ -1712,53 +1759,6 @@ passwd #修改密码</code></pre>
       </categories>
       <tags>
         <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DNS 的作用以及修改 DNS 的方法</title>
-    <url>/NetWork/dns-e7-9a-84-e4-bd-9c-e7-94-a8-e4-bb-a5-e5-8f-8a-e4-bf-ae-e6-94-b9dns-e7-9a-84-e6-96-b9-e6-b3-95/</url>
-    <content><![CDATA[<div class="note default"></div>
-
-<a id="more"></a>
-
-<hr>
-<h2 id="1、DNS的作用及修改DNS的方法"><a href="#1、DNS的作用及修改DNS的方法" class="headerlink" title="1、DNS的作用及修改DNS的方法"></a>1、DNS 的作用及修改 DNS 的方法</h2><h3 id="1-1-DNS的作用"><a href="#1-1-DNS的作用" class="headerlink" title="1.1.DNS的作用"></a>1.1.DNS 的作用</h3><p>DNS 就是将域名映射成 ip 的分布式数据库服务器，它的作用如下图：</p>
-<p><img src="https://cdn.fuocu.cn/wp-content/uploads/2020/02/1582451509-683cdebe719ed41.png"></p>
-<h3 id="1-2-修改DNS的方法"><a href="#1-2-修改DNS的方法" class="headerlink" title="1.2.修改DNS的方法"></a>1.2. 修改 DNS 的方法</h3><p>常用的 DNS 服务器</p>
-<ol>
-<li>114.114.114.114<ul>
-<li>114.114.114.114 是国内移动、电信和联通通用的 DNS，手机和电脑端都可以使用，干净无广告，解析成功率相对来说更高，国内用户使用的比较多，而且速度相对快、稳定，是国内用户上网常用的 DNS。</li>
-</ul>
-</li>
-<li>8.8.8.8<ul>
-<li>8.8.8.8 是 GOOGLE 公司提供的 DNS，该地址是全球通用的，相对来说，更适合国外以及访问国外网站的用户使用。</li>
-</ul>
-</li>
-</ol>
-<h4 id="1-2-1-修改本机的DNS"><a href="#1-2-1-修改本机的DNS" class="headerlink" title="1.2.1.修改本机的DNS"></a>1.2.1. 修改本机的 DNS</h4><p>修改本机 DNS 只是影响本机的域名解析服务器，而不影响局域网中其它主机的 DNS。</p>
-<ul>
-<li>Windows</li>
-</ul>
-<p>修改方法为：网络和共享中心选择” 更改适配器设置”——&gt; 右键” 无线网络连接” 属性 ——&gt; 双击 “internet 协议（TCP/IPV4）”</p>
-<p><a href="https://i.fuocu.cn/images/2020/02/23/3ad1a2f427504ab2e268f55a9d7e0b80.png"><img src="https://i.fuocu.cn/images/2020/02/23/3ad1a2f427504ab2e268f55a9d7e0b80.png"></a></p>
-<p>但是需要注意的一点是，更改完本机 dns 之后需要打开命令提示符，输入 ipconfig /flushdns 这条命令来刷新 dns，否则更改完之后短时间之内还是以之前的 dns 来解析。</p>
-<ul>
-<li>MacOS</li>
-</ul>
-<p>修改方法为：<strong>系统偏好设置</strong>选择” 网络”——&gt;” 高级”——&gt; “DNS”</p>
-<p><a href="https://i.fuocu.cn/images/2020/02/23/fb992864d49e018f1b34fb95adff85f5.png"><img src="https://i.fuocu.cn/images/2020/02/23/fb992864d49e018f1b34fb95adff85f5.png"></a></p>
-<p>点击左下角的 “+” 号，输入即可。</p>
-<h4 id="1-2-2-修改路由的DNS"><a href="#1-2-2-修改路由的DNS" class="headerlink" title="1.2.2.修改路由的DNS"></a>1.2.2. 修改路由的 DNS</h4><p>修改路由器的 dns 则是把连接路由器的所有终端进行修改，该修改项是存在于 <code>dhcp</code> 信息里，因此每个连接该路由器的终端都会获取到设置的 <code>dns</code>。但需要注意一点，若终端已连接路由器，路由器在更改 dns 之后无重启操作，那么之前连接的终端依然以之前获取的 dns 来解析，除非路由器进行重启，或者让终端进行重新连接。</p>
-<p>修改路由 DNS 的方法：打开网址<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMS4xLw=="> 192.168.1.1/<i class="fa fa-external-link-alt"></i></span>以管理员密码登录到路由器管理页面，做下图设置：</p>
-]]></content>
-      <categories>
-        <category>NetWork</category>
-      </categories>
-      <tags>
-        <tag>技巧</tag>
-        <tag>IP</tag>
-        <tag>MacOS</tag>
-        <tag>DNS</tag>
       </tags>
   </entry>
   <entry>
@@ -1921,6 +1921,55 @@ passwd #修改密码</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>宝塔面板搭建 NextCloud 安全问题及插件推荐</title>
+    <url>/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/nextcloud-bug-in-pagoda-panel-building-and-solutions/</url>
+    <content><![CDATA[<div class="note default"></div>
+
+<a id="more"></a>
+
+<hr>
+<p>终于要写这个了啊 采用 LAMP 架构安装 Nextcloud 私有云盘是一个很简单的过程，但是由于是开源软件，难免会存在一些 BUG 和小问题，这里罗列了安装过程中可能会出现的一些问题并汇总，仅供参考。</p>
+<ul>
+<li>使用宝塔面板和 Nextcloud 搭建私有云 / 网盘图文教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnVvY3UuY24vYXJjaGl2ZXMvdXNlLXRoZS1wYWdvZGEtcGFuZWwtYW5kLW5leHRjbG91ZC10by1idWlsZC1hLXByaXZhdGUtY2xvdWQtb25saW5lLWRpc2stZ3JhcGhpYy10dXRvcmlhLw==">https://www.fuocu.cn/archives/use-the-pagoda-panel-and-nextcloud-to-build-a-private-cloud-online-disk-graphic-tutoria/<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<blockquote>
+<p>先看一下我与到的问题</p>
+</blockquote>
+<p><a href="https://i.loli.net/2020/02/19/STcQfVUZYKCIe9B.png"><img src="https://i.loli.net/2020/02/19/STcQfVUZYKCIe9B.png"></a></p>
+<blockquote>
+<p>当时看到的时候头都大了，问题太多了，下面咱们来一一解决。</p>
+</blockquote>
+<h2 id="1、红色问题"><a href="#1、红色问题" class="headerlink" title="1、红色问题"></a>1、红色问题</h2><blockquote>
+<p>您的数据目录和文件可以从互联网直接访问。<code>.htaccess</code> 文件不起作用。强烈建议您配置 <code>Web</code> 服务器，以便数据目录不再可访问，或者您可以将数据目录移动到 <code>Web</code> 服务器文档根目录。</p>
+</blockquote>
+<p>解决方法是修改 nextcloud 绑定的网站配置文件，添加 nextcloud 常用目录禁止访问即可，加入下列代码</p>
+<p>location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {<br>  deny all;<br>}</p>
+<p><a href="https://i.loli.net/2020/02/19/V7ZwytdpWP2L6Rk.png"><img src="https://i.loli.net/2020/02/19/V7ZwytdpWP2L6Rk.png"></a></p>
+<h2 id="2、黄色问题"><a href="#2、黄色问题" class="headerlink" title="2、黄色问题"></a>2、黄色问题</h2><blockquote>
+<p>PHP 的安装似乎不正确，无法访问系统环境变量。<code>getenv("PATH")</code> 函数测试返回了一个空值。 请参照<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5leHRjbG91ZC5jb20vc2VydmVyLzE4L2dvLnBocD90bz1hZG1pbi1waHAtZnBt">安装说明文档 ↗<i class="fa fa-external-link-alt"></i></span>中的 <code>PHP</code> 配置说明查阅您服务器的 PHP 配置信息，特别是在使用 <code>php-fpm</code> 时。</p>
+</blockquote>
+<p>从宝塔文件管理，打开 <code>/www/server/php/74/etc/php-fpm.conf</code>，在其尾部添加一行</p>
+<p>env[PATH] = /usr/local/bin:/usr/bin:/bin:/usr/local/php/bin</p>
+<p>保存并重启 PHP 即可解决该问题。 <a href="https://i.loli.net/2020/02/19/qcpvSMj8BO9tF5n.png"><img src="https://i.loli.net/2020/02/19/qcpvSMj8BO9tF5n.png"></a></p>
+<blockquote>
+<p>PHP 内存限制低于建议值 <code>512MB</code>。</p>
+</blockquote>
+<p>在<strong>宝塔 PHP 配置修改</strong>中把 <strong>脚本运行内存</strong> 修改为 512MB 以上就行。这里我修改为 <strong>1024MB</strong>。然后点击保存即可。 <a href="https://i.loli.net/2020/02/19/N1dTyMnQRXZujsI.png"><img src="https://i.loli.net/2020/02/19/N1dTyMnQRXZujsI.png"></a></p>
+<blockquote>
+<p>HTTP 请求头 “<strong>X-Content-Type-Options</strong>“ 没有配置为 “<code>nosniff</code>“。这是一个潜在的安全或隐私风险，我们建议您调整这项设置。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>宝塔面板</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>MySQL</tag>
+        <tag>NextCloud</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OCC 命令给 ownCloud/Nextcloud 手动添加文件</title>
     <url>/Linux/occ-command-to-manually-add-files-to-owncloud-nextcloud/</url>
     <content><![CDATA[<div class="note default"></div>
@@ -2003,55 +2052,6 @@ passwd #修改密码</code></pre>
       <tags>
         <tag>技巧</tag>
         <tag>Photoshop</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>宝塔面板搭建 NextCloud 安全问题及插件推荐</title>
-    <url>/Linux/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/nextcloud-bug-in-pagoda-panel-building-and-solutions/</url>
-    <content><![CDATA[<div class="note default"></div>
-
-<a id="more"></a>
-
-<hr>
-<p>终于要写这个了啊 采用 LAMP 架构安装 Nextcloud 私有云盘是一个很简单的过程，但是由于是开源软件，难免会存在一些 BUG 和小问题，这里罗列了安装过程中可能会出现的一些问题并汇总，仅供参考。</p>
-<ul>
-<li>使用宝塔面板和 Nextcloud 搭建私有云 / 网盘图文教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnVvY3UuY24vYXJjaGl2ZXMvdXNlLXRoZS1wYWdvZGEtcGFuZWwtYW5kLW5leHRjbG91ZC10by1idWlsZC1hLXByaXZhdGUtY2xvdWQtb25saW5lLWRpc2stZ3JhcGhpYy10dXRvcmlhLw==">https://www.fuocu.cn/archives/use-the-pagoda-panel-and-nextcloud-to-build-a-private-cloud-online-disk-graphic-tutoria/<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<blockquote>
-<p>先看一下我与到的问题</p>
-</blockquote>
-<p><a href="https://i.loli.net/2020/02/19/STcQfVUZYKCIe9B.png"><img src="https://i.loli.net/2020/02/19/STcQfVUZYKCIe9B.png"></a></p>
-<blockquote>
-<p>当时看到的时候头都大了，问题太多了，下面咱们来一一解决。</p>
-</blockquote>
-<h2 id="1、红色问题"><a href="#1、红色问题" class="headerlink" title="1、红色问题"></a>1、红色问题</h2><blockquote>
-<p>您的数据目录和文件可以从互联网直接访问。<code>.htaccess</code> 文件不起作用。强烈建议您配置 <code>Web</code> 服务器，以便数据目录不再可访问，或者您可以将数据目录移动到 <code>Web</code> 服务器文档根目录。</p>
-</blockquote>
-<p>解决方法是修改 nextcloud 绑定的网站配置文件，添加 nextcloud 常用目录禁止访问即可，加入下列代码</p>
-<p>location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {<br>  deny all;<br>}</p>
-<p><a href="https://i.loli.net/2020/02/19/V7ZwytdpWP2L6Rk.png"><img src="https://i.loli.net/2020/02/19/V7ZwytdpWP2L6Rk.png"></a></p>
-<h2 id="2、黄色问题"><a href="#2、黄色问题" class="headerlink" title="2、黄色问题"></a>2、黄色问题</h2><blockquote>
-<p>PHP 的安装似乎不正确，无法访问系统环境变量。<code>getenv("PATH")</code> 函数测试返回了一个空值。 请参照<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5leHRjbG91ZC5jb20vc2VydmVyLzE4L2dvLnBocD90bz1hZG1pbi1waHAtZnBt">安装说明文档 ↗<i class="fa fa-external-link-alt"></i></span>中的 <code>PHP</code> 配置说明查阅您服务器的 PHP 配置信息，特别是在使用 <code>php-fpm</code> 时。</p>
-</blockquote>
-<p>从宝塔文件管理，打开 <code>/www/server/php/74/etc/php-fpm.conf</code>，在其尾部添加一行</p>
-<p>env[PATH] = /usr/local/bin:/usr/bin:/bin:/usr/local/php/bin</p>
-<p>保存并重启 PHP 即可解决该问题。 <a href="https://i.loli.net/2020/02/19/qcpvSMj8BO9tF5n.png"><img src="https://i.loli.net/2020/02/19/qcpvSMj8BO9tF5n.png"></a></p>
-<blockquote>
-<p>PHP 内存限制低于建议值 <code>512MB</code>。</p>
-</blockquote>
-<p>在<strong>宝塔 PHP 配置修改</strong>中把 <strong>脚本运行内存</strong> 修改为 512MB 以上就行。这里我修改为 <strong>1024MB</strong>。然后点击保存即可。 <a href="https://i.loli.net/2020/02/19/N1dTyMnQRXZujsI.png"><img src="https://i.loli.net/2020/02/19/N1dTyMnQRXZujsI.png"></a></p>
-<blockquote>
-<p>HTTP 请求头 “<strong>X-Content-Type-Options</strong>“ 没有配置为 “<code>nosniff</code>“。这是一个潜在的安全或隐私风险，我们建议您调整这项设置。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>宝塔面板</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>MySQL</tag>
-        <tag>NextCloud</tag>
       </tags>
   </entry>
   <entry>
@@ -2465,79 +2465,6 @@ passwd #修改密码</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>RHEL/CentOS 7 最小化安装后需做的 30 件事情</title>
-    <url>/Linux/rhel-centos-7-minimize-30-things-to-do-after-installation/</url>
-    <content><![CDATA[<div class="note default"></div>
-
-<a id="more"></a>
-
-<hr>
-<p><strong>CentOS 是一个工业标准的 Linux 发行版，是红帽企业版 Linux 的衍生版本。你安装完后马上就可以使用，但是为了更好地使用你的系统，你需要进行一些升级、安装新的软件包、配置特定服务和应用程序等操作。</strong> <a href="https://s2.ax1x.com/2020/02/09/1hAQcF.png"><img src="https://s2.ax1x.com/2020/02/09/1hAQcF.png" alt="CentOS7"></a> 阅读帖子的时候请先完成 RHEL/CentOS 最小化安装，这是首选的企业和生产环境。如果还没有，你可以按照下面的指南，它会告诉你两者的最小化安装方法。</p>
-<ul>
-<li>最小化安装 CentOS 7</li>
-<li> 最小化安装 RHEL 7</li>
-</ul>
-<p>我们会基于工业标准的需求来介绍以下列出的这些重要工作。我们希望这些东西在你配置服务器的时候能有所帮助。</p>
-<ol>
-<li>注册并启用红帽订阅</li>
-<li>使用静态 <code>IP</code> 地址配置网络</li>
-<li>设置服务器的主机名称</li>
-<li>更新或升级最小化安装的 <code>CentOS</code></li>
-<li>安装命令行 <code>Web</code> 浏览器</li>
-<li>安装 <code>Apache HTTP</code> 服务器</li>
-<li>安装 <code>PHP</code></li>
-<li>安装 <code>MariaDB</code> 数据库</li>
-<li>安装并配置 <code>SSH</code> 服务器</li>
-<li>安装 <code>GCC (GNU 编译器集)</code></li>
-<li>安装 <code>Java</code></li>
-<li>安装 <code>Apache Tomcat</code></li>
-<li>安装 <code>Nmap</code> 检查开放端口</li>
-<li>配置防火墙</li>
-<li>安装 <code>Wget</code></li>
-<li>安装 <code>Telnet</code></li>
-<li>安装 <code>Webmin</code></li>
-<li>启用第三方库</li>
-<li>安装 <code>7-zip</code> 工具</li>
-<li>安装 <code>NTFS-3G</code> 驱动</li>
-<li>安装 <code>Vsftpd FTP</code> 服务器</li>
-<li>安装和配置 <code>sudo</code></li>
-<li>安装并启用 <code>SELinux</code></li>
-<li>安装 <code>Rootkit Hunter</code></li>
-<li>安装 <code>Linux Malware Detect (LMD)</code></li>
-<li>用 <code>Speedtest-cli</code> 测试服务器带宽</li>
-<li>配置 <code>Cron</code> 作业</li>
-<li>安装 <code>Owncloud</code></li>
-<li>启用 <code>VirtualBox</code> 虚拟化</li>
-<li>用密码保护 <code>GRUB</code></li>
-</ol>
-<h2 id="1-注册并启用红帽订阅"><a href="#1-注册并启用红帽订阅" class="headerlink" title="1. 注册并启用红帽订阅"></a><strong>1.</strong> 注册并启用红帽订阅</h2><p>RHEL 7 最小化安装完成后，就应该注册并启用系统红帽订阅库， 并执行一个完整的系统更新。这只当你有一个可用的红帽订阅时才能有用。你要注册才能启用官方红帽系统库，并时不时进行操作系统更新。（LCTT 译注：订阅服务是收费的） <strong>注意</strong>: 这一步仅适用于有一个有效订阅的红帽企业版 Linux。如果你用的是 CentOS 服务器，请查看后面的章节。</p>
-<h2 id="2-使用静态-IP-地址配置网络"><a href="#2-使用静态-IP-地址配置网络" class="headerlink" title="2. 使用静态 IP 地址配置网络"></a><strong>2. 使用静态 <code>IP</code> 地址配置网络</strong></h2><p>你第一件要做的事情就是为你的 <code>CentOS</code> 服务器配置静态 <code>IP</code> 地址、路由以及 <code>DNS</code>。我们会使用 <code>ip</code> 命令代替 <code>ifconfig</code> 命令。当然，<code>ifconfig</code> 命令对于大部分 Linux 发行版来说还是可用的，还能从默认库安装。</p>
-<p><code>yum install net-tools # [它提供 ifconfig 工具，如果你不习惯 ip 命令，还可以使用它]</code></p>
-<p><a href="https://s2.ax1x.com/2020/02/09/1hJOTP.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hJOTP.jpg" alt="yum install net-tools"></a> 但正如我之前说，我们会使用 ip 命令来配置静态 IP 地址。所以，确认你首先检查了当前的 IP 地址。 <code>ip addr show</code> <a href="https://s2.ax1x.com/2020/02/09/1hYQmR.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hYQmR.jpg"></a> 现在用你的编辑器打开并编辑文件 <code>/etc/sysconfig/network-scripts/ifcfg-enp0s3</code> 。这里，我使用 <code>vi</code> 编辑器，另外你要确保你是 <code>root</code> 用户才能保存更改。 <code>vi /etc/sysconfig/network-scripts/ifcfg-enp0s3</code> 我们会编辑文件中的四个地方。注意下面的四个地方并保证不碰任何其它的东西。也保留双引号，在它们中间输入你的数据。</p>
-<p>IPADDR&nbsp;=&nbsp;“[在这里输入你的静态&nbsp;IP]“<br>GATEWAY&nbsp;=&nbsp;“[输入你的默认网关]“<br>DNS1&nbsp;=&nbsp;“[你的 DNS&nbsp;1]“<br>DNS2&nbsp;=&nbsp;“[你的 DNS&nbsp;2]“</p>
-<p>更改了 ‘ifcfg-enp0s3’ 之后，它看起来像下面的图片。注意你的 IP，网关和 DNS 可能会变化，请和你的 ISP (译者注：互联网服务提供商，即给你提供接入的服务的电信或 IDC) 确认。保存并退出。 <a href="https://s2.ax1x.com/2020/02/09/1htAud.jpg"><img src="https://s2.ax1x.com/2020/02/09/1htAud.jpg"></a> 重启网络服务并检查 IP 是否和分配的一样。如果一切都顺利，用 Ping 查看网络状态。 <code>service network restart</code> <a href="https://s2.ax1x.com/2020/02/09/1htM8S.jpg"><img src="https://s2.ax1x.com/2020/02/09/1htM8S.jpg"></a> 重启网络后，确认检查了 IP 地址和网络状态。 <code>ip addr show </code> <code>ping -c4 google.com</code> <a href="https://s2.ax1x.com/2020/02/09/1ht6V1.jpg"><img src="https://s2.ax1x.com/2020/02/09/1ht6V1.jpg"></a> <a href="https://s2.ax1x.com/2020/02/09/1htoqA.jpg"><img src="https://s2.ax1x.com/2020/02/09/1htoqA.jpg"></a></p>
-<h2 id="3-设置服务器的主机名称"><a href="#3-设置服务器的主机名称" class="headerlink" title="3. 设置服务器的主机名称"></a><strong>3.</strong> 设置服务器的主机名称</h2><p>下一步是更改 <code>CentOS</code> 服务器的主机名称。查看当前分配的主机名称。 <code>echo $HOSTNAME</code> <a href="https://s2.ax1x.com/2020/02/09/1hNPI0.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNPI0.jpg"></a> 要设置新的主机名称，我们需要编辑 ‘<code>/etc/hostsname</code>’ 文件并用想要的名称替换旧的主机名称。 <code>vi /etc/hostname</code> <a href="https://s2.ax1x.com/2020/02/09/1hNli6.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNli6.jpg"></a> 设置完了主机名称之后，务必注销后重新登录确认主机名称。登录后检查新的主机名称。 <code>echo $HOSTNAME</code> <a href="https://s2.ax1x.com/2020/02/09/1hNtLd.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNtLd.jpg"></a> 你也可以用 ‘hostname’ 命令查看你当前的主机名。 <code>hostname</code></p>
-<h2 id="4-更新或升级最小化安装的CentOS"><a href="#4-更新或升级最小化安装的CentOS" class="headerlink" title="4. 更新或升级最小化安装的CentOS"></a><strong>4.</strong> 更新或升级最小化安装的 CentOS</h2><p>这样做除了更新安装已有的软件最新版本以及安全升级，不会安装任何新的软件。总的来说更新（update）和升级（upgrade）是相同的，除了事实上 升级 = 更新 + 更新时进行废弃处理。 <code>yum update &amp;&amp; yum upgrade</code> <a href="https://s2.ax1x.com/2020/02/09/1hNDW8.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNDW8.jpg"></a> <strong>重要</strong>: 你也可以运行下面的命令，这不会弹出软件更新的提示，你也就不需要输入 ‘y’ 接受更改。 然而，查看服务器上会发生的变化总是一个好主意，尤其是在生产中。因此使用下面的命令虽然可以为你自动更新和升级，但并不推荐。 <code>yum -y update &amp;&amp; yum -y upgrade</code></p>
-<h2 id="5-安装命令行-Web-浏览器"><a href="#5-安装命令行-Web-浏览器" class="headerlink" title="5.安装命令行 Web 浏览器"></a>5. 安装命令行 Web 浏览器</h2><p>大部分情况下，尤其是在生产环境中，我们通常用没有 GUI 的命令行安装 CentOS，在这种情况下我们必须有一个能通过终端查看网站的命令行浏览工具。为了实现这个目的，我们打算安装名为 ‘links’ 的著名工具。 <code>yum install links</code> <a href="https://s2.ax1x.com/2020/02/09/1hNRwn.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNRwn.jpg"></a></p>
-<h2 id="6-安装-Apache-HTTP-服务器"><a href="#6-安装-Apache-HTTP-服务器" class="headerlink" title="6. 安装 Apache HTTP 服务器"></a>6. 安装 Apache HTTP 服务器</h2><p>不管你因为什么原因使用服务器，大部分情况下你都需要一个 HTTP 服务器运行网站、多媒体、用户端脚本和很多其它的东西。 <code>yum install httpd</code> <a href="https://s2.ax1x.com/2020/02/09/1hNOT1.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNOT1.jpg"></a> 如果你想更改 Apache HTTP 服务器的默认端口号 (80) 为其它端口，你需要编辑配置文件 ‘/etc/httpd/conf/httpd.conf’ 并查找以下面开始的行： <code>LISTEN 80</code> 把端口号 ‘<code>80</code>’ 改为其它任何端口 (例如 <code>3221</code>)，保存并退出。 <a href="https://s2.ax1x.com/2020/02/09/1hNxfK.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNxfK.jpg"></a> 增加刚才分配给 <code>Apache</code> 的端口通过防火墙，然后重新加载防火墙。 允许 http 服务通过防火墙 (永久)。 <code>firewall-cmd –add-service=http</code> 允许 <code>3221</code> 号端口通过防火墙 (永久)。 <code>firewall-cmd –permanent –add-port=3221/tcp</code> 重新加载防火墙。</p>
-<p><code>firewall-cmd –reload</code></p>
-<p>完成上面的所有事情之后，是时候重启 <code>Apache HTTP</code> 服务器了，然后新的端口号才能生效。</p>
-<p><code>systemctl restart httpd.service</code></p>
-<p>现在添加 Apache 服务到系统层使其随系统自动启动。 <code>systemctl start httpd.service</code> <code>systemctl enable httpd.service</code> 如下图所示，用 <code>links</code> 命令行工具 验证 <code>Apache HTTP</code> 服务器。 <code>links 127.0.0.1</code> <a href="https://s2.ax1x.com/2020/02/09/1hUkTI.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hUkTI.jpg"></a></p>
-<blockquote>
-<p>本文转载地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cubGludXhwcm9iZS5jb20vMzAtdGhpbmdzLWRvLmh0bWw=">https://www.linuxprobe.com/30-things-do.html<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>技巧</tag>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SCSS 教程</title>
     <url>/Code/scss-course/</url>
     <content><![CDATA[<div class="note default"></div>
@@ -2652,8 +2579,81 @@ passwd #修改密码</code></pre>
         <category>MacOS</category>
       </categories>
       <tags>
-        <tag>APP</tag>
         <tag>MacOS</tag>
+        <tag>APP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RHEL/CentOS 7 最小化安装后需做的 30 件事情</title>
+    <url>/Linux/rhel-centos-7-minimize-30-things-to-do-after-installation/</url>
+    <content><![CDATA[<div class="note default"></div>
+
+<a id="more"></a>
+
+<hr>
+<p><strong>CentOS 是一个工业标准的 Linux 发行版，是红帽企业版 Linux 的衍生版本。你安装完后马上就可以使用，但是为了更好地使用你的系统，你需要进行一些升级、安装新的软件包、配置特定服务和应用程序等操作。</strong> <a href="https://s2.ax1x.com/2020/02/09/1hAQcF.png"><img src="https://s2.ax1x.com/2020/02/09/1hAQcF.png" alt="CentOS7"></a> 阅读帖子的时候请先完成 RHEL/CentOS 最小化安装，这是首选的企业和生产环境。如果还没有，你可以按照下面的指南，它会告诉你两者的最小化安装方法。</p>
+<ul>
+<li>最小化安装 CentOS 7</li>
+<li> 最小化安装 RHEL 7</li>
+</ul>
+<p>我们会基于工业标准的需求来介绍以下列出的这些重要工作。我们希望这些东西在你配置服务器的时候能有所帮助。</p>
+<ol>
+<li>注册并启用红帽订阅</li>
+<li>使用静态 <code>IP</code> 地址配置网络</li>
+<li>设置服务器的主机名称</li>
+<li>更新或升级最小化安装的 <code>CentOS</code></li>
+<li>安装命令行 <code>Web</code> 浏览器</li>
+<li>安装 <code>Apache HTTP</code> 服务器</li>
+<li>安装 <code>PHP</code></li>
+<li>安装 <code>MariaDB</code> 数据库</li>
+<li>安装并配置 <code>SSH</code> 服务器</li>
+<li>安装 <code>GCC (GNU 编译器集)</code></li>
+<li>安装 <code>Java</code></li>
+<li>安装 <code>Apache Tomcat</code></li>
+<li>安装 <code>Nmap</code> 检查开放端口</li>
+<li>配置防火墙</li>
+<li>安装 <code>Wget</code></li>
+<li>安装 <code>Telnet</code></li>
+<li>安装 <code>Webmin</code></li>
+<li>启用第三方库</li>
+<li>安装 <code>7-zip</code> 工具</li>
+<li>安装 <code>NTFS-3G</code> 驱动</li>
+<li>安装 <code>Vsftpd FTP</code> 服务器</li>
+<li>安装和配置 <code>sudo</code></li>
+<li>安装并启用 <code>SELinux</code></li>
+<li>安装 <code>Rootkit Hunter</code></li>
+<li>安装 <code>Linux Malware Detect (LMD)</code></li>
+<li>用 <code>Speedtest-cli</code> 测试服务器带宽</li>
+<li>配置 <code>Cron</code> 作业</li>
+<li>安装 <code>Owncloud</code></li>
+<li>启用 <code>VirtualBox</code> 虚拟化</li>
+<li>用密码保护 <code>GRUB</code></li>
+</ol>
+<h2 id="1-注册并启用红帽订阅"><a href="#1-注册并启用红帽订阅" class="headerlink" title="1. 注册并启用红帽订阅"></a><strong>1.</strong> 注册并启用红帽订阅</h2><p>RHEL 7 最小化安装完成后，就应该注册并启用系统红帽订阅库， 并执行一个完整的系统更新。这只当你有一个可用的红帽订阅时才能有用。你要注册才能启用官方红帽系统库，并时不时进行操作系统更新。（LCTT 译注：订阅服务是收费的） <strong>注意</strong>: 这一步仅适用于有一个有效订阅的红帽企业版 Linux。如果你用的是 CentOS 服务器，请查看后面的章节。</p>
+<h2 id="2-使用静态-IP-地址配置网络"><a href="#2-使用静态-IP-地址配置网络" class="headerlink" title="2. 使用静态 IP 地址配置网络"></a><strong>2. 使用静态 <code>IP</code> 地址配置网络</strong></h2><p>你第一件要做的事情就是为你的 <code>CentOS</code> 服务器配置静态 <code>IP</code> 地址、路由以及 <code>DNS</code>。我们会使用 <code>ip</code> 命令代替 <code>ifconfig</code> 命令。当然，<code>ifconfig</code> 命令对于大部分 Linux 发行版来说还是可用的，还能从默认库安装。</p>
+<p><code>yum install net-tools # [它提供 ifconfig 工具，如果你不习惯 ip 命令，还可以使用它]</code></p>
+<p><a href="https://s2.ax1x.com/2020/02/09/1hJOTP.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hJOTP.jpg" alt="yum install net-tools"></a> 但正如我之前说，我们会使用 ip 命令来配置静态 IP 地址。所以，确认你首先检查了当前的 IP 地址。 <code>ip addr show</code> <a href="https://s2.ax1x.com/2020/02/09/1hYQmR.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hYQmR.jpg"></a> 现在用你的编辑器打开并编辑文件 <code>/etc/sysconfig/network-scripts/ifcfg-enp0s3</code> 。这里，我使用 <code>vi</code> 编辑器，另外你要确保你是 <code>root</code> 用户才能保存更改。 <code>vi /etc/sysconfig/network-scripts/ifcfg-enp0s3</code> 我们会编辑文件中的四个地方。注意下面的四个地方并保证不碰任何其它的东西。也保留双引号，在它们中间输入你的数据。</p>
+<p>IPADDR&nbsp;=&nbsp;“[在这里输入你的静态&nbsp;IP]“<br>GATEWAY&nbsp;=&nbsp;“[输入你的默认网关]“<br>DNS1&nbsp;=&nbsp;“[你的 DNS&nbsp;1]“<br>DNS2&nbsp;=&nbsp;“[你的 DNS&nbsp;2]“</p>
+<p>更改了 ‘ifcfg-enp0s3’ 之后，它看起来像下面的图片。注意你的 IP，网关和 DNS 可能会变化，请和你的 ISP (译者注：互联网服务提供商，即给你提供接入的服务的电信或 IDC) 确认。保存并退出。 <a href="https://s2.ax1x.com/2020/02/09/1htAud.jpg"><img src="https://s2.ax1x.com/2020/02/09/1htAud.jpg"></a> 重启网络服务并检查 IP 是否和分配的一样。如果一切都顺利，用 Ping 查看网络状态。 <code>service network restart</code> <a href="https://s2.ax1x.com/2020/02/09/1htM8S.jpg"><img src="https://s2.ax1x.com/2020/02/09/1htM8S.jpg"></a> 重启网络后，确认检查了 IP 地址和网络状态。 <code>ip addr show </code> <code>ping -c4 google.com</code> <a href="https://s2.ax1x.com/2020/02/09/1ht6V1.jpg"><img src="https://s2.ax1x.com/2020/02/09/1ht6V1.jpg"></a> <a href="https://s2.ax1x.com/2020/02/09/1htoqA.jpg"><img src="https://s2.ax1x.com/2020/02/09/1htoqA.jpg"></a></p>
+<h2 id="3-设置服务器的主机名称"><a href="#3-设置服务器的主机名称" class="headerlink" title="3. 设置服务器的主机名称"></a><strong>3.</strong> 设置服务器的主机名称</h2><p>下一步是更改 <code>CentOS</code> 服务器的主机名称。查看当前分配的主机名称。 <code>echo $HOSTNAME</code> <a href="https://s2.ax1x.com/2020/02/09/1hNPI0.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNPI0.jpg"></a> 要设置新的主机名称，我们需要编辑 ‘<code>/etc/hostsname</code>’ 文件并用想要的名称替换旧的主机名称。 <code>vi /etc/hostname</code> <a href="https://s2.ax1x.com/2020/02/09/1hNli6.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNli6.jpg"></a> 设置完了主机名称之后，务必注销后重新登录确认主机名称。登录后检查新的主机名称。 <code>echo $HOSTNAME</code> <a href="https://s2.ax1x.com/2020/02/09/1hNtLd.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNtLd.jpg"></a> 你也可以用 ‘hostname’ 命令查看你当前的主机名。 <code>hostname</code></p>
+<h2 id="4-更新或升级最小化安装的CentOS"><a href="#4-更新或升级最小化安装的CentOS" class="headerlink" title="4. 更新或升级最小化安装的CentOS"></a><strong>4.</strong> 更新或升级最小化安装的 CentOS</h2><p>这样做除了更新安装已有的软件最新版本以及安全升级，不会安装任何新的软件。总的来说更新（update）和升级（upgrade）是相同的，除了事实上 升级 = 更新 + 更新时进行废弃处理。 <code>yum update &amp;&amp; yum upgrade</code> <a href="https://s2.ax1x.com/2020/02/09/1hNDW8.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNDW8.jpg"></a> <strong>重要</strong>: 你也可以运行下面的命令，这不会弹出软件更新的提示，你也就不需要输入 ‘y’ 接受更改。 然而，查看服务器上会发生的变化总是一个好主意，尤其是在生产中。因此使用下面的命令虽然可以为你自动更新和升级，但并不推荐。 <code>yum -y update &amp;&amp; yum -y upgrade</code></p>
+<h2 id="5-安装命令行-Web-浏览器"><a href="#5-安装命令行-Web-浏览器" class="headerlink" title="5.安装命令行 Web 浏览器"></a>5. 安装命令行 Web 浏览器</h2><p>大部分情况下，尤其是在生产环境中，我们通常用没有 GUI 的命令行安装 CentOS，在这种情况下我们必须有一个能通过终端查看网站的命令行浏览工具。为了实现这个目的，我们打算安装名为 ‘links’ 的著名工具。 <code>yum install links</code> <a href="https://s2.ax1x.com/2020/02/09/1hNRwn.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNRwn.jpg"></a></p>
+<h2 id="6-安装-Apache-HTTP-服务器"><a href="#6-安装-Apache-HTTP-服务器" class="headerlink" title="6. 安装 Apache HTTP 服务器"></a>6. 安装 Apache HTTP 服务器</h2><p>不管你因为什么原因使用服务器，大部分情况下你都需要一个 HTTP 服务器运行网站、多媒体、用户端脚本和很多其它的东西。 <code>yum install httpd</code> <a href="https://s2.ax1x.com/2020/02/09/1hNOT1.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNOT1.jpg"></a> 如果你想更改 Apache HTTP 服务器的默认端口号 (80) 为其它端口，你需要编辑配置文件 ‘/etc/httpd/conf/httpd.conf’ 并查找以下面开始的行： <code>LISTEN 80</code> 把端口号 ‘<code>80</code>’ 改为其它任何端口 (例如 <code>3221</code>)，保存并退出。 <a href="https://s2.ax1x.com/2020/02/09/1hNxfK.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hNxfK.jpg"></a> 增加刚才分配给 <code>Apache</code> 的端口通过防火墙，然后重新加载防火墙。 允许 http 服务通过防火墙 (永久)。 <code>firewall-cmd –add-service=http</code> 允许 <code>3221</code> 号端口通过防火墙 (永久)。 <code>firewall-cmd –permanent –add-port=3221/tcp</code> 重新加载防火墙。</p>
+<p><code>firewall-cmd –reload</code></p>
+<p>完成上面的所有事情之后，是时候重启 <code>Apache HTTP</code> 服务器了，然后新的端口号才能生效。</p>
+<p><code>systemctl restart httpd.service</code></p>
+<p>现在添加 Apache 服务到系统层使其随系统自动启动。 <code>systemctl start httpd.service</code> <code>systemctl enable httpd.service</code> 如下图所示，用 <code>links</code> 命令行工具 验证 <code>Apache HTTP</code> 服务器。 <code>links 127.0.0.1</code> <a href="https://s2.ax1x.com/2020/02/09/1hUkTI.jpg"><img src="https://s2.ax1x.com/2020/02/09/1hUkTI.jpg"></a></p>
+<blockquote>
+<p>本文转载地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cubGludXhwcm9iZS5jb20vMzAtdGhpbmdzLWRvLmh0bWw=">https://www.linuxprobe.com/30-things-do.html<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>技巧</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -2778,7 +2778,7 @@ ssh -X yucicheung@10.170.11.147</code></pre>
 <p>本地主机端登录相关的其他命令：</p>
 <ul>
 <li><p>如果服务器的 SSH 服务没有开启在 22 端口，那么 SSH 链接时则需要用 <code>-p</code> 指定端口（如 202）:</p>
-<p>ssh -p 202 <span class="exturl" data-url="bWFpbHRvOiYjMTIxOyYjeDc1OyYjeDYzOyYjeDY5OyYjOTk7JiMxMDQ7JiN4NjU7JiN4NzU7JiMxMTA7JiMxMDM7JiN4NDA7JiN4MzE7JiN4MzA7JiN4MmU7JiN4MzE7JiM1NTsmIzQ4OyYjeDJlOyYjeDMxOyYjNDk7JiN4MmU7JiM0OTsmI3gzNDsmI3gzNzs=">yucicheung@10.170.11.147<i class="fa fa-external-link-alt"></i></span><br>#或<br>ssh -l yucicheung -p 202 10.170.11.147</p>
+<p>ssh -p 202 <span class="exturl" data-url="bWFpbHRvOiYjMTIxOyYjMTE3OyYjeDYzOyYjMTA1OyYjOTk7JiMxMDQ7JiMxMDE7JiMxMTc7JiN4NmU7JiMxMDM7JiN4NDA7JiM0OTsmIzQ4OyYjNDY7JiN4MzE7JiN4Mzc7JiM0ODsmIzQ2OyYjNDk7JiN4MzE7JiN4MmU7JiN4MzE7JiM1MjsmIzU1Ow==">yucicheung@10.170.11.147<i class="fa fa-external-link-alt"></i></span><br>#或<br>ssh -l yucicheung -p 202 10.170.11.147</p>
 </li>
 </ul>
 <h3 id="step5：退出远程登录"><a href="#step5：退出远程登录" class="headerlink" title="step5：退出远程登录"></a>step5：退出远程登录</h3><p>用 Ctrl+D 或者</p>
@@ -2813,6 +2813,130 @@ scp /home/yucicheung/.ssh/id_rsa.pub yucicheung@10.170.44.206:/home/yucicheung/.
         <tag>终端</tag>
         <tag>CentOS</tag>
         <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware 虚拟机安装 ElementaryOS。超详细图文教程</title>
+    <url>/Linux/vmware-virtual-machine-installation-elementaryos/</url>
+    <content><![CDATA[<div class="note default"></div>
+
+<a id="more"></a>
+
+<hr>
+<h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><ul>
+<li><strong>ElementaryOS</strong> 镜像下载</li>
+</ul>
+<p>前往官网下载<span class="exturl" data-url="aHR0cHM6Ly9lbGVtZW50YXJ5LmlvL3poX0NOLw=="> ElementaryOS<i class="fa fa-external-link-alt"></i></span>最新版操作系统。</p>
+<p>目前最新版为：<strong>elementary OS 5.1.2 Hera 1.49 GB | 64-bit</strong></p>
+<p>输入金额 0，点击下载 iso 镜像</p>
+<p><a href="https://i.fuocu.cn/images/2020/02/24/7903c347f87c60f052d52e0cd300bc71.png"><img src="https://i.fuocu.cn/images/2020/02/24/7903c347f87c60f052d52e0cd300bc71.png"></a></p>
+<ul>
+<li>VMware 虚拟机下载并安装</li>
+</ul>
+<p>前往 <span class="exturl" data-url="aHR0cHM6Ly93d3cudm13YXJlLmNvbS9wcm9kdWN0cy93b3Jrc3RhdGlvbi1wcm8vd29ya3N0YXRpb24tcHJvLWV2YWx1YXRpb24uaHRtbA==">VMware 官网<i class="fa fa-external-link-alt"></i></span>下载最新版安装包。</p>
+<p>安装 ，尽量不要装 C 盘，原因你懂的。</p>
+<p>输入序列号激活 <code>UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA</code>、<code>VF750-4MX5Q-488DQ-9WZE9-ZY2D6</code></p>
+<h2 id="二、开始安装"><a href="#二、开始安装" class="headerlink" title="二、开始安装"></a>二、开始安装</h2><h3 id="1、创建-elementary-OS-虚拟机"><a href="#1、创建-elementary-OS-虚拟机" class="headerlink" title="1、创建 elementary OS 虚拟机"></a>1、创建 elementary OS 虚拟机</h3><ul>
+<li>启动 VMware</li>
+<li> 创建新的虚拟机，默认即可，点击下一步</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/24/787117d3b49210a87ea55cb89a29f3c4.png"><img src="https://i.fuocu.cn/images/2020/02/24/787117d3b49210a87ea55cb89a29f3c4.png"></a></p>
+<ul>
+<li>选择<strong>安装程序光盘映像文件</strong>，选中刚才下载的 Elementary OS iso 镜像文件，点击下一步</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/24/13439f925ae705e628295db87c1e47aa.png"><img src="https://i.fuocu.cn/images/2020/02/24/13439f925ae705e628295db87c1e47aa.png"></a></p>
+<ul>
+<li>操作系统版本选择 <strong>Linux</strong>、<strong>其他 Linux 5.x 或更高版本内核 64 位</strong>，点击下一步</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/24/86d54863f942c820b6984ee62372e962.png"><img src="https://i.fuocu.cn/images/2020/02/24/86d54863f942c820b6984ee62372e962.png"></a></p>
+<ul>
+<li>修改默认的虚拟机名称和存储位置，点击下一步 。这里也不推荐安装在 C 盘。</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/24/4002e1c5d2a18c7822ab99584c0927f8.png"><img src="https://i.fuocu.cn/images/2020/02/24/4002e1c5d2a18c7822ab99584c0927f8.png"></a></p>
+<ul>
+<li>内存看情况给，但是建议不低于 20G，这里我选择 30G。点击下一步</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/24/50428e665dd6e02ea4385602eec3fd3e.png"><img src="https://i.fuocu.cn/images/2020/02/24/50428e665dd6e02ea4385602eec3fd3e.png"></a></p>
+<ul>
+<li>这里选择<strong>自定义硬件</strong></li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/24/02a9409888270e7e2675a6fe40b0a2ed.png"><img src="https://i.fuocu.cn/images/2020/02/24/02a9409888270e7e2675a6fe40b0a2ed.png"></a></p>
+<ul>
+<li>内存不低于 1G， 处理器配置 2 核（当前操作系统内核数的一半），网络选择桥接网络，点击关闭</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/24/826928b363b270ab80280aa5b1369642.png"><img src="https://i.fuocu.cn/images/2020/02/24/826928b363b270ab80280aa5b1369642.png"></a></p>
+<ul>
+<li>然后点击完成，然后点击开启虚拟机</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/24/78abc98d4faf476defef37018e3f7ac4.png"><img src="https://i.fuocu.cn/images/2020/02/24/78abc98d4faf476defef37018e3f7ac4.png"></a></p>
+<h3 id="2、安装系统"><a href="#2、安装系统" class="headerlink" title="2、安装系统"></a>2、安装系统</h3><ul>
+<li>语言根据自己需求选择，这里选择中文简体，点击<strong>安装 elementary</strong></li>
+</ul>
+<p><img src="https://i.fuocu.cn/images/2020/02/25/ab4fb944af91d46d38f5f585348d29de.png"></p>
+<ul>
+<li> 选择键盘，默认即可，点击继续</li>
+<li>更新和其他软件，默认，点击继续</li>
+<li>安装类型，根据需求选择，这里我默认，点击继续</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/25/874696efb4a49af7de13fd89bdf13078.png"><img src="https://i.fuocu.cn/images/2020/02/25/874696efb4a49af7de13fd89bdf13078.png"></a></p>
+<ul>
+<li>选择时区，这里我选择 <strong>Shanghai</strong></li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/25/4bdc316627fd7e99f31827a1d1ea032d.png"><img src="https://i.fuocu.cn/images/2020/02/25/4bdc316627fd7e99f31827a1d1ea032d.png"></a></p>
+<ul>
+<li> 设置个人用户名、密码</li>
+<li>这个过程会比较漫长，你可以去喝杯咖啡</li>
+<li>提示 重启电脑，先把虚拟机关闭，然后右击虚拟机，点击设置。</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/25/68522c47762d7684f5c6ade0dd22716c.png"><img src="https://i.fuocu.cn/images/2020/02/25/68522c47762d7684f5c6ade0dd22716c.png"></a></p>
+<ul>
+<li>点击 <strong>CD/DVD</strong>，将启动时连接<strong>去掉勾选</strong>，点击确定，再次启动虚拟机</li>
+</ul>
+<p><a href="https://i.fuocu.cn/images/2020/02/25/bf1c2e3fbc443269ff232be7d866d461.png"><img src="https://i.fuocu.cn/images/2020/02/25/bf1c2e3fbc443269ff232be7d866d461.png"></a></p>
+<h3 id="3、在虚拟机中安装-VMware-Tools"><a href="#3、在虚拟机中安装-VMware-Tools" class="headerlink" title="3、在虚拟机中安装 VMware Tools"></a>3、在虚拟机中安装 <strong>VMware Tools</strong></h3><ol>
+<li><strong>物理机：</strong><ul>
+<li>选择 <strong>虚拟机 &gt; 安装 VMware Tools</strong></li>
+</ul>
+</li>
+<li><strong> 虚拟机：</strong><ul>
+<li>在虚拟机中会挂载 <strong>VMware Tools</strong> CD</li>
+<li> 进入挂载的 <strong>VMware Tools</strong>，拷贝 <strong>VMwareTools</strong> 文件到 <strong>Documents</strong> 目录下（在 CDROM 中无法写入）</li>
+<li>右击 <strong>VMware Tools</strong> 选择<strong>提取到此处</strong></li>
+<li>打开终端，输入</li>
+</ul>
+</li>
+</ol>
+<p>cd 文档 /vmware-tools-distrib<br>sudo ./vmware-install.pl -d</p>
+<p>要在主机和虚拟机之间拖拽文件和复制粘贴文本，需要执行</p>
+<p>/usr/bin/vmware-user</p>
+<p>安装完毕，界面欣赏</p>
+<p><a href="https://i.fuocu.cn/images/2020/02/25/e8a9486d35b0bc31ba50a82f0f53de22.png"><img src="https://i.fuocu.cn/images/2020/02/25/e8a9486d35b0bc31ba50a82f0f53de22.png"></a></p>
+<h3 id="4、添加中文软件源"><a href="#4、添加中文软件源" class="headerlink" title="4、添加中文软件源"></a>4、添加中文软件源</h3><ul>
+<li>终端执行命令导入软件仓库密匙串</li>
+</ul>
+<p>sudo wget -O - <span class="exturl" data-url="aHR0cDovL3BhY2thZ2UuZWxlbWVudGFyeW9zLmNuL2Jpb25pYy9rZXkvcGFja2FnZS5ncGcua2V5">http://package.elementaryos.cn/bionic/key/package.gpg.key<i class="fa fa-external-link-alt"></i></span> | sudo apt-key add -</p>
+<ul>
+<li>使用命令 <code>sudo io.elementary.code/etc/apt/sources.1ist</code> 打开文件并在最后新起一行粘贴下面软件源地址信息然后保存：</li>
+</ul>
+<p>5.0 添加 <code>deb http://package.elementaryos.cn/bionic/bionic main</code></p>
+<ul>
+<li><p>终端执行 <code>sudo apt update</code> 更新软件包缓存</p>
+</li>
+<li><p>终端执行 <code>sudo apt upgrade</code> 进行系统更新</p>
+</li>
+</ul>
+<p>具体操作请前往：<span class="exturl" data-url="aHR0cHM6Ly9lbGVtZW50YXJ5b3MuY24vc3RvcmFnZS5odG1s">https://elementaryos.cn/storage.html<i class="fa fa-external-link-alt"></i></span></p>
+<blockquote>
+<p>本次教程到此结束，参考文章：<span class="exturl" data-url="aHR0cHM6Ly9qYW5jYXQuZ2l0aHViLmlvL3Bvc3QvMjAxOC93aW4xMC12bXdhcmUtaW5zdGFsbC1lbGVtZW50YXJ5LW9zLw==">https://jancat.github.io/post/2018/win10-vmware-install-elementary-os/<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>终端</tag>
+        <tag>软件源</tag>
       </tags>
   </entry>
   <entry>
@@ -3302,130 +3426,6 @@ scp /home/yucicheung/.ssh/id_rsa.pub yucicheung@10.170.44.206:/home/yucicheung/.
         <tag>技巧</tag>
         <tag>Word</tag>
         <tag>正则表达式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware 虚拟机安装 ElementaryOS。超详细图文教程</title>
-    <url>/Linux/vmware-virtual-machine-installation-elementaryos/</url>
-    <content><![CDATA[<div class="note default"></div>
-
-<a id="more"></a>
-
-<hr>
-<h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><ul>
-<li><strong>ElementaryOS</strong> 镜像下载</li>
-</ul>
-<p>前往官网下载<span class="exturl" data-url="aHR0cHM6Ly9lbGVtZW50YXJ5LmlvL3poX0NOLw=="> ElementaryOS<i class="fa fa-external-link-alt"></i></span>最新版操作系统。</p>
-<p>目前最新版为：<strong>elementary OS 5.1.2 Hera 1.49 GB | 64-bit</strong></p>
-<p>输入金额 0，点击下载 iso 镜像</p>
-<p><a href="https://i.fuocu.cn/images/2020/02/24/7903c347f87c60f052d52e0cd300bc71.png"><img src="https://i.fuocu.cn/images/2020/02/24/7903c347f87c60f052d52e0cd300bc71.png"></a></p>
-<ul>
-<li>VMware 虚拟机下载并安装</li>
-</ul>
-<p>前往 <span class="exturl" data-url="aHR0cHM6Ly93d3cudm13YXJlLmNvbS9wcm9kdWN0cy93b3Jrc3RhdGlvbi1wcm8vd29ya3N0YXRpb24tcHJvLWV2YWx1YXRpb24uaHRtbA==">VMware 官网<i class="fa fa-external-link-alt"></i></span>下载最新版安装包。</p>
-<p>安装 ，尽量不要装 C 盘，原因你懂的。</p>
-<p>输入序列号激活 <code>UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA</code>、<code>VF750-4MX5Q-488DQ-9WZE9-ZY2D6</code></p>
-<h2 id="二、开始安装"><a href="#二、开始安装" class="headerlink" title="二、开始安装"></a>二、开始安装</h2><h3 id="1、创建-elementary-OS-虚拟机"><a href="#1、创建-elementary-OS-虚拟机" class="headerlink" title="1、创建 elementary OS 虚拟机"></a>1、创建 elementary OS 虚拟机</h3><ul>
-<li>启动 VMware</li>
-<li> 创建新的虚拟机，默认即可，点击下一步</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/24/787117d3b49210a87ea55cb89a29f3c4.png"><img src="https://i.fuocu.cn/images/2020/02/24/787117d3b49210a87ea55cb89a29f3c4.png"></a></p>
-<ul>
-<li>选择<strong>安装程序光盘映像文件</strong>，选中刚才下载的 Elementary OS iso 镜像文件，点击下一步</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/24/13439f925ae705e628295db87c1e47aa.png"><img src="https://i.fuocu.cn/images/2020/02/24/13439f925ae705e628295db87c1e47aa.png"></a></p>
-<ul>
-<li>操作系统版本选择 <strong>Linux</strong>、<strong>其他 Linux 5.x 或更高版本内核 64 位</strong>，点击下一步</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/24/86d54863f942c820b6984ee62372e962.png"><img src="https://i.fuocu.cn/images/2020/02/24/86d54863f942c820b6984ee62372e962.png"></a></p>
-<ul>
-<li>修改默认的虚拟机名称和存储位置，点击下一步 。这里也不推荐安装在 C 盘。</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/24/4002e1c5d2a18c7822ab99584c0927f8.png"><img src="https://i.fuocu.cn/images/2020/02/24/4002e1c5d2a18c7822ab99584c0927f8.png"></a></p>
-<ul>
-<li>内存看情况给，但是建议不低于 20G，这里我选择 30G。点击下一步</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/24/50428e665dd6e02ea4385602eec3fd3e.png"><img src="https://i.fuocu.cn/images/2020/02/24/50428e665dd6e02ea4385602eec3fd3e.png"></a></p>
-<ul>
-<li>这里选择<strong>自定义硬件</strong></li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/24/02a9409888270e7e2675a6fe40b0a2ed.png"><img src="https://i.fuocu.cn/images/2020/02/24/02a9409888270e7e2675a6fe40b0a2ed.png"></a></p>
-<ul>
-<li>内存不低于 1G， 处理器配置 2 核（当前操作系统内核数的一半），网络选择桥接网络，点击关闭</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/24/826928b363b270ab80280aa5b1369642.png"><img src="https://i.fuocu.cn/images/2020/02/24/826928b363b270ab80280aa5b1369642.png"></a></p>
-<ul>
-<li>然后点击完成，然后点击开启虚拟机</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/24/78abc98d4faf476defef37018e3f7ac4.png"><img src="https://i.fuocu.cn/images/2020/02/24/78abc98d4faf476defef37018e3f7ac4.png"></a></p>
-<h3 id="2、安装系统"><a href="#2、安装系统" class="headerlink" title="2、安装系统"></a>2、安装系统</h3><ul>
-<li>语言根据自己需求选择，这里选择中文简体，点击<strong>安装 elementary</strong></li>
-</ul>
-<p><img src="https://i.fuocu.cn/images/2020/02/25/ab4fb944af91d46d38f5f585348d29de.png"></p>
-<ul>
-<li> 选择键盘，默认即可，点击继续</li>
-<li>更新和其他软件，默认，点击继续</li>
-<li>安装类型，根据需求选择，这里我默认，点击继续</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/25/874696efb4a49af7de13fd89bdf13078.png"><img src="https://i.fuocu.cn/images/2020/02/25/874696efb4a49af7de13fd89bdf13078.png"></a></p>
-<ul>
-<li>选择时区，这里我选择 <strong>Shanghai</strong></li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/25/4bdc316627fd7e99f31827a1d1ea032d.png"><img src="https://i.fuocu.cn/images/2020/02/25/4bdc316627fd7e99f31827a1d1ea032d.png"></a></p>
-<ul>
-<li> 设置个人用户名、密码</li>
-<li>这个过程会比较漫长，你可以去喝杯咖啡</li>
-<li>提示 重启电脑，先把虚拟机关闭，然后右击虚拟机，点击设置。</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/25/68522c47762d7684f5c6ade0dd22716c.png"><img src="https://i.fuocu.cn/images/2020/02/25/68522c47762d7684f5c6ade0dd22716c.png"></a></p>
-<ul>
-<li>点击 <strong>CD/DVD</strong>，将启动时连接<strong>去掉勾选</strong>，点击确定，再次启动虚拟机</li>
-</ul>
-<p><a href="https://i.fuocu.cn/images/2020/02/25/bf1c2e3fbc443269ff232be7d866d461.png"><img src="https://i.fuocu.cn/images/2020/02/25/bf1c2e3fbc443269ff232be7d866d461.png"></a></p>
-<h3 id="3、在虚拟机中安装-VMware-Tools"><a href="#3、在虚拟机中安装-VMware-Tools" class="headerlink" title="3、在虚拟机中安装 VMware Tools"></a>3、在虚拟机中安装 <strong>VMware Tools</strong></h3><ol>
-<li><strong>物理机：</strong><ul>
-<li>选择 <strong>虚拟机 &gt; 安装 VMware Tools</strong></li>
-</ul>
-</li>
-<li><strong> 虚拟机：</strong><ul>
-<li>在虚拟机中会挂载 <strong>VMware Tools</strong> CD</li>
-<li> 进入挂载的 <strong>VMware Tools</strong>，拷贝 <strong>VMwareTools</strong> 文件到 <strong>Documents</strong> 目录下（在 CDROM 中无法写入）</li>
-<li>右击 <strong>VMware Tools</strong> 选择<strong>提取到此处</strong></li>
-<li>打开终端，输入</li>
-</ul>
-</li>
-</ol>
-<p>cd 文档 /vmware-tools-distrib<br>sudo ./vmware-install.pl -d</p>
-<p>要在主机和虚拟机之间拖拽文件和复制粘贴文本，需要执行</p>
-<p>/usr/bin/vmware-user</p>
-<p>安装完毕，界面欣赏</p>
-<p><a href="https://i.fuocu.cn/images/2020/02/25/e8a9486d35b0bc31ba50a82f0f53de22.png"><img src="https://i.fuocu.cn/images/2020/02/25/e8a9486d35b0bc31ba50a82f0f53de22.png"></a></p>
-<h3 id="4、添加中文软件源"><a href="#4、添加中文软件源" class="headerlink" title="4、添加中文软件源"></a>4、添加中文软件源</h3><ul>
-<li>终端执行命令导入软件仓库密匙串</li>
-</ul>
-<p>sudo wget -O - <span class="exturl" data-url="aHR0cDovL3BhY2thZ2UuZWxlbWVudGFyeW9zLmNuL2Jpb25pYy9rZXkvcGFja2FnZS5ncGcua2V5">http://package.elementaryos.cn/bionic/key/package.gpg.key<i class="fa fa-external-link-alt"></i></span> | sudo apt-key add -</p>
-<ul>
-<li>使用命令 <code>sudo io.elementary.code/etc/apt/sources.1ist</code> 打开文件并在最后新起一行粘贴下面软件源地址信息然后保存：</li>
-</ul>
-<p>5.0 添加 <code>deb http://package.elementaryos.cn/bionic/bionic main</code></p>
-<ul>
-<li><p>终端执行 <code>sudo apt update</code> 更新软件包缓存</p>
-</li>
-<li><p>终端执行 <code>sudo apt upgrade</code> 进行系统更新</p>
-</li>
-</ul>
-<p>具体操作请前往：<span class="exturl" data-url="aHR0cHM6Ly9lbGVtZW50YXJ5b3MuY24vc3RvcmFnZS5odG1s">https://elementaryos.cn/storage.html<i class="fa fa-external-link-alt"></i></span></p>
-<blockquote>
-<p>本次教程到此结束，参考文章：<span class="exturl" data-url="aHR0cHM6Ly9qYW5jYXQuZ2l0aHViLmlvL3Bvc3QvMjAxOC93aW4xMC12bXdhcmUtaW5zdGFsbC1lbGVtZW50YXJ5LW9zLw==">https://jancat.github.io/post/2018/win10-vmware-install-elementary-os/<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>终端</tag>
-        <tag>软件源</tag>
       </tags>
   </entry>
   <entry>
